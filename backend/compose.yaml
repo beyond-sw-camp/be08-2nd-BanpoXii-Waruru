@@ -1,0 +1,41 @@
+networks:
+  pocket:
+    external: true
+services:
+  postgres:
+    image: 'postgres:latest'
+    container_name: 'db'
+    environment:
+      - 'POSTGRES_DB=pocket'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'POSTGRES_USER=postgres'
+    ports:
+      - '5432:5432'
+    restart: 'on-failure'
+    networks:
+      - 'pocket'
+  pgadmin:
+    image: "dpage/pgadmin4:latest"
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: tees3359@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 1234
+    volumes:
+      - './pgadmin/:/var/lib/pgadmin'
+    ports:
+      - "5050:80"
+    restart: always
+    networks:
+      - 'pocket'
+  backend:
+    image: 'ghkd110/pocket-wedding-backend:latest'
+    container_name: 'backend'
+    environment:
+      USE_PROFILE: prod
+      NORM_PROP: docker1
+      DIRECT_MSG: hello
+    ports:
+      - '8080:8080'
+    restart: 'always'
+    networks:
+      - 'pocket'
