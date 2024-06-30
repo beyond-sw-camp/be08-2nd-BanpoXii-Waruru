@@ -1,0 +1,16 @@
+networks:
+  pocket:
+    external: true
+services:
+  mysql:
+    image: 'mysql:latest'
+    container_name: 'waruru'
+    environment:
+      - 'MYSQL_DATABASE=waruru'
+      - 'MYSQL_PASSWORD=1234'
+      - 'MYSQL_ROOT_HOST='
+      - 'MYSQL_ROOT_PASSWORD=1234'
+      - 'MYSQL_USER=username'
+    ports:
+      - '3306:3306'
+    restart: 'on-failure'
