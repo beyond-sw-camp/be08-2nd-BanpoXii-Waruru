@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-public class DetailEntity {
+public class Detail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,7 +54,7 @@ public class DetailEntity {
     private LocalDateTime updateDate;
 
     @Builder
-    public DetailEntity(Sale saleNo, User userNo, String title, String category, String description, String price, String detailDate) {
+    public Detail(Sale saleNo, User userNo, String title, String category, String description, String price, String detailDate) {
         this.saleNo = saleNo;
         this.userNo = userNo;
         this.title = title;
