@@ -1,4 +1,5 @@
 package waruru.backend.sales.domain;
 
-public class SalesEntity {
+public enum SaleStatus {
+    Y, N
 }
