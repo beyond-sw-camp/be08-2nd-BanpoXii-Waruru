@@ -9,6 +9,8 @@ import lombok.Setter;
 import org.apache.catalina.User;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import waruru.backend.sales.domain.Sales;
+import waruru.backend.user.domain.UserEntity;
 
 import java.time.LocalDateTime;
 
@@ -26,12 +28,12 @@ public class Detail {
     @ManyToOne
     @JoinColumn(name = "sale_no", nullable = false)
     @JsonManagedReference
-    private Sale saleNo;
+    private Sales saleNo;
 
     @ManyToOne
     @JoinColumn(name = "user_no", nullable = false)
     @JsonManagedReference
-    private User userNo;
+    private UserEntity userNo;
 
     @Column(nullable = false)
     private String title;
@@ -43,19 +45,19 @@ public class Detail {
     private String description;
 
     @Column(nullable = false)
-    private String price;
+    private int price;
 
     @Column(nullable = false)
     private String detailDate;
 
     @CreationTimestamp
-    private LocalDateTime registDate;
+    private LocalDateTime registrationDate;
 
     @UpdateTimestamp
     private LocalDateTime updateDate;
 
     @Builder
-    public Detail(Sale saleNo, User userNo, String title, String category, String description, String price, String detailDate) {
+    public Detail(Sales saleNo, UserEntity userNo, String title, String category, String description, int price, String detailDate) {
         this.saleNo = saleNo;
         this.userNo = userNo;
         this.title = title;
