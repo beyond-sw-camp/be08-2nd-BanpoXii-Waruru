@@ -20,6 +20,7 @@ public class Detail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "detail_no")
     private Long id;
 
     @ManyToOne
