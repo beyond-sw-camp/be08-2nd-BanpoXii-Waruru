@@ -37,7 +37,7 @@ public class Business {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String status;
+    private BusinessStatus status;
 
     @CreationTimestamp
     private LocalDateTime registerDate;
@@ -46,7 +46,7 @@ public class Business {
     private LocalDateTime updateDate;
 
     @Builder
-    public Business(Long businessNo, User userNo, Sale saleNo, int total_price, String status, LocalDateTime registerDate, LocalDateTime updateDate) {
+    public Business(Long businessNo, User userNo, Sale saleNo, int total_price, BusinessStatus status, LocalDateTime registerDate, LocalDateTime updateDate) {
         this.businessNo = businessNo;
         this.userNo = userNo;
         this.saleNo = saleNo;
