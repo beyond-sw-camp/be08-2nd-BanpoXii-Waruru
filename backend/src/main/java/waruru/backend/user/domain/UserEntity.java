@@ -1,7 +1,9 @@
 package waruru.backend.user.domain;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
+@NoArgsConstructor
 @Table(name = "USER")
 public class UserEntity {
 
@@ -36,16 +39,28 @@ public class UserEntity {
     @Enumerated(EnumType.STRING)
     private UserStatus status;
 
-    @OneToMany(mappedBy = "user")
-    private List<BusinessEntity> businessEntityList = new ArrayList<>();
+    @Builder
+    public UserEntity(Long id, String email, String password, String name,
+                      String nickname, UserRole role, UserStatus status) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.nickname = nickname;
+        this.role = role;
+        this.status = status;
+    }
 
-    @OneToMany(mappedBy = "user")
-    private List<DetailEntity> detailEntityList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user")
-    private List<ReviewEntity> reviewEntityList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user")
-    private List<SalesEntity> salesEntityList = new ArrayList<>();
+    //    @OneToMany(mappedBy = "user")
+//    private List<BusinessEntity> businessEntityList = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "user")
+//    private List<DetailEntity> detailEntityList = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "user")
+//    private List<ReviewEntity> reviewEntityList = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "user")
+//    private List<SalesEntity> salesEntityList = new ArrayList<>();
 
 }
