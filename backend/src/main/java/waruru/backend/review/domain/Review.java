@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import waruru.backend.sales.domain.Sales;
+import waruru.backend.user.domain.User;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import static jakarta.persistence.FetchType.LAZY;
 
@@ -22,7 +22,6 @@ import static jakarta.persistence.FetchType.LAZY;
 @Setter
 @Table(name = "Review")
 public class Review {
-
 
     @Id
     @GeneratedValue
@@ -37,7 +36,7 @@ public class Review {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "sale_no", nullable = false)
     @JsonManagedReference
-    private Sale saleNo;
+    private Sales saleNo;
 
     @Column(name = "title" ,nullable = false, length = 50)
     private String title;
