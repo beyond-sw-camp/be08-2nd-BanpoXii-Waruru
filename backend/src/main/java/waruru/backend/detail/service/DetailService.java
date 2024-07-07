@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import waruru.backend.detail.domain.Detail;
 import waruru.backend.detail.domain.DetailRepository;
 import waruru.backend.detail.dto.DetailRegisterRequestDTO;
+import waruru.backend.detail.dto.DetailUpdateRequestDTO;
 
 import java.util.List;
 import java.util.Optional;
@@ -42,5 +43,14 @@ public class DetailService {
     public Detail getDetailById(Long id) {
         return detailRepository.findById(id).orElseThrow(() ->
                 new IllegalArgumentException("Invalid detail id:" + id));
+    }
+
+    public Optional<Void> updateDetail(DetailUpdateRequestDTO detailUpdateRequestDTO) {
+        Detail detail = detailRepository.findByTitle(detailUpdateRequestDTO.getTitle()).orElseThrow(() ->
+                new IllegalArgumentException("Invalid Detail id:" + detailUpdateRequestDTO.getTitle()));
+
+        detail.update(detailUpdateRequestDTO);
+
+        return Optional.empty();
     }
 }

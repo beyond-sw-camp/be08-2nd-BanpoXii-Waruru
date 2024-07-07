@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import waruru.backend.detail.domain.Detail;
 import waruru.backend.detail.dto.DetailRegisterRequestDTO;
+import waruru.backend.detail.dto.DetailUpdateRequestDTO;
 import waruru.backend.detail.service.DetailService;
 
 import java.util.List;
@@ -42,5 +43,13 @@ public class DetailController {
     public ResponseEntity<Detail> getDetailById(@PathVariable Long id) {
         Detail detail = detailService.getDetailById(id);
         return ResponseEntity.ok(detail);
+    }
+
+    @Operation(summary = "납부 내역을 수정하는 API")
+    @PutMapping
+    public ResponseEntity<Void> updateDetail(@RequestBody @Valid DetailUpdateRequestDTO detailUpdateRequestDTO) {
+        detailService.updateDetail(detailUpdateRequestDTO);
+
+        return ResponseEntity.noContent().build();
     }
 }
