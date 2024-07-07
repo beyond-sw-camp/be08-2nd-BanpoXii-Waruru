@@ -36,4 +36,11 @@ public class DetailController {
         List<Detail> details = detailService.getAllDetails();
         return ResponseEntity.ok(details);
     }
+
+    @Operation(summary = "특정 납부 내역의 정보를 반환하는 API")
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<Detail> getDetailById(@PathVariable Long id) {
+        Detail detail = detailService.getDetailById(id);
+        return ResponseEntity.ok(detail);
+    }
 }

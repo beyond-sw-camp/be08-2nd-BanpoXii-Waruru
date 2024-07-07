@@ -39,5 +39,8 @@ public class DetailService {
 
     public List<Detail> getAllDetails() {   return detailRepository.findAll();  }
 
-
+    public Detail getDetailById(Long id) {
+        return detailRepository.findById(id).orElseThrow(() ->
+                new IllegalArgumentException("Invalid detail id:" + id));
+    }
 }
