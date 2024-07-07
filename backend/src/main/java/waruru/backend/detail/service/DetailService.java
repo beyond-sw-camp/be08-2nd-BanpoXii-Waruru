@@ -8,6 +8,7 @@ import waruru.backend.detail.domain.Detail;
 import waruru.backend.detail.domain.DetailRepository;
 import waruru.backend.detail.dto.DetailRegisterRequestDTO;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,8 +21,8 @@ public class DetailService {
     public Optional<Detail> registerDetail(DetailRegisterRequestDTO detailRegisterRequestDTO) {
 
 //        if(detailRepository.existsByName(detailRegisterRequestDTO.getTitle())) {
-//            throw new
-//        }
+////            throw new
+////        }
 
         Detail detail = Detail.builder()
                 .saleNo(detailRegisterRequestDTO.getSaleNo())
@@ -35,4 +36,8 @@ public class DetailService {
 
         return Optional.of(detailRepository.save(detail));
     }
+
+    public List<Detail> getAllDetails() {   return detailRepository.findAll();  }
+
+
 }
