@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import waruru.backend.detail.domain.Detail;
 import waruru.backend.detail.domain.DetailRepository;
+import waruru.backend.detail.dto.DetailDeleteRequestDTO;
 import waruru.backend.detail.dto.DetailRegisterRequestDTO;
 import waruru.backend.detail.dto.DetailUpdateRequestDTO;
 
@@ -52,5 +53,12 @@ public class DetailService {
         detail.update(detailUpdateRequestDTO);
 
         return Optional.empty();
+    }
+
+    public void deleteDetail(DetailDeleteRequestDTO detailDeleteRequestDTO) {
+        Detail detail = detailRepository.findByTitle(detailDeleteRequestDTO.getDetailTitle()).orElseThrow(() ->
+                new IllegalArgumentException("Invalid Detail id:" + detailDeleteRequestDTO.getDetailTitle()));
+
+        detailRepository.delete(detail);
     }
 }

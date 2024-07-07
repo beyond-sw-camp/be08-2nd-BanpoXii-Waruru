@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import waruru.backend.detail.domain.Detail;
+import waruru.backend.detail.dto.DetailDeleteRequestDTO;
 import waruru.backend.detail.dto.DetailRegisterRequestDTO;
 import waruru.backend.detail.dto.DetailUpdateRequestDTO;
 import waruru.backend.detail.service.DetailService;
@@ -51,5 +52,13 @@ public class DetailController {
         detailService.updateDetail(detailUpdateRequestDTO);
 
         return ResponseEntity.noContent().build();
+    }
+
+    @Operation(summary = "납부 내역을 삭제하는 API")
+    @DeleteMapping("/delete")
+    public ResponseEntity<Void> deleteDetail(@RequestBody @Valid DetailDeleteRequestDTO detailDeleteRequestDTO) {
+        detailService.deleteDetail(detailDeleteRequestDTO);
+
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
