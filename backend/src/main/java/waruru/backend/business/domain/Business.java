@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import waruru.backend.sales.domain.Sale;
+import waruru.backend.sale.domain.Sale;
 import waruru.backend.user.domain.User;
 
 import java.time.LocalDateTime;

@@ -7,5 +7,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface SaleRepository extends JpaRepository<Sale, Long> {
-    List<Sale> findAllList();
+//    List<Sale> findAllList();
 }

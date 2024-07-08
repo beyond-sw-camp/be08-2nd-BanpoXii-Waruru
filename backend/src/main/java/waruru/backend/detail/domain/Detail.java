@@ -6,12 +6,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.apache.catalina.User;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import waruru.backend.detail.dto.DetailUpdateRequestDTO;
-import waruru.backend.sales.domain.Sales;
-import waruru.backend.user.domain.UserEntity;
+import waruru.backend.sale.domain.Sale;
+import waruru.backend.user.domain.User;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -30,12 +29,12 @@ public class Detail {
     @ManyToOne
     @JoinColumn(name = "sale_no", nullable = false)
     @JsonManagedReference
-    private Sales saleNo;
+    private Sale saleNo;
 
     @ManyToOne
     @JoinColumn(name = "user_no", nullable = false)
     @JsonManagedReference
-    private UserEntity userNo;
+    private User userNo;
 
     @Column(nullable = false)
     private String title;
@@ -59,7 +58,7 @@ public class Detail {
     private LocalDateTime updateDate;
 
     @Builder
-    public Detail(Sales saleNo, UserEntity userNo, String title, String category, String description, int price, String detailDate) {
+    public Detail(Sale saleNo, User userNo, String title, String category, String description, int price, String detailDate) {
         this.saleNo = saleNo;
         this.userNo = userNo;
         this.title = title;

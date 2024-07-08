@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import waruru.backend.detail.domain.Detail;
-import waruru.backend.sales.domain.Sales;
-import waruru.backend.user.domain.UserEntity;
+import waruru.backend.sale.domain.Sale;
+import waruru.backend.user.domain.User;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,8 +16,8 @@ import java.util.List;
 public class DetailResponseDTO {
 
     private Long id;
-    private Sales saleNo;
-    private UserEntity userNo;
+    private Sale saleNo;
+    private User userNo;
     private String title;
     private String category;
     private String description;

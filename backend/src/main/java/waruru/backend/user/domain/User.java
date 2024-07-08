@@ -8,7 +8,7 @@ import lombok.Setter;
 import waruru.backend.business.domain.Business;
 import waruru.backend.detail.domain.Detail;
 import waruru.backend.review.domain.Review;
-import waruru.backend.sales.domain.Sales;
+import waruru.backend.sale.domain.Sale;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,16 +55,16 @@ public class User {
         this.status = status;
     }
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userNo")
     private List<Business> business = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userNo")
     private List<Detail> details = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userNo")
     private List<Review> reviews = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userNo")
     private List<Sale> sales = new ArrayList<>();
 
 }

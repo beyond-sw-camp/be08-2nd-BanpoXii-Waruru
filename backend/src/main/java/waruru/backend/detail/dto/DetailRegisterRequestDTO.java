@@ -6,8 +6,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import waruru.backend.sales.domain.Sales;
-import waruru.backend.user.domain.UserEntity;
+import waruru.backend.sale.domain.Sale;
+import waruru.backend.user.domain.User;
 
 import java.time.LocalDateTime;
 
@@ -17,10 +17,10 @@ import java.time.LocalDateTime;
 public class DetailRegisterRequestDTO {
 
     @NotBlank
-    Sales saleNo;
+    Sale saleNo;
 
     @NotBlank
-    UserEntity userNo;
+    User userNo;
 
     @NotBlank
     String title;

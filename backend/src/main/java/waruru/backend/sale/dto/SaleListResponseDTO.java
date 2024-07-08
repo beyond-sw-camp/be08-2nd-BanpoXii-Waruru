@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 
 
 @RequiredArgsConstructor
-@AllArgsConstructor
 @Getter
 @Builder
 public class SaleListResponseDTO {

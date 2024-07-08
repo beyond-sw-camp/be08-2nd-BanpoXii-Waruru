@@ -35,15 +35,15 @@ public class SaleService {
         return SaleResponseDTO.from(sale);
     }
 
-    public List<SaleListResponseDTO> findAllList() {
-        //리스트 조회할 칼럼만 특정해서 조회
-        List<Sale> sale = saleRepository.findAllList();
-        return sale.stream()
-                .map(p -> new SaleListResponseDTO(p.getNo(),p.getUserNo(),p.getSaleName(),p.getSaleLocation(),
-                        p.getArea(),p.getCategory(),p.getSalePrice(),p.getDepositPrice(),p.getRentPrice(),
-                        p.getRegisterDate()))
-                .collect(Collectors.toList());
-    }
+//    public List<SaleListResponseDTO> findAllList() {
+//        //리스트 조회할 칼럼만 특정해서 조회
+//        List<Sale> sale = saleRepository.findAllList();
+//        return sale.stream()
+//                .map(p -> new SaleListResponseDTO(p.getNo(),p.getUserNo(),p.getSaleName(),p.getSaleLocation(),
+//                        p.getArea(),p.getCategory(),p.getSalePrice(),p.getDepositPrice(),p.getRentPrice(),
+//                        p.getRegisterDate()))
+//                .collect(Collectors.toList());
+//    }
 
     public void delete(SaleDeleteRequestDTO saleDeleteRequestDTO) {
         // 무슨 필드를 기준으로 잡고 지워야 하지..?

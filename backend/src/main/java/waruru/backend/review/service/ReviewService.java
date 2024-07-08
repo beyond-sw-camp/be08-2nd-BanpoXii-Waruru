@@ -7,8 +7,8 @@ import waruru.backend.review.domain.Review;
 import waruru.backend.review.domain.ReviewRepository;
 import waruru.backend.review.dto.ReviewRequestDTO;
 import waruru.backend.review.dto.ReviewResponseDTO;
-import waruru.backend.sales.domain.Sales;
-import waruru.backend.sales.domain.SalesRepository;
+import waruru.backend.sale.domain.Sale;
+import waruru.backend.sale.domain.SaleRepository;
 import waruru.backend.user.domain.User;
 import waruru.backend.user.domain.UserRepository;
 
@@ -22,13 +22,13 @@ public class ReviewService {
     // 비즈니스 로직 수행을 위한
     private final ReviewRepository reviewRepository;
     private final UserRepository userRepository;
-    private final SalesRepository salesRepository;
+//    private final SaleRepository salesRepository;
 
     @Autowired
-    public ReviewService(ReviewRepository reviewRepository, UserRepository userRepository, SalesRepository salesRepository){
+    public ReviewService(ReviewRepository reviewRepository, UserRepository userRepository/*, SaleRepository salesRepository*/){
         this.reviewRepository = reviewRepository;
         this.userRepository = userRepository;
-        this.salesRepository = salesRepository;
+//        this.salesRepository = salesRepository;
     }
 
     public ReviewResponseDTO createReview(ReviewRequestDTO rrq){
@@ -37,12 +37,12 @@ public class ReviewService {
         //  예외처리 해주기
         User user = userRepository.findById(rrq.getUserNo())
                 .orElseThrow(() -> new EntityNotFoundException("회원 ID 조회 불가 : " + rrq.getUserNo()));
-        Sale sale = salesRepository.findById(rrq.getSaleNo())
-                .orElseThrow(() -> new EntityNotFoundException("매물 번호 조회 불가 : " + rrq.getSaleNo()));
+//        Sale sale = salesRepository.findById(rrq.getSaleNo())
+//                .orElseThrow(() -> new EntityNotFoundException("매물 번호 조회 불가 : " + rrq.getSaleNo()));
 
 
         review.setUserNo(user);
-        review.setSaleNo(sale);
+//        review.setSaleNo(sale);
         review.setTitle(rrq.getTitle());
         review.setContent(rrq.getContent());
         review.setRegisterDate(rrq.getRegisterDate());
