@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import waruru.backend.sales.domain.Sale;
+import waruru.backend.user.domain.User;
 
 import java.time.LocalDateTime;
 
@@ -20,6 +22,7 @@ public class Business {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "business_no")
     private Long businessNo;
 
     @ManyToOne
@@ -32,17 +35,19 @@ public class Business {
     @JsonManagedReference
     private Sale saleNo;
 
-    @Column(nullable = false)
+    @Column(name = "totla_price", nullable = false)
     private int totalPrice;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name = "business_status", nullable = false)
     private BusinessStatus status;
 
     @CreationTimestamp
+    @Column(name = "register_date")
     private LocalDateTime registerDate;
 
     @UpdateTimestamp
+    @Column(name = "update_date")
     private LocalDateTime updateDate;
 
     @Builder
