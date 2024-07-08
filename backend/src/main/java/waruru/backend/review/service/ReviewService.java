@@ -37,7 +37,7 @@ public class ReviewService {
         //  예외처리 해주기
         User user = userRepository.findById(rrq.getUserNo())
                 .orElseThrow(() -> new EntityNotFoundException("회원 ID 조회 불가 : " + rrq.getUserNo()));
-        Sales sale = salesRepository.findById(rrq.getSaleNo())
+        Sale sale = salesRepository.findById(rrq.getSaleNo())
                 .orElseThrow(() -> new EntityNotFoundException("매물 번호 조회 불가 : " + rrq.getSaleNo()));
 
 

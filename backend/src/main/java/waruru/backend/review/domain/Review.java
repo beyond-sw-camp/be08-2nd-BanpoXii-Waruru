@@ -36,7 +36,7 @@ public class Review {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "sale_no", nullable = false)
     @JsonManagedReference
-    private Sales saleNo;
+    private Sale saleNo;
 
     @Column(name = "title" ,nullable = false, length = 50)
     private String title;
