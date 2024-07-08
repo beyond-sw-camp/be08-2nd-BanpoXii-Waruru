@@ -16,7 +16,7 @@ import java.util.List;
 @Entity
 @Getter @Setter
 @NoArgsConstructor
-@Table(name = "USER")
+@Table(name = "USERS")
 public class User {
 
     @Id @GeneratedValue
@@ -55,16 +55,16 @@ public class User {
         this.status = status;
     }
 
-        @OneToMany(mappedBy = "user")
-    private List<Business> businessEntityList = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<Business> business = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
-    private List<Detail> detailEntityList = new ArrayList<>();
+    private List<Detail> details = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
-    private List<Review> reviewEntityList = new ArrayList<>();
+    private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
-    private List<Sales> salesEntityList = new ArrayList<>();
+    private List<Sale> sales = new ArrayList<>();
 
 }
