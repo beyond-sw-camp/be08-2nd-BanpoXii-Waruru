@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import waruru.backend.sales.domain.Sales;
+import waruru.backend.user.domain.User;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import static jakarta.persistence.FetchType.LAZY;
 
@@ -22,7 +22,6 @@ import static jakarta.persistence.FetchType.LAZY;
 @Setter
 @Table(name = "Review")
 public class Review {
-
 
     @Id
     @GeneratedValue
