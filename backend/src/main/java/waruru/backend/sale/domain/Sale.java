@@ -1,4 +1,4 @@
-package waruru.backend.sales.domain;
+package waruru.backend.sale.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import waruru.backend.user.domain.User;
 
 import java.time.LocalDateTime;
 
@@ -15,7 +16,8 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-public class Sales {
+@Builder(toBuilder = true)
+public class Sale {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sale_no")
@@ -65,9 +67,10 @@ public class Sales {
     @UpdateTimestamp
     private LocalDateTime updateDate;
 
-    @Builder
-    public Sales(User userNo, String saleName, String saleLocation, int area, Category category,
-                 int salePrice, int depositPrice, int rentPrice, String description, SaleStatus saleStatus) {
+    public Sale(Long no, User userNo, String saleName, String saleLocation, int area, Category category,
+                int salePrice, int depositPrice, int rentPrice, String description, SaleStatus saleStatus,
+                int reviewCount, LocalDateTime registerDate, LocalDateTime updateDate) {
+        this.no = no;
         this.userNo = userNo;
         this.saleName = saleName;
         this.saleLocation = saleLocation;
@@ -78,5 +81,8 @@ public class Sales {
         this.rentPrice = rentPrice;
         this.description = description;
         this.saleStatus = saleStatus;
+        this.reviewCount = reviewCount;
+        this.registerDate = registerDate;
+        this.updateDate = updateDate;
     }
 }

@@ -1,4 +1,4 @@
-package waruru.backend.sales.domain;
+package waruru.backend.sale.domain;
 
 public enum SaleStatus {
     Y, N
