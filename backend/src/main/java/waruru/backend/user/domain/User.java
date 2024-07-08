@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import waruru.backend.business.domain.Business;
+import waruru.backend.detail.domain.Detail;
+import waruru.backend.review.domain.Review;
+import waruru.backend.sales.domain.Sales;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +16,8 @@ import java.util.List;
 @Entity
 @Getter @Setter
 @NoArgsConstructor
-@Table(name = "USER")
-public class UserEntity {
+@Table(name = "USERS")
+public class User {
 
     @Id @GeneratedValue
     @Column(name = "user_no")
@@ -40,8 +44,8 @@ public class UserEntity {
     private UserStatus status;
 
     @Builder
-    public UserEntity(Long id, String email, String password, String name,
-                      String nickname, UserRole role, UserStatus status) {
+    public User(Long id, String email, String password, String name,
+                String nickname, UserRole role, UserStatus status) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -51,16 +55,16 @@ public class UserEntity {
         this.status = status;
     }
 
-    //    @OneToMany(mappedBy = "user")
-//    private List<BusinessEntity> businessEntityList = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<DetailEntity> detailEntityList = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<ReviewEntity> reviewEntityList = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<SalesEntity> salesEntityList = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<Business> business = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Detail> details = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Review> reviews = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Sale> sales = new ArrayList<>();
 
 }
