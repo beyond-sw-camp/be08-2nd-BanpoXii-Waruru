@@ -9,8 +9,6 @@ import lombok.RequiredArgsConstructor;
 import waruru.backend.sale.domain.Sale;
 import waruru.backend.user.domain.User;
 
-import java.time.LocalDateTime;
-
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -32,13 +30,9 @@ public class DetailRegisterRequestDTO {
     String description;
 
     @NotNull
-    @Min(value = 0, message = "price must be greate than or equal to 0")
+    @Min(value = 0, message = "price must be greater than or equal to 0")
     int price;
 
     @NotBlank
     String detailDate;
-
-    LocalDateTime registrationDate;
-
-    LocalDateTime updatedDate;
 }

@@ -47,7 +47,7 @@ public class DetailController {
     }
 
     @Operation(summary = "납부 내역을 수정하는 API")
-    @PutMapping
+    @PutMapping("/update/{id}")
     public ResponseEntity<Void> updateDetail(@RequestBody @Valid DetailUpdateRequestDTO detailUpdateRequestDTO) {
         detailService.updateDetail(detailUpdateRequestDTO);
 

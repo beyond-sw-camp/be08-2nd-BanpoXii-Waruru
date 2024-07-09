@@ -23,8 +23,6 @@ public class DetailResponseDTO {
     private String description;
     private int pricce;
     private String detailDate;
-    private LocalDateTime registrationDate;
-    private LocalDateTime updatedDate;
 
     public static List<DetailResponseDTO> listOf(List<Detail> filtereddetails) {
         return filtereddetails.stream()
@@ -43,9 +41,7 @@ public class DetailResponseDTO {
                 detail.getCategory(),
                 detail.getDescription(),
                 detail.getPrice(),
-                detail.getDetailDate(),
-                detail.getRegistrationDate(),
-                detail.getUpdateDate()
+                detail.getDetailDate()
         );
     }
 }

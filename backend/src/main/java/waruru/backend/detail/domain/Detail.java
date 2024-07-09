@@ -6,32 +6,32 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import waruru.backend.common.domain.BaseTimeEntity;
 import waruru.backend.detail.dto.DetailUpdateRequestDTO;
 import waruru.backend.sale.domain.Sale;
 import waruru.backend.user.domain.User;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
+
+import static jakarta.persistence.FetchType.LAZY;
 
 @NoArgsConstructor
 @Entity
 @Getter
 @Setter
-public class Detail {
+public class Detail extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "detail_no")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "sale_no", nullable = false)
     @JsonManagedReference
     private Sale saleNo;
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_no", nullable = false)
     @JsonManagedReference
     private User userNo;
@@ -51,12 +51,6 @@ public class Detail {
     @Column(nullable = false)
     private String detailDate;
 
-    @CreationTimestamp
-    private LocalDateTime registrationDate;
-
-    @UpdateTimestamp
-    private LocalDateTime updateDate;
-
     @Builder
     public Detail(Sale saleNo, User userNo, String title, String category, String description, int price, String detailDate) {
         this.saleNo = saleNo;
@@ -74,6 +68,5 @@ public class Detail {
         Optional.ofNullable(detailUpdateRequestDTO.getDescription()).ifPresent(description -> this.description = description);
         Optional.ofNullable(detailUpdateRequestDTO.getPrice()).ifPresent(price -> this.price = price);
         Optional.ofNullable(detailUpdateRequestDTO.getDetailDate()).ifPresent(detailDate -> this.detailDate = detailDate);
-        Optional.ofNullable(detailUpdateRequestDTO.getUpdatedDate()).ifPresent(updatedDate -> this.updateDate = updatedDate);
     }
 }
