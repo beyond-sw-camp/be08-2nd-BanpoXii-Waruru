@@ -55,13 +55,22 @@ public class ReviewService {
         return new ReviewResponseDTO(review);
     }
 
+    //매물 후기 리스트 조회
     public List<ReviewResponseDTO> getAllReviews() {
         return reviewRepository.findAll().stream()
                 .map(ReviewResponseDTO::new)
                 .collect(Collectors.toList());
     }
 
+    //매물 후기 조회
+    public ReviewResponseDTO getReviewById(Long reviewNo){
+        Review review =  reviewRepository.findById(reviewNo)
+                .orElseThrow(() -> new EntityNotFoundException("매물 후기 번호 조회 불가: " + reviewNo));
+        return new ReviewResponseDTO(review);
+    }
+
     //매물 후기 수정
+    @Transactional
     public ReviewResponseDTO updateReview(Long reviewNo, ReviewUpdateRequestDTO reviewUpdateRequestDTO) {
         Review review = reviewRepository.findById(reviewNo)
                 .orElseThrow(() -> new EntityNotFoundException("매물 후기 수정 불가: " + reviewNo));
@@ -79,6 +88,7 @@ public class ReviewService {
 
 
     // 매물 후기 삭제
+    @Transactional
     public void deleteReview(ReviewDeleteRequestDTO deleteReviewRequestDTO) {
         Review review = reviewRepository.findById(deleteReviewRequestDTO.getReviewNo())
                 .orElseThrow(() -> new EntityNotFoundException("매물 후기 삭제 불가: " + deleteReviewRequestDTO.getReviewNo()));

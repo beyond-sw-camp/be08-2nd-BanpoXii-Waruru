@@ -34,6 +34,12 @@ public class ReviewController {
         return ResponseEntity.ok(reviews);
     }
 
+    @GetMapping("/detail/{reviewNo}")
+    @Operation(summary = "매물 후기 단건 조회", description = "[설명] /api/reviews/detail/{} 매물 후기 단건 조회")
+    public ReviewResponseDTO getReview(@PathVariable Long reviewNo) {
+        return reviewService.getReviewById(reviewNo);
+    }
+
     @PutMapping("/update/{reviewNo}")
     @Operation(summary = "매물 후기 수정하기", description = "[설명] /api/reviews/update/{} 특정 매물 후기 수정하기")
     public ReviewResponseDTO updateReview(@PathVariable Long reviewNo, @RequestBody ReviewUpdateRequestDTO reviewUpdateRequestDTO) {
@@ -41,7 +47,7 @@ public class ReviewController {
     }
 
     @DeleteMapping("/delete/{reviewNo}")
-    @Operation(summary = "매물 후기 삭제하기", description = "[설명] /api/reviews/delete 매물 후기 삭제하기")
+    @Operation(summary = "매물 후기 삭제하기", description = "[설명] /api/reviews/delete/{} 매물 후기 삭제하기")
     public void deleteReview(@RequestBody ReviewDeleteRequestDTO reviewDeleteRequestDTO) {
         reviewService.deleteReview(reviewDeleteRequestDTO);
     }
