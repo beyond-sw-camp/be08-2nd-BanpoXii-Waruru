@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import waruru.backend.review.dto.ReviewDeleteRequestDTO;
 import waruru.backend.review.dto.ReviewRequestDTO;
 import waruru.backend.review.dto.ReviewResponseDTO;
 import waruru.backend.review.dto.ReviewUpdateRequestDTO;
@@ -37,5 +38,11 @@ public class ReviewController {
     @Operation(summary = "매물 후기 수정하기", description = "[설명] /api/reviews/update/{} 특정 매물 후기 수정하기")
     public ReviewResponseDTO updateReview(@PathVariable Long reviewNo, @RequestBody ReviewUpdateRequestDTO reviewUpdateRequestDTO) {
         return reviewService.updateReview(reviewNo, reviewUpdateRequestDTO);
+    }
+
+    @DeleteMapping("/delete/{reviewNo}")
+    @Operation(summary = "매물 후기 삭제하기", description = "[설명] /api/reviews/delete 매물 후기 삭제하기")
+    public void deleteReview(@RequestBody ReviewDeleteRequestDTO reviewDeleteRequestDTO) {
+        reviewService.deleteReview(reviewDeleteRequestDTO);
     }
 }
