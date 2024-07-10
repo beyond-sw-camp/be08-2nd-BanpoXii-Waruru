@@ -4,10 +4,8 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 import waruru.backend.sale.domain.Category;
 import waruru.backend.sale.domain.SaleStatus;
 import waruru.backend.user.domain.User;
@@ -18,38 +16,28 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Getter
-@Builder
+@Setter
 public class SaleRegisterRequestDTO {
 
-    @NotBlank
-    private User userNo;
+    private Long userNo;
 
-    @NotBlank
     private String saleName;
 
-    @NotBlank
     private String saleLocation;
 
-    @NotBlank
-    private int area;
+    private Integer area;
 
-    @Enumerated(EnumType.STRING)
     private Category category;
 
-    @Min(0)
-    private int salePrice;
+    private Integer salePrice;
 
-    @Min(0)
-    private int depositPrice;
+    private Integer depositPrice;
 
-    @Min(0)
-    private int rentPrice;
+    private Integer rentPrice;
 
     private String description;
 
-    @Enumerated(EnumType.STRING)
     private SaleStatus saleStatus;
-
 
     private LocalDateTime registerDate;
 

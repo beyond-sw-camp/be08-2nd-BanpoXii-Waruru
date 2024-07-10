@@ -1,11 +1,10 @@
 package waruru.backend.sale.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import waruru.backend.user.domain.User;
@@ -13,6 +12,7 @@ import waruru.backend.user.domain.User;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Getter
 @Setter
@@ -26,6 +26,7 @@ public class Sale {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_no", nullable = false)
     @JsonManagedReference
+    @JsonIgnore
     private User userNo;
 
     @Column(nullable = false)
@@ -35,20 +36,21 @@ public class Sale {
     private String saleLocation;
 
     @Column(nullable = false)
-    private int area;
+    @NotNull
+    private Integer area;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Category category;
 
     @Column
-    private int salePrice;
+    private Integer salePrice;
 
     @Column
-    private int depositPrice;
+    private Integer depositPrice;
 
     @Column
-    private int rentPrice;
+    private Integer rentPrice;
 
     @Column(nullable = false)
     private String description;
@@ -58,7 +60,7 @@ public class Sale {
     private SaleStatus saleStatus;
 
     @Column
-    private int reviewCount;
+    private Integer reviewCount;
 
     @CreationTimestamp
     @Column(nullable = false)
@@ -66,23 +68,23 @@ public class Sale {
 
     @UpdateTimestamp
     private LocalDateTime updateDate;
-
-    public Sale(Long no, User userNo, String saleName, String saleLocation, int area, Category category,
-                int salePrice, int depositPrice, int rentPrice, String description, SaleStatus saleStatus,
-                int reviewCount, LocalDateTime registerDate, LocalDateTime updateDate) {
-        this.no = no;
-        this.userNo = userNo;
-        this.saleName = saleName;
-        this.saleLocation = saleLocation;
-        this.area = area;
-        this.category = category;
-        this.salePrice = salePrice;
-        this.depositPrice = depositPrice;
-        this.rentPrice = rentPrice;
-        this.description = description;
-        this.saleStatus = saleStatus;
-        this.reviewCount = reviewCount;
-        this.registerDate = registerDate;
-        this.updateDate = updateDate;
-    }
+//
+//    public Sale(Long no, User userNo, String saleName, String saleLocation, Integer area, Category category,
+//                Integer salePrice, Integer depositPrice, Integer rentPrice, String description, SaleStatus saleStatus,
+//                int reviewCount, LocalDateTime registerDate, LocalDateTime updateDate) {
+//        this.no = no;
+//        this.userNo = userNo;
+//        this.saleName = saleName;
+//        this.saleLocation = saleLocation;
+//        this.area = area;
+//        this.category = category;
+//        this.salePrice = salePrice;
+//        this.depositPrice = depositPrice;
+//        this.rentPrice = rentPrice;
+//        this.description = description;
+//        this.saleStatus = saleStatus;
+//        this.reviewCount = reviewCount;
+//        this.registerDate = registerDate;
+//        this.updateDate = updateDate;
+//    }
 }
