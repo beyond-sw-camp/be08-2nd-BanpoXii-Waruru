@@ -1,5 +1,5 @@
 package waruru.backend.user.domain;
 
-public enum UserStatus {
+public enum MemberStatus {
     Y, N
 }
