@@ -1,6 +1,7 @@
 package waruru.backend.detail.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,6 @@ import lombok.RequiredArgsConstructor;
 @Getter
 public class DetailDeleteRequestDTO {
 
-    @NotBlank
-    private String detailTitle;
+    @NotNull
+    private Long id;
 }

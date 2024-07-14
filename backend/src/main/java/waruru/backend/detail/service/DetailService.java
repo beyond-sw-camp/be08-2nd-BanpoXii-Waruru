@@ -80,7 +80,7 @@ public class DetailService {
     }
 
     public void deleteDetail(DetailDeleteRequestDTO detailDeleteRequestDTO) {
-        Detail detail = detailRepository.findByTitle(detailDeleteRequestDTO.getDetailTitle()).orElseThrow(
+        Detail detail = detailRepository.findById(detailDeleteRequestDTO.getId()).orElseThrow(
                 () -> new NotFoundException(ErrorCode.NOT_FOUND_DETAIL));
 
         detailRepository.delete(detail);
