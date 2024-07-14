@@ -4,19 +4,19 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import lombok.*;
 import waruru.backend.business.domain.BusinessStatus;
 import waruru.backend.sale.domain.Category;
+import waruru.backend.sale.domain.Sale;
 import waruru.backend.sale.domain.SaleStatus;
+import waruru.backend.user.domain.User;
 
-import java.time.LocalDateTime;
 
 @Getter
-@Setter
-public class BusinessResponseDTO {
+@Builder
+@AllArgsConstructor
+@RequiredArgsConstructor
+public class BusinessRegisterRequestDTO {
 
     // Business Table Field
     @NotBlank
@@ -30,7 +30,7 @@ public class BusinessResponseDTO {
 
     // User Table Field
     @NotBlank
-    private Long userNo;
+    private Long userId;
 
     @NotBlank
     private String name;
@@ -65,21 +65,4 @@ public class BusinessResponseDTO {
     @Enumerated(EnumType.STRING)
     private SaleStatus saleStatus;
 
-    public BusinessResponseDTO(Long businessNo, int totalPrice, BusinessStatus status, Long userNo, String name, Long saleNo, String saleName, String saleLocation, int area, Category category, int salePrice, int depositPrice, int rentPrice, String description, SaleStatus saleStatus) {
-        this.businessNo = businessNo;
-        this.totalPrice = totalPrice;
-        this.status = status;
-        this.userNo = userNo;
-        this.name = name;
-        this.saleNo = saleNo;
-        this.saleName = saleName;
-        this.saleLocation = saleLocation;
-        this.area = area;
-        this.category = category;
-        this.salePrice = salePrice;
-        this.depositPrice = depositPrice;
-        this.rentPrice = rentPrice;
-        this.description = description;
-        this.saleStatus = saleStatus;
-    }
 }
