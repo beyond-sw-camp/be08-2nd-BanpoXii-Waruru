@@ -10,14 +10,17 @@ import waruru.backend.detail.domain.Detail;
 import waruru.backend.detail.domain.DetailRepository;
 import waruru.backend.detail.dto.DetailDeleteRequestDTO;
 import waruru.backend.detail.dto.DetailRegisterRequestDTO;
+import waruru.backend.detail.dto.DetailResponseDTO;
 import waruru.backend.detail.dto.DetailUpdateRequestDTO;
 import waruru.backend.sale.domain.Sale;
 import waruru.backend.sale.domain.SaleRepository;
 import waruru.backend.user.domain.User;
 import waruru.backend.user.domain.UserRepository;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor(access = AccessLevel.PUBLIC)
@@ -51,11 +54,17 @@ public class DetailService {
         return Optional.of(detailRepository.save(detail));
     }
 
-    public List<Detail> getAllDetails() {   return detailRepository.findAll();  }
+    @Transactional
+    public List<DetailResponseDTO> getAllDetails() {
+        return Collections.unmodifiableList(DetailResponseDTO.listOf(detailRepository.findAll()));
+    }
 
-    public Detail getDetailById(Long id) {
-        return detailRepository.findById(id).orElseThrow(() ->
-                new IllegalArgumentException("Invalid detail id:" + id));
+    @Transactional
+    public DetailResponseDTO getDetailById(Long detailNo) {
+        Detail detail = detailRepository.findById(detailNo)
+                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_DETAIL));
+
+        return DetailResponseDTO.of(detail);
     }
 
     public Optional<Void> updateDetail(DetailUpdateRequestDTO detailUpdateRequestDTO) {
