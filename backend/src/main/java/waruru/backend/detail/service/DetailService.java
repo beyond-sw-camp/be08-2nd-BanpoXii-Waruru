@@ -79,6 +79,7 @@ public class DetailService {
         return Optional.empty();
     }
 
+    @Transactional
     public void deleteDetail(DetailDeleteRequestDTO detailDeleteRequestDTO) {
         Detail detail = detailRepository.findById(detailDeleteRequestDTO.getId()).orElseThrow(
                 () -> new NotFoundException(ErrorCode.NOT_FOUND_DETAIL));

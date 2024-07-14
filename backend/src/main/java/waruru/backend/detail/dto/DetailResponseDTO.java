@@ -16,7 +16,7 @@ public class DetailResponseDTO {
     private String title;
     private String category;
     private String description;
-    private int pricce;
+    private int price;
     private String detailDate;
 
     public static List<DetailResponseDTO> listOf(List<Detail> filtereddetails) {
