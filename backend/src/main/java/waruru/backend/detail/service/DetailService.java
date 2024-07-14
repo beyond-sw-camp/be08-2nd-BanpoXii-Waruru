@@ -61,15 +61,18 @@ public class DetailService {
 
     @Transactional
     public DetailResponseDTO getDetailById(Long detailNo) {
-        Detail detail = detailRepository.findById(detailNo)
-                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_DETAIL));
+        Detail detail = detailRepository.findById(detailNo).orElseThrow(
+                () -> new NotFoundException(ErrorCode.NOT_FOUND_DETAIL)
+        );
 
         return DetailResponseDTO.of(detail);
     }
 
+    @Transactional
     public Optional<Void> updateDetail(DetailUpdateRequestDTO detailUpdateRequestDTO) {
-        Detail detail = detailRepository.findByTitle(detailUpdateRequestDTO.getTitle()).orElseThrow(() ->
-                new IllegalArgumentException("Invalid Detail id:" + detailUpdateRequestDTO.getTitle()));
+        Detail detail = detailRepository.findById(detailUpdateRequestDTO.getId()).orElseThrow(
+                () -> new NotFoundException(ErrorCode.NOT_FOUND_DETAIL)
+        );
 
         detail.update(detailUpdateRequestDTO);
 
@@ -77,8 +80,8 @@ public class DetailService {
     }
 
     public void deleteDetail(DetailDeleteRequestDTO detailDeleteRequestDTO) {
-        Detail detail = detailRepository.findByTitle(detailDeleteRequestDTO.getDetailTitle()).orElseThrow(() ->
-                new IllegalArgumentException("Invalid Detail id:" + detailDeleteRequestDTO.getDetailTitle()));
+        Detail detail = detailRepository.findByTitle(detailDeleteRequestDTO.getDetailTitle()).orElseThrow(
+                () -> new NotFoundException(ErrorCode.NOT_FOUND_DETAIL));
 
         detailRepository.delete(detail);
     }
