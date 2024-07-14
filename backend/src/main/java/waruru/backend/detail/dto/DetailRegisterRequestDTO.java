@@ -3,36 +3,32 @@ package waruru.backend.detail.dto;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import waruru.backend.sale.domain.Sale;
-import waruru.backend.user.domain.User;
 
-@RequiredArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor(access = lombok.AccessLevel.PUBLIC)
 @Getter
 public class DetailRegisterRequestDTO {
 
-    @NotBlank
-    Sale saleNo;
+    @NotNull
+    private Long saleNo;
+
+    @NotNull
+    private Long userNo;
 
     @NotBlank
-    User userNo;
+    private String title;
 
     @NotBlank
-    String title;
+    private String category;
 
     @NotBlank
-    String category;
-
-    @NotBlank
-    String description;
+    private String description;
 
     @NotNull
     @Min(value = 0, message = "price must be greater than or equal to 0")
-    int price;
+    private int price;
 
     @NotBlank
-    String detailDate;
+    private String detailDate;
 }

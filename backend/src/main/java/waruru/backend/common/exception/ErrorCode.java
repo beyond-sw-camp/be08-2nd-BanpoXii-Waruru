@@ -28,6 +28,7 @@ public enum ErrorCode {
     INVALID_REVIEW_NAME(400,"RE_004", "리뷰의 이름은 공백일 수 없습니다."),
 
     DUPLICATED_EMAIL(400, "AU_002", "이미 존재하는 E-mail입니다."),
+    NOT_FOUND_USER(404, "AU_001", "존재하지 않는 회원입니다."),
 
     INTERNAL_SERVER_ERROR(500, "SYS_001", "내부 서버 오류입니다."),
     BAD_REQUEST(400, "SYS_002", "잘못된 요청입니다."),
