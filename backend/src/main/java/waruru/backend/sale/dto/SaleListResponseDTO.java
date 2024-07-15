@@ -2,54 +2,36 @@ package waruru.backend.sale.dto;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import waruru.backend.sale.domain.Category;
-import waruru.backend.user.domain.User;
 
 import java.time.LocalDateTime;
 
 
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Getter
-@Builder
+@Setter
 public class SaleListResponseDTO {
 
-    private Long no;
-
-    private User userNo;
+//    private Long no;
+//
+    private Long userNo;
+//    private String userName;
 
     private String saleName;
 
     private String saleLocation;
 
-    private int area;
+    private Integer area;
 
     @Enumerated(EnumType.STRING)
     private Category category;
 
-    private int salePrice;
+    private Integer salePrice;
 
-    private int depositPrice;
+    private Integer depositPrice;
 
-    private int rentPrice;
+    private Integer rentPrice;
 
     private LocalDateTime registerDate;
-
-    public SaleListResponseDTO(Long no, User userNo, String saleName, String saleLocation, int area,
-                               Category category, int salePrice, int depositPrice, int rentPrice,
-                               LocalDateTime registerDate) {
-        this.no = no;
-        this.userNo = userNo;
-        this.saleName = saleName;
-        this.saleLocation = saleLocation;
-        this.area = area;
-        this.category = category;
-        this.salePrice = salePrice;
-        this.depositPrice = depositPrice;
-        this.rentPrice = rentPrice;
-        this.registerDate = registerDate;
-    }
 }

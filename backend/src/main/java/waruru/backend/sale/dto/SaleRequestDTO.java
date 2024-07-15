@@ -14,16 +14,16 @@ public class SaleRequestDTO {
 
     private String saleLocation;
 
-    private int area;
+    private Integer area;
 
     @Enumerated(EnumType.STRING)
     private Category category;
 
-    private int salePrice;
+    private Integer salePrice;
 
-    private int depositPrice;
+    private Integer depositPrice;
 
-    private int rentPrice;
+    private Integer rentPrice;
 
     private String description;
 
