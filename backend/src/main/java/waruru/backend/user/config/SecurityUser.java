@@ -7,6 +7,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import waruru.backend.user.domain.Member;
 
+@Getter
 public class SecurityUser extends User {
     private Member member;
 

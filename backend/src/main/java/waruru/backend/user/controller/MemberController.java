@@ -1,73 +1,53 @@
 package waruru.backend.user.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import waruru.backend.user.config.JwtTokenProvider;
 import waruru.backend.user.domain.Member;
-import waruru.backend.user.domain.MemberRepository;
-import waruru.backend.user.domain.MemberRole;
-import waruru.backend.user.domain.MemberStatus;
-
-import java.util.Map;
+import waruru.backend.user.dto.MemberLoginRequestDTO;
+import waruru.backend.user.dto.MemberRegisterRequestDTO;
+import waruru.backend.user.dto.MemberUpdateRequestDTO;
+import waruru.backend.user.service.MemberService;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/user")
 public class MemberController {
 
-    @Autowired
-    private MemberRepository userRepository;
+    private final MemberService memberService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private final JwtTokenProvider jwtTokenProvider;
-
+    @Operation(summary = "회원 정보를 등록하는 API")
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody Map<String, String> member) {
-        Member saved = null;
-        ResponseEntity response = null;
-        try {
-                String hashPassword = passwordEncoder.encode(member.get("password"));
-                saved = userRepository.save(Member.builder()
-                            .email(member.get("email"))
-                            .password(hashPassword)
-                            .name(member.get("name"))
-                            .nickname(member.get("nickname"))
-                            .role(MemberRole.valueOf(member.get("role")))
-                            .status(MemberStatus.valueOf(member.get("status")))
-                            .build());
+    public ResponseEntity<String> registerMember(@RequestBody @Valid MemberRegisterRequestDTO memberRegisterRequestDTO) {
+        memberService.registerMember(memberRegisterRequestDTO);
 
-            if (saved.getId() > 0) {
-                response = ResponseEntity
-                        .status(HttpStatus.CREATED)
-                        .body("Given member details are successfully registered");
-            }
-        } catch (Exception ex) {
-            response = ResponseEntity
-                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("An exception occured due to " + ex.getMessage());
-        }
-        return response;
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    @Operation(summary = "로그인 API")
     @PostMapping("/login")
-    public String login(@RequestBody Map<String, String> user) {
-        Member foundUser = userRepository.findByEmail(user.get("email"))
-                .orElseThrow(() -> new IllegalArgumentException("가입 되지 않은 이메일입니다."));
-        if (!passwordEncoder.matches(user.get("password"), foundUser.getPassword())) {
-            throw new IllegalArgumentException("이메일 또는 비밀번호가 맞지 않습니다.");
-        }
+    public String login(@RequestBody @Valid MemberLoginRequestDTO memberLoginRequestDTO) {
 
-        return jwtTokenProvider.createToken(foundUser.getEmail(), foundUser.getRole());
+        return memberService.createToken(memberLoginRequestDTO);
     }
 
+    @Operation(summary = "회원 정보를 수정하는 API")
+    @PutMapping("/update")
+    public ResponseEntity<String> updateMember(@RequestBody @Valid MemberUpdateRequestDTO memberUpdateRequestDTO) {
+        memberService.updateMember(memberUpdateRequestDTO);
+
+        return ResponseEntity.noContent().build();
+    }
+
+    @Operation(summary = "회원 상태를 탈퇴 상태로 수정하는 API")
+    @PutMapping("/delete/{email}")
+    public ResponseEntity<String> deleteMember(@PathVariable String email) {
+        memberService.deleteMember(email);
+
+        return ResponseEntity.noContent().build();
+    }
 }
