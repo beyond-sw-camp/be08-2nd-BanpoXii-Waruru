@@ -1,4 +1,4 @@
-package waruru.backend.user.domain;
+package waruru.backend.member.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

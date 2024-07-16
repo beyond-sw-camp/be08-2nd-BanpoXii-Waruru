@@ -1,15 +1,14 @@
-package waruru.backend.user.service;
+package waruru.backend.member.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import waruru.backend.user.config.JwtTokenProvider;
-import waruru.backend.user.domain.*;
-import waruru.backend.user.dto.MemberLoginRequestDTO;
-import waruru.backend.user.dto.MemberRegisterRequestDTO;
-import waruru.backend.user.dto.MemberUpdateRequestDTO;
+import waruru.backend.member.config.JwtTokenProvider;
+import waruru.backend.member.domain.*;
+import waruru.backend.member.dto.MemberLoginRequestDTO;
+import waruru.backend.member.dto.MemberRegisterRequestDTO;
+import waruru.backend.member.dto.MemberUpdateRequestDTO;
 
 import java.util.Date;
 import java.util.Optional;

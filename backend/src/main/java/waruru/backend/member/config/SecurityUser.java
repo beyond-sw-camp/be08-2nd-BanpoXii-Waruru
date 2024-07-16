@@ -1,11 +1,9 @@
-package waruru.backend.user.config;
+package waruru.backend.member.config;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
-import waruru.backend.user.domain.Member;
+import waruru.backend.member.domain.Member;
 
 @Getter
 public class SecurityUser extends User {

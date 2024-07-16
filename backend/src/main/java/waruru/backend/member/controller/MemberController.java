@@ -1,4 +1,4 @@
-package waruru.backend.user.controller;
+package waruru.backend.member.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
@@ -6,12 +6,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import waruru.backend.user.config.JwtTokenProvider;
-import waruru.backend.user.domain.Member;
-import waruru.backend.user.dto.MemberLoginRequestDTO;
-import waruru.backend.user.dto.MemberRegisterRequestDTO;
-import waruru.backend.user.dto.MemberUpdateRequestDTO;
-import waruru.backend.user.service.MemberService;
+import waruru.backend.member.dto.MemberLoginRequestDTO;
+import waruru.backend.member.dto.MemberRegisterRequestDTO;
+import waruru.backend.member.dto.MemberUpdateRequestDTO;
+import waruru.backend.member.service.MemberService;
 
 @RestController
 @RequiredArgsConstructor

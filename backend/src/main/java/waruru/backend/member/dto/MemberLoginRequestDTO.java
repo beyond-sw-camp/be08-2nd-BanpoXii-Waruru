@@ -1,10 +1,8 @@
-package waruru.backend.user.dto;
+package waruru.backend.member.dto;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import waruru.backend.user.domain.MemberRole;
-import waruru.backend.user.domain.MemberStatus;
 
 @Getter
 @AllArgsConstructor

@@ -1,15 +1,14 @@
-package waruru.backend.user.service;
+package waruru.backend.member.service;
 
-import io.jsonwebtoken.Jwts;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.stereotype.Service;
-import waruru.backend.user.config.JwtTokenProvider;
-import waruru.backend.user.constants.SecurityConstants;
-import waruru.backend.user.domain.RefreshTokenRepository;
+import waruru.backend.member.config.JwtTokenProvider;
+import waruru.backend.member.constants.SecurityConstants;
+import waruru.backend.member.domain.RefreshTokenRepository;
 
 
 @Service

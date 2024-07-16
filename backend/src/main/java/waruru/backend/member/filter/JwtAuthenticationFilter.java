@@ -1,4 +1,4 @@
-package waruru.backend.user.filter;
+package waruru.backend.member.filter;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -9,13 +9,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.filter.OncePerRequestFilter;
-import waruru.backend.user.config.JwtTokenProvider;
-import waruru.backend.user.domain.MemberRole;
-import waruru.backend.user.domain.RefreshToken;
-import waruru.backend.user.domain.RefreshTokenRepository;
+import waruru.backend.member.config.JwtTokenProvider;
+import waruru.backend.member.domain.MemberRole;
+import waruru.backend.member.domain.RefreshToken;
+import waruru.backend.member.domain.RefreshTokenRepository;
 
 import java.io.IOException;
-import java.util.Date;
 
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {

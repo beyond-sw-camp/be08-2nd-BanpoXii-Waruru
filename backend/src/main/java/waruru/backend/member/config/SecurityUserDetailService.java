@@ -1,4 +1,4 @@
-package waruru.backend.user.config;
+package waruru.backend.member.config;
 
 import java.util.Optional;
 
@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import waruru.backend.user.domain.Member;
-import waruru.backend.user.domain.MemberRepository;
+import waruru.backend.member.domain.Member;
+import waruru.backend.member.domain.MemberRepository;
 
 @Service
 public class SecurityUserDetailService implements UserDetailsService {

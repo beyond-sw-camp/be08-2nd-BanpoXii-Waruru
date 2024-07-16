@@ -1,4 +1,4 @@
-package waruru.backend.user.domain;
+package waruru.backend.member.domain;
 
 public enum MemberRole {
     LESSOR, LESSEE

@@ -1,4 +1,4 @@
-package waruru.backend.user.domain;
+package waruru.backend.member.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -7,7 +7,7 @@ import waruru.backend.business.domain.Business;
 import waruru.backend.detail.domain.Detail;
 import waruru.backend.review.domain.Review;
 import waruru.backend.sale.domain.Sale;
-import waruru.backend.user.dto.MemberUpdateRequestDTO;
+import waruru.backend.member.dto.MemberUpdateRequestDTO;
 
 import java.util.ArrayList;
 import java.util.List;

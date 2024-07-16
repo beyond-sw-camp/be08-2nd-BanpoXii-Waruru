@@ -1,14 +1,10 @@
-package waruru.backend.user.dto;
+package waruru.backend.member.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import waruru.backend.user.domain.MemberRole;
-import waruru.backend.user.domain.MemberStatus;
+import waruru.backend.member.domain.MemberRole;
+import waruru.backend.member.domain.MemberStatus;
 
 @AllArgsConstructor
 @Getter

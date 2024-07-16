@@ -1,9 +1,8 @@
-package waruru.backend.user.config;
+package waruru.backend.member.config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.Getter;
@@ -13,13 +12,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
-import waruru.backend.user.constants.SecurityConstants;
-import waruru.backend.user.domain.MemberRole;
-import waruru.backend.user.domain.RefreshTokenRepository;
+import waruru.backend.member.constants.SecurityConstants;
+import waruru.backend.member.domain.MemberRole;
+import waruru.backend.member.domain.RefreshTokenRepository;
 
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 import java.util.Date;
 
 @Component
