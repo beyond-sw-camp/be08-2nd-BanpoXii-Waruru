@@ -2,11 +2,9 @@ package waruru.backend.business.dto;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import waruru.backend.business.domain.BusinessStatus;
 
 @Getter

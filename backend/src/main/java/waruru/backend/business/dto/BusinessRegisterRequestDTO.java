@@ -4,6 +4,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import waruru.backend.business.domain.BusinessStatus;
 import waruru.backend.sale.domain.Category;
@@ -13,15 +14,13 @@ import waruru.backend.user.domain.User;
 
 
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class BusinessRegisterRequestDTO {
 
     // Business Table Field
-    @NotBlank
-    private Long businessNo;
-
     @Min(0)
     private int totalPrice;
 
@@ -29,14 +28,14 @@ public class BusinessRegisterRequestDTO {
     private BusinessStatus status;
 
     // User Table Field
-    @NotBlank
-    private Long userId;
+    @NotNull
+    private Long userNo;
 
     @NotBlank
     private String name;
 
     // Sale Table Field
-    @NotBlank
+    @NotNull
     private Long saleNo;
 
     @NotBlank
@@ -45,19 +44,19 @@ public class BusinessRegisterRequestDTO {
     @NotBlank
     private String saleLocation;
 
-    @NotBlank
+    @Min(0)
     private int area;
 
     @Enumerated(EnumType.STRING)
     private Category category;
 
-    @NotBlank
+    @Min(0)
     private int salePrice;
 
-    @NotBlank
+    @Min(0)
     private int depositPrice;
 
-    @NotBlank
+    @Min(0)
     private int rentPrice;
 
     private String description;

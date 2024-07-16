@@ -1,5 +1,6 @@
 package waruru.backend.business.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
@@ -24,14 +25,14 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BusinessRequestDTO {
 
-    // Business Table Field
+    // User Table Field
     @NotBlank
-    private Long businessNo;
+    private Long userNo;
 
     // Sale Table Field
     @NotBlank
     private Long saleNo;
-
 }

@@ -1,5 +1,7 @@
 package waruru.backend.business.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Min;
@@ -8,14 +10,18 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import waruru.backend.business.domain.Business;
 import waruru.backend.business.domain.BusinessStatus;
 import waruru.backend.sale.domain.Category;
+import waruru.backend.sale.domain.Sale;
 import waruru.backend.sale.domain.SaleStatus;
+import waruru.backend.user.domain.User;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BusinessResponseDTO {
 
     // Business Table Field
@@ -65,21 +71,22 @@ public class BusinessResponseDTO {
     @Enumerated(EnumType.STRING)
     private SaleStatus saleStatus;
 
-    public BusinessResponseDTO(Long businessNo, int totalPrice, BusinessStatus status, Long userNo, String name, Long saleNo, String saleName, String saleLocation, int area, Category category, int salePrice, int depositPrice, int rentPrice, String description, SaleStatus saleStatus) {
-        this.businessNo = businessNo;
-        this.totalPrice = totalPrice;
-        this.status = status;
-        this.userNo = userNo;
-        this.name = name;
-        this.saleNo = saleNo;
-        this.saleName = saleName;
-        this.saleLocation = saleLocation;
-        this.area = area;
-        this.category = category;
-        this.salePrice = salePrice;
-        this.depositPrice = depositPrice;
-        this.rentPrice = rentPrice;
-        this.description = description;
-        this.saleStatus = saleStatus;
+    public BusinessResponseDTO(Business business, User user, Sale sale) {
+        this.businessNo = business.getBusinessNo();
+        this.totalPrice = business.getTotalPrice();
+        this.status = business.getStatus();
+        this.userNo = user.getId();
+        this.name = user.getName();
+        this.saleNo = sale.getNo();
+        this.saleName = sale.getSaleName();
+        this.saleLocation = sale.getSaleLocation();
+        this.area = sale.getArea();
+        this.category = sale.getCategory();
+        this.salePrice = sale.getSalePrice();
+        this.depositPrice = sale.getDepositPrice();
+        this.rentPrice = sale.getRentPrice();
+        this.description = sale.getDescription();
+        this.saleStatus = sale.getSaleStatus();
     }
+
 }

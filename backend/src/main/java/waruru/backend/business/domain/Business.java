@@ -4,9 +4,12 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.micrometer.core.instrument.config.validate.Validated;
 import jakarta.persistence.*;
 import lombok.*;
+import waruru.backend.business.dto.BusinessUpdateRequestDTO;
 import waruru.backend.common.domain.BaseTimeEntity;
 import waruru.backend.sale.domain.Sale;
 import waruru.backend.user.domain.User;
+
+import java.util.Optional;
 
 import static jakarta.persistence.FetchType.LAZY;
 
@@ -48,5 +51,9 @@ public class Business extends BaseTimeEntity {
         this.status = status;
     }
 
+    public void update(Business business, BusinessUpdateRequestDTO businessUpdateRequestDTO) {
+        business.setTotalPrice((businessUpdateRequestDTO.getTotalPrice()));
+        business.setStatus((businessUpdateRequestDTO.getStatus()));
+    }
 
 }
