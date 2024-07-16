@@ -2,13 +2,10 @@ package waruru.backend.user.filter;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.filter.GenericFilterBean;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -32,20 +29,26 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String accessToken = jwtTokenProvider.resolveAccessToken(request);
         if (accessToken != null && jwtTokenProvider.validateToken(accessToken)) {
-            if(!jwtTokenProvider.validateToken(accessToken)){
-                Date now = new Date();
-                String username = jwtTokenProvider.getUserPK(accessToken);
-                MemberRole role = MemberRole.valueOf(jwtTokenProvider.getUserRole(accessToken));
-                String refreshToken = jwtTokenProvider.createRefreshToken(username, role);
-                RefreshToken newRefreshToken = RefreshToken.builder()
-                        .username(username)
-                        .refreshToken(refreshToken)
-                        .expiration(new Date(now.getTime() + jwtTokenProvider.getRefreshTokenValidTime()).getTime())
-                        .build();
-                refreshTokenRepository.save(newRefreshToken);
+            String username = jwtTokenProvider.getUserPK(accessToken);
+            MemberRole role = MemberRole.valueOf(jwtTokenProvider.getUserRole(accessToken));
+            RefreshToken refreshToken = refreshTokenRepository.findByUsername(username);
+
+            if(!jwtTokenProvider.validateToken(refreshToken.getRefreshToken())){
+                chain.doFilter(request, response);
             }
+
             Authentication authentication = jwtTokenProvider.getAuthentication(accessToken);
             SecurityContextHolder.getContext().setAuthentication(authentication);
+        } else if (accessToken != null && !jwtTokenProvider.validateToken(accessToken)){
+            String username = jwtTokenProvider.getUserPK(accessToken);
+            MemberRole role = MemberRole.valueOf(jwtTokenProvider.getUserRole(accessToken));
+            RefreshToken refreshToken = refreshTokenRepository.findByUsername(username);
+
+            if(jwtTokenProvider.validateToken(refreshToken.getRefreshToken())){
+                accessToken = jwtTokenProvider.createAccessToken(username, role);
+                Authentication authentication = jwtTokenProvider.getAuthentication(accessToken);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            }
         }
         chain.doFilter(request, response);
     }

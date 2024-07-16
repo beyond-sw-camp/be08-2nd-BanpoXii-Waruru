@@ -43,7 +43,7 @@ public class JwtTokenProvider {
 //    }
 
     public String createToken(String userPK, MemberRole roles, long tokenValidTime) {
-        Claims claims = Jwts.claims().add("roles", roles).add("subject", userPK).build(); // JWT payload에 저장되는 정보 단위
+        Claims claims = Jwts.claims().add("roles", roles).add("subject", userPK).build();
         SecretKey key = Keys.hmacShaKeyFor(SecurityConstants.JWT_KEY.getBytes(StandardCharsets.UTF_8));
         Date now = new Date();
 
