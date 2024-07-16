@@ -83,7 +83,7 @@ public class JwtTokenProvider {
 //    public String resolveRefreshToken(HttpServletRequest request) {
 //        return request.getHeader("refreshToken");
 //    }
-
+//
     public boolean validateToken(String jwtToken) {
         try {
             Jws<Claims> claims = Jwts.parser().setSigningKey(SecurityConstants.JWT_KEY).build().parseSignedClaims(jwtToken);
