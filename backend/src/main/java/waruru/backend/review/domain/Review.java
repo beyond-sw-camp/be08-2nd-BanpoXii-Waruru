@@ -2,10 +2,7 @@ package waruru.backend.review.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import waruru.backend.sale.domain.Sale;
@@ -18,8 +15,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Getter
-@Setter
+@Data
 @Table(name = "Review")
 public class Review {
 
@@ -51,8 +47,5 @@ public class Review {
     @UpdateTimestamp
     @Column(name = "updateDate" ,nullable = true)
     private LocalDateTime updateDate;
-
-
-
 
 }
