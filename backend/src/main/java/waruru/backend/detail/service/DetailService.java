@@ -12,10 +12,10 @@ import waruru.backend.detail.dto.DetailDeleteRequestDTO;
 import waruru.backend.detail.dto.DetailRegisterRequestDTO;
 import waruru.backend.detail.dto.DetailResponseDTO;
 import waruru.backend.detail.dto.DetailUpdateRequestDTO;
+import waruru.backend.member.domain.Member;
+import waruru.backend.member.domain.MemberRepository;
 import waruru.backend.sale.domain.Sale;
 import waruru.backend.sale.domain.SaleRepository;
-import waruru.backend.user.domain.User;
-import waruru.backend.user.domain.UserRepository;
 
 import java.util.Collections;
 import java.util.List;
@@ -27,7 +27,7 @@ import java.util.Optional;
 public class DetailService {
 
     private final DetailRepository detailRepository;
-    private final UserRepository userRepository;
+    private final MemberRepository memberRepository;
     private final SaleRepository saleRepository;
 
     @Transactional
@@ -37,13 +37,13 @@ public class DetailService {
                 () -> new NotFoundException(ErrorCode.NOT_FOUND_SALE)
         );
 
-        User user = userRepository.findById(detailRegisterRequestDTO.getUserNo()).orElseThrow(
+        Member member = memberRepository.findById(detailRegisterRequestDTO.getUserNo()).orElseThrow(
                 () -> new NotFoundException(ErrorCode.NOT_FOUND_USER)
         );
 
         Detail detail = Detail.builder()
                 .saleNo(sale)
-                .userNo(user)
+                .userNo(member)
                 .title(detailRegisterRequestDTO.getTitle())
                 .category(detailRegisterRequestDTO.getCategory())
                 .description(detailRegisterRequestDTO.getDescription())

@@ -12,10 +12,10 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import waruru.backend.business.domain.Business;
 import waruru.backend.business.domain.BusinessStatus;
+import waruru.backend.member.domain.Member;
 import waruru.backend.sale.domain.Category;
 import waruru.backend.sale.domain.Sale;
 import waruru.backend.sale.domain.SaleStatus;
-import waruru.backend.user.domain.User;
 
 import java.time.LocalDateTime;
 
@@ -71,12 +71,12 @@ public class BusinessResponseDTO {
     @Enumerated(EnumType.STRING)
     private SaleStatus saleStatus;
 
-    public BusinessResponseDTO(Business business, User user, Sale sale) {
+    public BusinessResponseDTO(Business business, Member member, Sale sale) {
         this.businessNo = business.getBusinessNo();
         this.totalPrice = business.getTotalPrice();
         this.status = business.getStatus();
-        this.userNo = user.getId();
-        this.name = user.getName();
+        this.userNo = member.getId();
+        this.name = member.getName();
         this.saleNo = sale.getNo();
         this.saleName = sale.getSaleName();
         this.saleLocation = sale.getSaleLocation();

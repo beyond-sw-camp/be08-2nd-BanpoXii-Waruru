@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import waruru.backend.member.domain.Member;
 import waruru.backend.sale.domain.Sale;
-import waruru.backend.user.domain.User;
 
 import java.time.LocalDateTime;
 
@@ -27,7 +27,7 @@ public class Review {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_no", nullable = false)
     @JsonManagedReference
-    private User userNo;
+    private Member userNo;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "sale_no", nullable = false)

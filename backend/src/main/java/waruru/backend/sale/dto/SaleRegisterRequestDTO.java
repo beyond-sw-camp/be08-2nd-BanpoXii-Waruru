@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import waruru.backend.sale.domain.Category;
 import waruru.backend.sale.domain.SaleStatus;
-import waruru.backend.user.domain.User;
+import waruru.backend.member.domain.Member;
 
 import java.time.LocalDateTime;
 

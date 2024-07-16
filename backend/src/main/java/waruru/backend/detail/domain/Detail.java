@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import waruru.backend.common.domain.BaseTimeEntity;
 import waruru.backend.detail.dto.DetailUpdateRequestDTO;
+import waruru.backend.member.domain.Member;
 import waruru.backend.sale.domain.Sale;
-import waruru.backend.user.domain.User;
 
 import java.util.Optional;
 
@@ -34,7 +34,7 @@ public class Detail extends BaseTimeEntity {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_no", nullable = false)
     @JsonManagedReference
-    private User userNo;
+    private Member userNo;
 
     @Column(nullable = false)
     private String title;
@@ -52,7 +52,7 @@ public class Detail extends BaseTimeEntity {
     private String detailDate;
 
     @Builder
-    public Detail(Sale saleNo, User userNo, String title, String category, String description, int price, String detailDate) {
+    public Detail(Sale saleNo, Member userNo, String title, String category, String description, int price, String detailDate) {
         this.saleNo = saleNo;
         this.userNo = userNo;
         this.title = title;

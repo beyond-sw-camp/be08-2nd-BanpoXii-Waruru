@@ -15,13 +15,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/sales")
-@Tag(name = "매물 정보", description = "매물 관리를 위한 api")
+@Tag(name = "Sale", description = "매물 관리")
 public class SaleController {
 
     @Autowired
     private SaleService saleService;
 
-    @PostMapping //OK
+    @PostMapping("/register") //OK
     @Operation(summary = "매물 등록", description = "/api/sales 새 매물 등록")
     public ResponseEntity<SaleResponseDTO> registerSale(@RequestBody @Valid SaleRegisterRequestDTO registerRequestDTO) {
         SaleResponseDTO saleresponseDTO = saleService.registerSale(registerRequestDTO);

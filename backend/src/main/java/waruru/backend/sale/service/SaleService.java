@@ -3,11 +3,11 @@ package waruru.backend.sale.service;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import waruru.backend.member.domain.Member;
+import waruru.backend.member.domain.MemberRepository;
 import waruru.backend.sale.domain.Sale;
 import waruru.backend.sale.domain.SaleRepository;
 import waruru.backend.sale.dto.*;
-import waruru.backend.user.domain.User;
-import waruru.backend.user.domain.UserRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,19 +17,19 @@ import java.util.stream.Collectors;
 @Transactional
 public class SaleService {
     private final SaleRepository saleRepository;
-    private final UserRepository userRepository;
+    private final MemberRepository memberRepository;
 
-    public SaleService(SaleRepository saleRepository, UserRepository userRepository) {
+    public SaleService(SaleRepository saleRepository, MemberRepository memberRepository) {
         this.saleRepository = saleRepository;
-        this.userRepository = userRepository;
+        this.memberRepository = memberRepository;
     }
     public SaleResponseDTO registerSale(SaleRegisterRequestDTO registerRequestDTO) {
         //PK 추가
         Sale sale = new Sale();
-        User user = userRepository.findById(registerRequestDTO.getUserNo())
+        Member member = memberRepository.findById(registerRequestDTO.getUserNo())
                 .orElseThrow(() -> new EntityNotFoundException("회원 ID 조회 불가 : " + registerRequestDTO.getUserNo()));
 
-        sale.setUserNo(user);
+        sale.setUserNo(member);
         sale.setSaleName(registerRequestDTO.getSaleName());
         sale.setSaleLocation(registerRequestDTO.getSaleLocation());
         sale.setArea(registerRequestDTO.getArea());
@@ -49,13 +49,13 @@ public class SaleService {
     public SaleResponseDTO findById(Long no) {
         //상세 정보 확인
         Sale sale = saleRepository.findById(no).orElseThrow(()
-                -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다. no = " + no));
+                -> new IllegalArgumentException("해당 매물이 존재하지 않습니다. no = " + no));
         return new SaleResponseDTO(sale);
     }
 
     public void deleteSale(Long no) {
         Sale sale = saleRepository.findById(no).orElseThrow(()
-                -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다. no = " + no));
+                -> new IllegalArgumentException("해당 매물이 존재하지 않습니다. no = " + no));
         saleRepository.delete(sale);
     }
 
@@ -80,7 +80,7 @@ public class SaleService {
 
     public void updateSale(Long no, SaleUpdateRequestDTO updateRequestDTO) {
         Sale sale = saleRepository.findById(no).orElseThrow(()
-                -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다. no = " + no));
+                -> new IllegalArgumentException("해당 매물이 존재하지 않습니다. no = " + no));
         mapToUpdate(sale, updateRequestDTO);
         saleRepository.save(sale);
     }

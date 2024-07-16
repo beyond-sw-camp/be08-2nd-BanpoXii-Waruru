@@ -10,7 +10,7 @@ import waruru.backend.business.domain.BusinessStatus;
 import waruru.backend.sale.domain.Category;
 import waruru.backend.sale.domain.Sale;
 import waruru.backend.sale.domain.SaleStatus;
-import waruru.backend.user.domain.User;
+import waruru.backend.member.domain.Member;
 
 
 @Getter

@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import waruru.backend.user.domain.User;
+import waruru.backend.member.domain.Member;
 
 import java.time.LocalDateTime;
 
@@ -27,7 +27,7 @@ public class Sale {
     @JoinColumn(name = "user_no", nullable = false)
     @JsonManagedReference
     @JsonIgnore
-    private User userNo;
+    private Member userNo;
 
     @Column(nullable = false)
     private String saleName;

@@ -6,8 +6,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import waruru.backend.business.dto.BusinessUpdateRequestDTO;
 import waruru.backend.common.domain.BaseTimeEntity;
+import waruru.backend.member.domain.Member;
 import waruru.backend.sale.domain.Sale;
-import waruru.backend.user.domain.User;
 
 import java.util.Optional;
 
@@ -28,7 +28,7 @@ public class Business extends BaseTimeEntity {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_no", nullable = false)
     @JsonManagedReference
-    private User userNo;
+    private Member userNo;
 
     @OneToOne
     @JoinColumn(name = "sale_no", nullable = false)
@@ -43,7 +43,7 @@ public class Business extends BaseTimeEntity {
     private BusinessStatus status = BusinessStatus.ING;
 
     @Builder
-    public Business(Long businessNo, User userNo, Sale saleNo, int totalPrice, BusinessStatus status) {
+    public Business(Long businessNo, Member userNo, Sale saleNo, int totalPrice, BusinessStatus status) {
         this.businessNo = businessNo;
         this.userNo = userNo;
         this.saleNo = saleNo;

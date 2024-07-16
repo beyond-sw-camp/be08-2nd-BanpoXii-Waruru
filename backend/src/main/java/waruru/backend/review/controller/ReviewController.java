@@ -15,12 +15,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/reviews")
-@Tag(name = "Review 관리", description = "매물 후기 관리를 위한 api")
+@Tag(name = "Review", description = "매물 후기 관리")
 public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @PostMapping
+    @PostMapping("/register")
     @Operation(summary = "새 매물 후기 등록", description = "[설명] /api/reviews 새 매물 후기 등록")
     public ResponseEntity<ReviewResponseDTO> createReview(@RequestBody ReviewRequestDTO reviewRequestDTO) {
         ReviewResponseDTO response = reviewService.createReview(reviewRequestDTO);

@@ -11,10 +11,10 @@ import waruru.backend.business.dto.*;
 import waruru.backend.common.exception.BusinessException;
 import waruru.backend.common.exception.ErrorCode;
 import waruru.backend.common.exception.NotFoundException;
+import waruru.backend.member.domain.Member;
+import waruru.backend.member.domain.MemberRepository;
 import waruru.backend.sale.domain.Sale;
 import waruru.backend.sale.domain.SaleRepository;
-import waruru.backend.user.domain.User;
-import waruru.backend.user.domain.UserRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,12 +25,12 @@ import java.util.stream.Collectors;
 public class BusinessService {
 
     private final BusinessRepository businessRepository;
-    private final UserRepository userRepository;
+    private final MemberRepository memberRepository;
     private final SaleRepository saleRepository;
 
-    public BusinessService(BusinessRepository businessRepository, UserRepository userRepository, SaleRepository saleRepository) {
+    public BusinessService(BusinessRepository businessRepository, MemberRepository memberRepository, SaleRepository saleRepository) {
         this.businessRepository = businessRepository;
-        this.userRepository = userRepository;
+        this.memberRepository = memberRepository;
         this.saleRepository = saleRepository;
     }
 
@@ -39,13 +39,13 @@ public class BusinessService {
         Business business = businessRepository.findById(businessNo)
                 .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_BUSINESS));
 
-        User user = userRepository.findById(business.getUserNo().getId())
+        Member member = memberRepository.findById(business.getUserNo().getId())
                 .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_BUSINESS));
 
         Sale sale = saleRepository.findById(business.getSaleNo().getNo())
                 .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_BUSINESS));
 
-        return new BusinessResponseDTO(business, user, sale);
+        return new BusinessResponseDTO(business, member, sale);
     }
     
     // 사용자의 모든 거래 내역 조회
@@ -76,19 +76,19 @@ public class BusinessService {
     // 거래 내역 등록
     public BusinessResponseDTO registerBusiness(@PathVariable long business_no, BusinessRegisterRequestDTO businessRegisterRequestDTO) {
         Business business = new Business();
-        User user = userRepository.findById(businessRegisterRequestDTO.getUserNo())
+        Member member = memberRepository.findById(businessRegisterRequestDTO.getUserNo())
                 .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_BUSINESS));
         Sale sale = saleRepository.findById(businessRegisterRequestDTO.getSaleNo())
                 .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_SALE));
 
-        business.setUserNo(user);
+        business.setUserNo(member);
         business.setSaleNo(sale);
         business.setTotalPrice(businessRegisterRequestDTO.getTotalPrice());
         business.setStatus(businessRegisterRequestDTO.getStatus());
 
         Business savedBusiness = businessRepository.save(business);
 
-        return new BusinessResponseDTO(savedBusiness, user, sale);
+        return new BusinessResponseDTO(savedBusiness, member, sale);
     }
 
     // 거래 내역 수정
