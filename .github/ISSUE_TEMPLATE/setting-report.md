@@ -1,4 +1,4 @@
-**---
+---
 name: 환경 설정
 about: 개발 환경 세팅
 title: "[chore]"
@@ -11,4 +11,4 @@ assignees: 'username'
 
 <br>
 
-### 📕 레퍼런스**
+### 📕 레퍼런스
