@@ -13,10 +13,9 @@ import java.time.LocalDateTime;
 @Setter
 public class SaleListResponseDTO {
 
-//    private Long no;
-//
-    private Long userNo;
-//    private String userName;
+
+//    private Long userNo;
+    private String nickname;
 
     private String saleName;
 
@@ -33,5 +32,7 @@ public class SaleListResponseDTO {
 
     private Integer rentPrice;
 
-    private LocalDateTime registerDate;
+    private LocalDateTime createdDate;
+
 }
+

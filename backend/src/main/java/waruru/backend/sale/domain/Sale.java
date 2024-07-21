@@ -4,12 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.ColumnDefault;
+import waruru.backend.common.domain.BaseTimeEntity;
 import waruru.backend.member.domain.Member;
-
-import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,7 +16,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Builder(toBuilder = true)
-public class Sale {
+public class Sale extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sale_no")
@@ -52,39 +51,16 @@ public class Sale {
     @Column
     private Integer rentPrice;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 500)
+    @Size(max = 500)
     private String description;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private SaleStatus saleStatus;
 
-    @Column
+    @ColumnDefault("0")
     private Integer reviewCount;
 
-    @CreationTimestamp
-    @Column(nullable = false)
-    private LocalDateTime registerDate;
-
-    @UpdateTimestamp
-    private LocalDateTime updateDate;
-//
-//    public Sale(Long no, User userNo, String saleName, String saleLocation, Integer area, Category category,
-//                Integer salePrice, Integer depositPrice, Integer rentPrice, String description, SaleStatus saleStatus,
-//                int reviewCount, LocalDateTime registerDate, LocalDateTime updateDate) {
-//        this.no = no;
-//        this.userNo = userNo;
-//        this.saleName = saleName;
-//        this.saleLocation = saleLocation;
-//        this.area = area;
-//        this.category = category;
-//        this.salePrice = salePrice;
-//        this.depositPrice = depositPrice;
-//        this.rentPrice = rentPrice;
-//        this.description = description;
-//        this.saleStatus = saleStatus;
-//        this.reviewCount = reviewCount;
-//        this.registerDate = registerDate;
-//        this.updateDate = updateDate;
-//    }
 }
+

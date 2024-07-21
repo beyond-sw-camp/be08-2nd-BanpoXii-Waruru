@@ -16,7 +16,9 @@ public class SaleResponseDTO {
 
     private Long no;
 
-    private Long userNo;
+    //private Long userNo;
+
+    private String nickname;
 
     private String saleName;
 
@@ -40,13 +42,15 @@ public class SaleResponseDTO {
 
     private Integer reviewCount;
 
-    private LocalDateTime registerDate;
+    private LocalDateTime createdDate;
 
-    private LocalDateTime updateDate;
+    private LocalDateTime updatedDate;
+
 
     public SaleResponseDTO(Sale sale) {
         this.no = sale.getNo();
-        this.userNo = sale.getUserNo().getId();
+        //this.userNo = sale.getUserNo().getId();
+        this.nickname = sale.getUserNo().getNickname();
         this.saleName = sale.getSaleName();
         this.saleLocation = sale.getSaleLocation();
         this.area = sale.getArea();
@@ -57,8 +61,9 @@ public class SaleResponseDTO {
         this.description = sale.getDescription();
         this.saleStatus = sale.getSaleStatus();
         this.reviewCount = sale.getReviewCount();
-        this.registerDate = sale.getRegisterDate();
-        this.updateDate = sale.getUpdateDate();
+        this.createdDate = sale.getCreatedDate();
+        this.updatedDate = sale.getUpdatedDate();
     }
 
 }
+

@@ -9,9 +9,11 @@ import waruru.backend.sale.domain.Sale;
 import waruru.backend.sale.domain.SaleRepository;
 import waruru.backend.sale.dto.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static waruru.backend.common.exception.ErrorCode.NOT_FOUND_SALE;
+import static waruru.backend.common.exception.ErrorCode.NOT_FOUND_USER;
 
 @Service
 @Transactional
@@ -24,10 +26,9 @@ public class SaleService {
         this.memberRepository = memberRepository;
     }
     public SaleResponseDTO registerSale(SaleRegisterRequestDTO registerRequestDTO) {
-        //PK 추가
         Sale sale = new Sale();
-        Member member = memberRepository.findById(registerRequestDTO.getUserNo())
-                .orElseThrow(() -> new EntityNotFoundException("회원 ID 조회 불가 : " + registerRequestDTO.getUserNo()));
+        Member member = memberRepository.findById(registerRequestDTO.getUserNo()).orElseThrow(()
+                -> new EntityNotFoundException(NOT_FOUND_USER.getMessage() + " no = " + registerRequestDTO.getUserNo()));
 
         sale.setUserNo(member);
         sale.setSaleName(registerRequestDTO.getSaleName());
@@ -39,9 +40,6 @@ public class SaleService {
         sale.setRentPrice(registerRequestDTO.getRentPrice());
         sale.setDescription(registerRequestDTO.getDescription());
         sale.setSaleStatus(registerRequestDTO.getSaleStatus());
-        sale.setRegisterDate(registerRequestDTO.getRegisterDate() != null ? registerRequestDTO.getRegisterDate() : LocalDateTime.now());
-        sale.setUpdateDate(registerRequestDTO.getUpdateDate() != null ? registerRequestDTO.getUpdateDate() : LocalDateTime.now());
-
         Sale savedSale = saleRepository.save(sale);
         return new SaleResponseDTO(savedSale);
     }
@@ -49,13 +47,13 @@ public class SaleService {
     public SaleResponseDTO findById(Long no) {
         //상세 정보 확인
         Sale sale = saleRepository.findById(no).orElseThrow(()
-                -> new IllegalArgumentException("해당 매물이 존재하지 않습니다. no = " + no));
+                -> new IllegalArgumentException(NOT_FOUND_SALE.getMessage() + " no = " + no));
         return new SaleResponseDTO(sale);
     }
 
     public void deleteSale(Long no) {
         Sale sale = saleRepository.findById(no).orElseThrow(()
-                -> new IllegalArgumentException("해당 매물이 존재하지 않습니다. no = " + no));
+                -> new IllegalArgumentException(NOT_FOUND_SALE.getMessage() + " no = " + no));
         saleRepository.delete(sale);
     }
 
@@ -63,8 +61,8 @@ public class SaleService {
         List<Sale> sales = saleRepository.findAll();
         List<SaleListResponseDTO> responseDTO = sales.stream()
                 .map(sale -> new SaleListResponseDTO(
-                        //sale.getUserNo().getNickname(),
-                        sale.getUserNo().getId(),
+                        sale.getUserNo().getNickname(),
+                        //sale.getUserNo().getId(),
                         sale.getSaleName(),
                         sale.getSaleLocation(),
                         sale.getArea(),
@@ -72,7 +70,8 @@ public class SaleService {
                         sale.getSalePrice(),
                         sale.getDepositPrice(),
                         sale.getRentPrice(),
-                        sale.getRegisterDate()
+                        //sale.getRegisterDate()
+                        sale.getCreatedDate()
                 ))
                 .collect(Collectors.toList());
         return responseDTO;
@@ -80,28 +79,10 @@ public class SaleService {
 
     public void updateSale(Long no, SaleUpdateRequestDTO updateRequestDTO) {
         Sale sale = saleRepository.findById(no).orElseThrow(()
-                -> new IllegalArgumentException("해당 매물이 존재하지 않습니다. no = " + no));
+                -> new IllegalArgumentException(NOT_FOUND_SALE.getMessage() + " no = " + no));
         mapToUpdate(sale, updateRequestDTO);
         saleRepository.save(sale);
     }
-
-//    private Sale mapToEntity(SaleRegisterRequestDTO dto) {
-//        Sale sale = Sale.builder()
-//                .saleName(dto.getSaleName())
-//                .saleLocation(dto.getSaleLocation())
-//                .area(dto.getArea())
-//                .category(dto.getCategory())
-//                .salePrice(dto.getSalePrice())
-//                .depositPrice(dto.getDepositPrice())
-//                .rentPrice(dto.getRentPrice())
-//                .description(dto.getDescription())
-//                .saleStatus(dto.getSaleStatus())
-//                .registerDate(dto.getRegisterDate())
-//                .updateDate(dto.getUpdateDate())
-//                .build();
-//
-//        return sale;
-//    }
 
     private void mapToUpdate(Sale sale, SaleUpdateRequestDTO updateDTO) {
         sale.setSaleName(updateDTO.getSaleName() != null ? updateDTO.getSaleName() : sale.getSaleName());
