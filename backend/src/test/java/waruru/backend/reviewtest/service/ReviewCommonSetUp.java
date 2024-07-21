@@ -1,0 +1,59 @@
+package waruru.backend.reviewtest.service;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import waruru.backend.member.domain.Member;
+import waruru.backend.member.domain.MemberRepository;
+import waruru.backend.review.domain.Review;
+import waruru.backend.review.domain.ReviewRepository;
+import waruru.backend.review.service.ReviewService;
+import waruru.backend.sale.domain.Sale;
+import waruru.backend.sale.domain.SaleRepository;
+
+import java.time.LocalDateTime;
+
+@ExtendWith(MockitoExtension.class)
+public abstract class ReviewCommonSetUp {
+    //공통적으로 사용하는 매물 후기 객체 정의해놓은 클래스
+    @Mock
+    protected ReviewRepository reviewRepository;
+
+    @Mock
+    protected MemberRepository memberRepository;
+
+    @Mock
+    protected SaleRepository saleRepository;
+
+    @InjectMocks
+    protected ReviewService reviewService;
+
+    protected Review review;
+    protected Review review2;
+
+    @BeforeEach
+    public void setUp() {
+        review = createReview(1L, "1번 후기 Title Test", "1번 후기 Content Test", 1L, 1L, LocalDateTime.now(),null);
+        review2 = createReview(2L, "2번 후기 Title Test", "2번 후기 Content Test", 2L, 2L, LocalDateTime.now(),null);
+    }
+
+    private Review createReview(Long reviewNo, String title, String content, Long userId, Long saleNo,LocalDateTime registerDate, LocalDateTime updateDate) {
+        Member member = new Member();
+        member.setId(userId);
+
+        Sale sale = new Sale();
+        sale.setNo(saleNo);
+
+        Review review = new Review();
+        review.setReviewNo(reviewNo);
+        review.setTitle(title);
+        review.setContent(content);
+        review.setUserNo(member);
+        review.setSaleNo(sale);
+        review.setRegisterDate(registerDate);
+        review.setUpdateDate(updateDate);
+
+        return review;
+    }
+}
