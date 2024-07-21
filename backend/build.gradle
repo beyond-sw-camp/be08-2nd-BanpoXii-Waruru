@@ -32,9 +32,6 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
-    // Batch
-    implementation 'org.springframework.boot:spring-boot-starter-batch'
-    implementation'org.springframework.boot:spring-boot-starter-quartz'
 
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
