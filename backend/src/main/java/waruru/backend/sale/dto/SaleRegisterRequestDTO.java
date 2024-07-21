@@ -1,16 +1,8 @@
 package waruru.backend.sale.dto;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import waruru.backend.sale.domain.Category;
 import waruru.backend.sale.domain.SaleStatus;
-import waruru.backend.member.domain.Member;
-
-import java.time.LocalDateTime;
 
 
 @RequiredArgsConstructor
@@ -39,7 +31,5 @@ public class SaleRegisterRequestDTO {
 
     private SaleStatus saleStatus;
 
-    private LocalDateTime registerDate;
-
-    private LocalDateTime updateDate;
 }
+

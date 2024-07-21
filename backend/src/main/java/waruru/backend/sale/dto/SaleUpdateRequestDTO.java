@@ -9,7 +9,6 @@ import waruru.backend.sale.domain.SaleStatus;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Getter
-@Builder
 public class SaleUpdateRequestDTO {
     private String saleName;
 
