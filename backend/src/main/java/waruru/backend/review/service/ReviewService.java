@@ -93,10 +93,13 @@ public class ReviewService {
 
     // 매물 후기 삭제
     @Transactional
-    public void deleteReview(ReviewDeleteRequestDTO deleteReviewRequestDTO) {
-        Review review = reviewRepository.findById(deleteReviewRequestDTO.getReviewNo())
-                .orElseThrow(() -> new EntityNotFoundException("매물 후기 삭제 불가: " + deleteReviewRequestDTO.getReviewNo()));
+    public void deleteReview(Long reviewNo, ReviewDeleteRequestDTO deleteReviewRequestDTO) {
+        Review review = reviewRepository.findById(reviewNo)
+                .orElseThrow(() -> new EntityNotFoundException("매물 후기 삭제 불가: " + reviewNo));
 
+        if (!review.getUserNo().getId().equals(deleteReviewRequestDTO.getUserNo())) {
+            throw new SecurityException("후기를 삭제할 권한이 없습니다.");
+        }
         reviewRepository.delete(review);
     }
 
