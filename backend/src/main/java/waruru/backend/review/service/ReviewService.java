@@ -36,14 +36,18 @@ public class ReviewService {
 
     @Transactional
     public ReviewResponseDTO createReview(ReviewRequestDTO rrq){
-        Review review = new Review();
 
-        //  예외처리 해주기
+        boolean reviewExists = reviewRepository.existsByUserNo_IdAndSaleNo_No(rrq.getUserNo(), rrq.getSaleNo());
+        if (reviewExists) {
+            throw new IllegalStateException("해당 매물에 관해 작성한 후기가 존재합니다.");
+        }
+
         Member member = memberRepository.findById(rrq.getUserNo())
                 .orElseThrow(() -> new EntityNotFoundException("회원 ID 조회 불가: " + rrq.getUserNo()));
         Sale sale = saleRepository.findById(rrq.getSaleNo())
                 .orElseThrow(() -> new EntityNotFoundException("매물 번호 조회 불가: " + rrq.getSaleNo()));
 
+        Review review = new Review();
         review.setUserNo(member);
         review.setSaleNo(sale);
         review.setTitle(rrq.getTitle());
