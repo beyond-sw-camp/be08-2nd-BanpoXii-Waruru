@@ -14,7 +14,7 @@ import waruru.backend.sale.domain.SaleStatus;
 @Getter
 @Setter
 public class BusinessListResponseDTO {
-    // Business Table Field
+
     @NotBlank
     private Long businessNo;
 
@@ -24,14 +24,12 @@ public class BusinessListResponseDTO {
     @Enumerated(EnumType.STRING)
     private BusinessStatus status;
 
-    // User Table Field
     @NotBlank
     private Long userNo;
 
     @NotBlank
     private String name;
 
-    // Sale Table Field
     @NotBlank
     private Long saleNo;
 
