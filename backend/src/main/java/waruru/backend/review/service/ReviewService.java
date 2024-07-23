@@ -88,8 +88,6 @@ public class ReviewService {
 
         Review updatedReview = reviewRepository.save(review);
 
-        //feat: 나중에 리뷰작성한 유저인지 확인 후 수정하게끔 로직 구현하기
-
         return new ReviewResponseDTO(updatedReview);
     }
 
