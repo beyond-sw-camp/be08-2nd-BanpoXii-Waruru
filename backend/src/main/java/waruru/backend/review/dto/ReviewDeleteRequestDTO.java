@@ -9,7 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReviewDeleteRequestDTO {
 
-    private Long reviewNo;
-
-//    private ReviewStatus reviewStatus;
+    private Long userNo;
 }

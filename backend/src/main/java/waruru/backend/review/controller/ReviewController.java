@@ -48,7 +48,7 @@ public class ReviewController {
 
     @DeleteMapping("/delete/{reviewNo}")
     @Operation(summary = "매물 후기 삭제하기", description = "[설명] /api/reviews/delete/{} 매물 후기 삭제하기")
-    public void deleteReview(@RequestBody ReviewDeleteRequestDTO reviewDeleteRequestDTO) {
-        reviewService.deleteReview(reviewDeleteRequestDTO);
+    public void deleteReview(@PathVariable Long reviewNo,@RequestBody ReviewDeleteRequestDTO reviewDeleteRequestDTO) {
+        reviewService.deleteReview(reviewNo, reviewDeleteRequestDTO);
     }
 }
