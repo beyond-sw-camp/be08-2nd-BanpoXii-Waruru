@@ -79,6 +79,9 @@ public class ReviewService {
         Review review = reviewRepository.findById(reviewNo)
                 .orElseThrow(() -> new EntityNotFoundException("매물 후기 수정 불가: " + reviewNo));
 
+        if (!review.getUserNo().getId().equals(reviewUpdateRequestDTO.getUserNo())) {
+            throw new SecurityException("후기를 수정할 권한이 없습니다.");
+        }
         review.setTitle(reviewUpdateRequestDTO.getTitle());
         review.setContent(reviewUpdateRequestDTO.getContent());
         review.setUpdateDate(reviewUpdateRequestDTO.getUpdateDate());
