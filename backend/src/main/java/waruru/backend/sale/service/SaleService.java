@@ -48,6 +48,7 @@ public class SaleService {
         //상세 정보 확인
         Sale sale = saleRepository.findById(no).orElseThrow(()
                 -> new IllegalArgumentException(NOT_FOUND_SALE.getMessage() + " no = " + no));
+        sale.setReviewCount(saleRepository.getReviewCount(sale.getNo()));
         return new SaleResponseDTO(sale);
     }
 
@@ -71,6 +72,7 @@ public class SaleService {
                         sale.getDepositPrice(),
                         sale.getRentPrice(),
                         //sale.getRegisterDate()
+                        saleRepository.getReviewCount(sale.getNo()),
                         sale.getCreatedDate()
                 ))
                 .collect(Collectors.toList());

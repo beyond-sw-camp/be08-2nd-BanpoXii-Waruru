@@ -16,4 +16,6 @@ public class ReviewUpdateRequestDTO {
 
     private LocalDateTime updateDate;
 
+    private Long userNo;
+
 }

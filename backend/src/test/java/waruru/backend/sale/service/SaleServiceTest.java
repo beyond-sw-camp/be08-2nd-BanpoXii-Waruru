@@ -21,7 +21,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -106,6 +105,40 @@ class SaleServiceTest {
         verify(memberRepository, times(1)).findById(requestDTO.getUserNo());
         verify(saleRepository, times(0)).save(any(Sale.class));
     }
+
+//    @Test
+//    void registerSale_InvalidFieldType() {
+//        // Given
+//        SaleRegisterRequestDTO requestDTO = new SaleRegisterRequestDTO(
+//                1L, "ValidName", "ValidLocation",
+//                Integer.parseInt("invalid"), // area (invalid int)
+//                Category.SALE, 1000, 1000, 1000, "Description", SaleStatus.Y
+//        );
+//
+//        Member member = new Member();
+//        member.setId(1L);
+//        member.setNickname("henhen");
+//
+//        Sale sale = Sale.builder()
+//                .userNo(member)
+//                .saleName(requestDTO.getSaleName())
+//                .saleLocation(requestDTO.getSaleLocation())
+//                .area(requestDTO.getArea())
+//                .category(requestDTO.getCategory())
+//                .salePrice(requestDTO.getSalePrice())
+//                .depositPrice(requestDTO.getDepositPrice())
+//                .rentPrice(requestDTO.getRentPrice())
+//                .description(requestDTO.getDescription())
+//                .saleStatus(requestDTO.getSaleStatus())
+//                .build();
+//
+//        // When
+//        when(memberRepository.findById(requestDTO.getUserNo())).thenReturn(Optional.of(member));
+//        when(saleRepository.save(any(Sale.class))).thenReturn(sale);
+//
+//        // Then
+//        assertThrows(NumberFormatException.class, () -> saleService.registerSale(requestDTO));\
+//    }
 
     @Test
     void findById_Success() {
@@ -209,6 +242,22 @@ class SaleServiceTest {
         assertEquals(30, existedSale.getRentPrice());
         assertEquals("Update Description", existedSale.getDescription());
         assertEquals(SaleStatus.Y, existedSale.getSaleStatus());
+
+    }
+
+    @Test
+    void updateSale_SaleNotFound() {
+        // Given
+        SaleUpdateRequestDTO updateRequestDTO = new SaleUpdateRequestDTO(
+                "Update Sale", "Korea", null, Category.MONTHLY, null, 5000, 30, "Update Description", SaleStatus.Y);
+
+        // When
+        when(saleRepository.findById(2L)).thenReturn(Optional.empty());
+        assertThrows(IllegalArgumentException.class, () -> saleService.updateSale(2L, updateRequestDTO));
+
+        // Then
+        verify(saleRepository).findById(2L);
+        verify(saleRepository, never()).save(any(Sale.class));
     }
 
     private Member createTestMember() {

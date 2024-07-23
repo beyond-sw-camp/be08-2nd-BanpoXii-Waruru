@@ -32,6 +32,8 @@ public class SaleListResponseDTO {
 
     private Integer rentPrice;
 
+    private Integer reviewCount;
+
     private LocalDateTime createdDate;
 
 }
