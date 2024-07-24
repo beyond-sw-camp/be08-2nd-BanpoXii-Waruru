@@ -1,8 +1,6 @@
 package waruru.backend.business.controller;
 
-
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -37,28 +35,28 @@ public class BusinessController {
     }
 
     @Operation(summary = "거래 내역 등록 API")
-    @PostMapping("business/register/{business_no}")
-    public ResponseEntity<Void> register(@PathVariable long business_no, @RequestBody BusinessRegisterRequestDTO businessRegisterRequestDTO) {
-        businessService.registerBusiness(business_no, businessRegisterRequestDTO);
+    @PostMapping("/register")
+    public ResponseEntity<Void> register(@RequestBody BusinessRegisterRequestDTO businessRegisterRequestDTO) {
+        businessService.registerBusiness(businessRegisterRequestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @Operation(summary = "거래 내역 수정 API")
-    @PutMapping("/business/update/{business_no}")
-    public ResponseEntity<Void> update(@PathVariable long business_no, @RequestBody BusinessUpdateRequestDTO businessUpdateRequestDTO) {
-        businessService.updateBusiness(business_no, businessUpdateRequestDTO);
+    @PutMapping("/update/{business_no}")
+    public ResponseEntity<Void> update(@RequestBody BusinessUpdateRequestDTO businessUpdateRequestDTO) {
+        businessService.updateBusiness(businessUpdateRequestDTO);
         return ResponseEntity.noContent().build();
     }
 
     @Operation(summary = "거래 내역 취소 API")
-    @PutMapping("/business/cancel/{business_no}")
+    @PutMapping("/cancel/{business_no}")
     public ResponseEntity<Void> cancel(@PathVariable long business_no, @RequestBody BusinessCancelRequestDTO businessCancelRequestDTO) {
         businessService.cancelBusiness(business_no, businessCancelRequestDTO);
         return ResponseEntity.noContent().build();
     }
 
     @Operation(summary = "거래 내역 삭제 API")
-    @DeleteMapping("/business/delete/{business_no}")
+    @DeleteMapping("/delete/{business_no}")
     public ResponseEntity<Void> delete(@PathVariable long business_no) {
         businessService.deleteBusiness(business_no);
         return ResponseEntity.noContent().build();
