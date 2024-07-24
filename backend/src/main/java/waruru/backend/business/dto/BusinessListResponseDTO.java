@@ -10,6 +10,7 @@ import waruru.backend.business.domain.BusinessStatus;
 import waruru.backend.sale.domain.Category;
 import waruru.backend.sale.domain.SaleStatus;
 
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -59,7 +60,11 @@ public class BusinessListResponseDTO {
     @Enumerated(EnumType.STRING)
     private SaleStatus saleStatus;
 
-    public BusinessListResponseDTO(Long businessNo, int totalPrice, BusinessStatus status, Long userNo, String name, Long saleNo, String saleName, String saleLocation, int area, Category category, int salePrice, int depositPrice, int rentPrice, String description, SaleStatus saleStatus) {
+    private LocalDateTime createdDate;
+
+    private LocalDateTime updatedDate;
+
+    public BusinessListResponseDTO(Long businessNo, int totalPrice, BusinessStatus status, Long userNo, String name, Long saleNo, String saleName, String saleLocation, int area, Category category, int salePrice, int depositPrice, int rentPrice, String description, SaleStatus saleStatus, LocalDateTime createdDate, LocalDateTime updatedDate) {
         this.businessNo = businessNo;
         this.totalPrice = totalPrice;
         this.status = status;
@@ -75,5 +80,7 @@ public class BusinessListResponseDTO {
         this.rentPrice = rentPrice;
         this.description = description;
         this.saleStatus = saleStatus;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
     }
 }

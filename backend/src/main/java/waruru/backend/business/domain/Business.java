@@ -3,11 +3,13 @@ package waruru.backend.business.domain;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+import waruru.backend.business.dto.BusinessUpdateRequestDTO;
 import waruru.backend.common.domain.BaseTimeEntity;
 import waruru.backend.member.domain.Member;
 import waruru.backend.sale.domain.Sale;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 import static jakarta.persistence.FetchType.LAZY;
 
@@ -16,6 +18,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @Getter
 @Setter
 @Table(name = "business")
+@Data
 public class Business extends BaseTimeEntity {
 
     @Id
@@ -55,6 +58,12 @@ public class Business extends BaseTimeEntity {
         this.status = status;
         this.createdDate = createdDate;
         this.updatedDate = updateDate;
+    }
+
+    public void update(BusinessUpdateRequestDTO businessUpdateRequestDTO) {
+        Optional.of(businessUpdateRequestDTO.getTotalPrice()).ifPresent(totalPrice -> this.totalPrice = totalPrice);
+        Optional.ofNullable(businessUpdateRequestDTO.getStatus()).ifPresent(status -> this.status = status);
+        Optional.ofNullable(businessUpdateRequestDTO.getUpdatedDate()).ifPresent(updatedDate -> this.updatedDate = updatedDate);
     }
 
 }

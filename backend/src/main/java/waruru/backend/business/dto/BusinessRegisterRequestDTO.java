@@ -9,7 +9,6 @@ import waruru.backend.business.domain.BusinessStatus;
 
 import java.time.LocalDateTime;
 
-
 @Getter
 @Setter
 @Builder

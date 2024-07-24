@@ -1,5 +1,6 @@
 package waruru.backend.business.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
+@Slf4j
 public class BusinessService {
 
     private final BusinessRepository businessRepository;
@@ -92,7 +94,9 @@ public class BusinessService {
                         business.getSaleNo().getDepositPrice(),
                         business.getSaleNo().getRentPrice(),
                         business.getSaleNo().getDescription(),
-                        business.getSaleNo().getSaleStatus()
+                        business.getSaleNo().getSaleStatus(),
+                        business.getSaleNo().getRegisterDate(),
+                        business.getSaleNo().getUpdateDate()
                 ))
                 .collect(Collectors.toList());
         return responseDTO;
@@ -118,19 +122,16 @@ public class BusinessService {
         business = businessRepository.save(business);
 
         return BusinessResponseDTO.of(business);
-
     }
 
     @Transactional
-    public void updateBusiness(@PathVariable Long business_no, BusinessUpdateRequestDTO businessUpdateRequestDTO) {
-        Business business = businessRepository.findById(business_no)
+    public void updateBusiness(BusinessUpdateRequestDTO businessUpdateRequestDTO) {
+        Business business = businessRepository.findById((Long) (businessUpdateRequestDTO.getBusinessNo()))
                 .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_BUSINESS));
 
-        business.setTotalPrice(businessUpdateRequestDTO.getTotalPrice());
-        business.setStatus(businessUpdateRequestDTO.getStatus());
-        business.setUpdatedDate(businessUpdateRequestDTO.getUpdatedDate());
+        business.update(businessUpdateRequestDTO);
 
-        business = businessRepository.save(business);
+        businessRepository.save(business);
     }
 
     @Transactional
@@ -143,8 +144,9 @@ public class BusinessService {
         return Optional.empty();
     }
 
-    private void cancel(Business business, BusinessCancelRequestDTO businessCancelRequestDTO) {
-        business.setStatus((businessCancelRequestDTO.getStatus()));
+    @Transactional
+    public void cancel(Business business, BusinessCancelRequestDTO businessCancelRequestDTO) {
+        business.setStatus(businessCancelRequestDTO.getStatus());
     }
 
     @Transactional
