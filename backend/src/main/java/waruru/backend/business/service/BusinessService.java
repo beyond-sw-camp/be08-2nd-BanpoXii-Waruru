@@ -95,8 +95,8 @@ public class BusinessService {
                         business.getSaleNo().getRentPrice(),
                         business.getSaleNo().getDescription(),
                         business.getSaleNo().getSaleStatus(),
-                        business.getSaleNo().getRegisterDate(),
-                        business.getSaleNo().getUpdateDate()
+                        business.getSaleNo().getCreatedDate(),
+                        business.getSaleNo().getUpdatedDate()
                 ))
                 .collect(Collectors.toList());
         return responseDTO;
