@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import waruru.backend.business.domain.Business;
 import waruru.backend.business.domain.BusinessRepository;
 import waruru.backend.business.dto.*;
-import waruru.backend.common.exception.BusinessException;
 import waruru.backend.common.exception.ErrorCode;
+import waruru.backend.common.exception.NotFoundException;
 import waruru.backend.member.domain.Member;
 import waruru.backend.member.domain.MemberRepository;
 import waruru.backend.sale.domain.Sale;
@@ -36,13 +36,13 @@ public class BusinessService {
     @Transactional
     public BusinessResponseDTO findBusinessByBusinessNo(Long businessNo) {
         Business business = businessRepository.findById(businessNo)
-                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_BUSINESS));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_BUSINESS));
 
         Member member = memberRepository.findById(business.getUserNo().getId())
-                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_BUSINESS));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_USER));
 
         Sale sale = saleRepository.findById(business.getSaleNo().getNo())
-                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_BUSINESS));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_SALE));
 
         BusinessResponseDTO responseDTO = BusinessResponseDTO.builder()
                 .businessNo(business.getBusinessNo())
@@ -71,12 +71,12 @@ public class BusinessService {
     public List<BusinessListResponseDTO> findAllList(Long userNo) {
 
         Member member = memberRepository.findById(userNo)
-                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_USER));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_USER));
 
         List<Business> businessLists = businessRepository.findByUserNo_Id(userNo);
 
         if (businessLists.isEmpty()) {
-            throw new BusinessException(ErrorCode.NOT_FOUND_BUSINESS);
+            throw new NotFoundException(ErrorCode.NOT_FOUND_BUSINESS);
         }
         List<BusinessListResponseDTO> responseDTO = businessLists.stream()
                 .map(business -> new BusinessListResponseDTO(
@@ -108,10 +108,10 @@ public class BusinessService {
         Business business = new Business();
 
         Member member = memberRepository.findById(businessRegisterRequestDTO.getUserNo())
-                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_BUSINESS));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_USER));
 
         Sale sale = saleRepository.findById(businessRegisterRequestDTO.getSaleNo())
-                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_BUSINESS));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_SALE));
 
         business.setUserNo(member);
         business.setSaleNo(sale);
@@ -127,7 +127,7 @@ public class BusinessService {
     @Transactional
     public void updateBusiness(BusinessUpdateRequestDTO businessUpdateRequestDTO) {
         Business business = businessRepository.findById((Long) (businessUpdateRequestDTO.getBusinessNo()))
-                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_BUSINESS));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_BUSINESS));
 
         business.update(businessUpdateRequestDTO);
 
@@ -137,7 +137,7 @@ public class BusinessService {
     @Transactional
     public Optional<Void> cancelBusiness(@PathVariable Long businessNo, BusinessCancelRequestDTO businessCancelRequestDTO) {
         Business business = businessRepository.findById(businessNo)
-                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_BUSINESS));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_BUSINESS));
 
         cancel(business, businessCancelRequestDTO);
 
@@ -152,7 +152,7 @@ public class BusinessService {
     @Transactional
     public void deleteBusiness(@PathVariable long businessNo) {
         Business business = businessRepository.findById(businessNo)
-                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND_BUSINESS));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_BUSINESS));
 
         businessRepository.delete(business);
     }
