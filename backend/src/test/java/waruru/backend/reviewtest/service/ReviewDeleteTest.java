@@ -21,7 +21,7 @@ public class ReviewDeleteTest extends ReviewCommonSetUp{
         when(reviewRepository.findById(reviewNo)).thenReturn(Optional.of(review2));
 
         // when
-        reviewService.deleteReview(deleteRequestDTO);
+        reviewService.deleteReview(reviewNo, deleteRequestDTO);
 
         // then, 리뷰 삭제 검증(메소드 호출 횟수)
         verify(reviewRepository, times(1)).delete(review2);
@@ -40,7 +40,7 @@ public class ReviewDeleteTest extends ReviewCommonSetUp{
 
         // then, 테스트 실패 -> 예외 발생으로 검증
         EntityNotFoundException thrown = assertThrows(EntityNotFoundException.class, () -> {
-            reviewService.deleteReview(deleteRequestDTO);
+            reviewService.deleteReview(reviewNo, deleteRequestDTO);
         });
 
         System.out.println(thrown.getMessage());
