@@ -2,10 +2,7 @@ package waruru.backend.detail.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import waruru.backend.common.domain.BaseTimeEntity;
 import waruru.backend.detail.dto.DetailUpdateRequestDTO;
 import waruru.backend.member.domain.Member;
@@ -16,9 +13,10 @@ import java.util.Optional;
 import static jakarta.persistence.FetchType.LAZY;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Getter
-@Setter
+@Builder
 public class Detail extends BaseTimeEntity {
 
     @Id
@@ -50,17 +48,6 @@ public class Detail extends BaseTimeEntity {
 
     @Column(nullable = false)
     private String detailDate;
-
-    @Builder
-    public Detail(Sale saleNo, Member userNo, String title, String category, String description, int price, String detailDate) {
-        this.saleNo = saleNo;
-        this.userNo = userNo;
-        this.title = title;
-        this.category = category;
-        this.description = description;
-        this.price = price;
-        this.detailDate = detailDate;
-    }
 
     public void update(DetailUpdateRequestDTO detailUpdateRequestDTO) {
         Optional.ofNullable(detailUpdateRequestDTO.getTitle()).ifPresent(title -> this.title = title);
