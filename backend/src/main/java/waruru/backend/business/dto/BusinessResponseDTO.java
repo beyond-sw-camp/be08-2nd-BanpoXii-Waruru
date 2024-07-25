@@ -5,6 +5,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,35 +31,32 @@ public class BusinessResponseDTO {
     @Enumerated(EnumType.STRING)
     private BusinessStatus status;
 
-    @NotBlank
+    @NotNull
     private Long userNo;
 
-    @NotBlank
+    @NotNull
     private String name;
 
-    @NotBlank
+    @NotNull
     private Long saleNo;
 
-    @NotBlank
+    @NotNull
     private String saleName;
 
-    @NotBlank
+    @NotNull
     private String saleLocation;
 
-    @NotBlank
-    private int area;
+    @Min(0)
+    private Integer area;
 
     @Enumerated(EnumType.STRING)
     private Category category;
 
-    @NotBlank
-    private int salePrice;
+    private Integer salePrice;
 
-    @NotBlank
-    private int depositPrice;
+    private Integer depositPrice;
 
-    @NotBlank
-    private int rentPrice;
+    private Integer rentPrice;
 
     private String description;
 
