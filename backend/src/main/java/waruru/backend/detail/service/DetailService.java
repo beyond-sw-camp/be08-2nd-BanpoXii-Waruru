@@ -21,7 +21,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-
 @Service
 @RequiredArgsConstructor(access = AccessLevel.PUBLIC)
 public class DetailService {
