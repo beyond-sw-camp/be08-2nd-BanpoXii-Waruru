@@ -77,13 +77,14 @@ public abstract class DetailCommonSetUp {
         sale.setNo(saleNo);
 
         Detail detail = Detail.builder()
+                .id(id)
                 .userNo(member)
                 .saleNo(sale)
-                .title("test")
-                .category("test")
-                .description("test")
-                .price(100)
-                .detailDate("2024-07-21")
+                .title(title)
+                .category(category)
+                .description(description)
+                .price(price)
+                .detailDate(detailDate)
                 .build();
 
         return detail;
