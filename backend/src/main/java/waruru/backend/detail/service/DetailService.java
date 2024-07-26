@@ -75,6 +75,8 @@ public class DetailService {
 
         detail.update(detailUpdateRequestDTO);
 
+        detailRepository.save(detail);
+
         return Optional.empty();
     }
 
