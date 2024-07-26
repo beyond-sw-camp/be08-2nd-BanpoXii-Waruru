@@ -5,7 +5,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import waruru.backend.common.exception.NotFoundException;
 import waruru.backend.detail.dto.DetailDeleteRequestDTO;
-import waruru.backend.detail.dto.DetailUpdateRequestDTO;
 
 import java.util.Optional;
 
