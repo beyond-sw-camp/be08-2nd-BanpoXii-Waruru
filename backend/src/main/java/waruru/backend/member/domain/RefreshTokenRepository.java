@@ -1,10 +1,13 @@
 package waruru.backend.member.domain;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface RefreshTokenRepository extends JpaRepository<RefreshToken, Long> {
+import org.springframework.data.repository.CrudRepository;
 
-    RefreshToken findByUsername(String username);
+import java.util.Optional;
+
+public interface RefreshTokenRepository extends CrudRepository<RefreshToken, String> {
+
+    Optional<RefreshToken> findByAccessToken(String accessToken);
+
+    void delete(Optional<RefreshToken> refreshToken);
 }

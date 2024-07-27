@@ -19,6 +19,7 @@ import java.util.Optional;
 @AllArgsConstructor
 @Builder
 @Table(name = "USERS")
+@Data
 public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

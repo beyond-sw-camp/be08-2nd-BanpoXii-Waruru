@@ -1,6 +1,10 @@
 package waruru.backend.member.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.ResponseCookie;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +28,14 @@ public class MemberService {
     private final RefreshTokenRepository refreshTokenRepository;
 
     private final JwtTokenProvider jwtTokenProvider;
+
+    private final RedisTemplate<String, String> redisTemplate;
+
+    @Value("${jwt.access.header}")
+    private String accessHeader;
+
+    @Value("${jwt.refresh.header}")
+    private String refreshHeader;
 
     @Transactional
     public Optional<Member> registerMember(MemberRegisterRequestDTO memberRegisterRequestDTO){
@@ -56,21 +68,44 @@ public class MemberService {
     }
 
     @Transactional
-    public String createToken(MemberLoginRequestDTO memberLoginRequestDTO) {
+    public Member findMemberByEmail(String email) {
+        Member member = memberRepository.findByEmail(email).orElseThrow(() ->
+                new IllegalArgumentException("이미 가입되어 있는 이메일 입니다."));
+
+        return member;
+    }
+
+    @Transactional
+    public ResponseCookie createToken(MemberLoginRequestDTO memberLoginRequestDTO) {
         Member member = this.findMemberByEmailPassword(memberLoginRequestDTO);
-        String accessToken = jwtTokenProvider.createAccessToken(member.getEmail(), member.getRole());
-        String refreshToken = jwtTokenProvider.createRefreshToken(member.getEmail(), member.getRole());
+        String accessToken = jwtTokenProvider.createAccessToken(accessHeader ,member.getEmail(), member.getRole());
+        String refreshToken = jwtTokenProvider.createRefreshToken(refreshHeader, member.getEmail(), member.getRole());
 
         RefreshToken newRefreshToken = RefreshToken.builder()
                 .username(member.getEmail())
+                .accessToken(accessToken)
                 .refreshToken(refreshToken)
                 .expiration(new Date(new Date().getTime() + jwtTokenProvider.getRefreshTokenValidTime()).getTime())
                 .build();
 
         refreshTokenRepository.save(newRefreshToken);
 
-        return "access_token= " + accessToken + "\n" +
-                "refresh_token= " + refreshToken;
+        ResponseCookie cookie = ResponseCookie.from("access_token", accessToken)
+                .httpOnly(true)
+                .secure(true)
+                .sameSite("None")
+                .path("/")
+                .maxAge(3600)
+                .build();
+
+        RefreshToken found = refreshTokenRepository.findByAccessToken(newRefreshToken.getAccessToken()).orElseThrow(() ->
+                new IllegalArgumentException("invalid email"));
+        System.out.println(found.getUsername());
+        System.out.println(found.getRefreshToken());
+        System.out.println(found.getAccessToken());
+        System.out.println(found.getExpiration());
+
+        return cookie;
     }
 
     @Transactional

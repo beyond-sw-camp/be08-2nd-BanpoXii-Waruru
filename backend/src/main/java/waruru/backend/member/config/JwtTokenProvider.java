@@ -1,64 +1,81 @@
 package waruru.backend.member.config;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Header;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
-import waruru.backend.member.constants.SecurityConstants;
 import waruru.backend.member.domain.MemberRole;
 import waruru.backend.member.domain.RefreshTokenRepository;
 
 import javax.crypto.SecretKey;
-import java.nio.charset.StandardCharsets;
 import java.util.Date;
+import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
 @Getter
 public class JwtTokenProvider {
-    //private String secretKey = "63fba97a41e0d004e10e8dbbcb9a547819280efb00a54c732aca36a8a58258e4fcc539ffc5159a7f0a7be78b86efe001c12ba6af6debeb0a89e8ce7e82e75455";
+
+    @Value("${jwt.secret}")
+    private String secretKey;
+
+    @Value("${jwt.access.header}")
+    private String accessHeader;
 
     // 토큰 유효시간 10분
-    private final long accessTokenValidTime = 10 * 60 * 1000L;
+    @Value("${jwt.access.expiration}")
+    private long accessTokenValidTime;
+
+    @Value("${jwt.refresh.header}")
+    private String refreshHeader;
 
     // 토큰 유효시간 24시간
-    private final long refreshTokenValidTime = 24 * 60 * 60 * 1000L;
+    @Value("${jwt.refresh.expiration}")
+    private long refreshTokenValidTime;
+
 
     private final UserDetailsService userDetailsService;
 
     private final RefreshTokenRepository refreshTokenRepository;
 
-//    protected void init() {
-//        secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
-//    }
-
-    public String createToken(String userPK, MemberRole roles, long tokenValidTime) {
-        Claims claims = Jwts.claims().add("roles", roles).add("subject", userPK).build();
-        SecretKey key = Keys.hmacShaKeyFor(SecurityConstants.JWT_KEY.getBytes(StandardCharsets.UTF_8));
+    public String createToken(String sub ,String userPK, long tokenValidTime) {
+        Header header = Jwts.header()
+                .add("typ", "JWT")
+                .build();
+        Claims claims = Jwts.claims()
+                .add("sub", sub)
+                .add("user_id", userPK)
+                .build();
+        SecretKey key = Keys.hmacShaKeyFor(secretKey.getBytes());
         Date now = new Date();
 
         return Jwts.builder()
                 .claims(claims)
                 .issuedAt(now)
-                .expiration(new Date(now.getTime() + tokenValidTime))
+                .expiration(new Date(now.getTime() + tokenValidTime * 1000L))
+                .issuer("waruru")
                 .signWith(key)
+                .header().add(header).and()
                 .compact();
     }
 
-    public String createAccessToken(String userPK, MemberRole roles) {
-        return this.createToken(userPK, roles, accessTokenValidTime);
+    public String createAccessToken(String sub, String userPK, MemberRole roles) {
+        return this.createToken(accessHeader, userPK, accessTokenValidTime);
     }
 
-    public String createRefreshToken(String userPK, MemberRole roles) {
-        return this.createToken(userPK, roles, refreshTokenValidTime);
+    public String createRefreshToken(String sub, String userPK, MemberRole roles) {
+        return this.createToken(refreshHeader, userPK, refreshTokenValidTime);
     }
 
     public Authentication getAuthentication(String token) {
@@ -67,24 +84,32 @@ public class JwtTokenProvider {
     }
 
     public String getUserPK(String token) {
-        return Jwts.parser().setSigningKey(SecurityConstants.JWT_KEY).build().parseSignedClaims(token).getPayload().getSubject();
+        return Jwts.parser().setSigningKey(secretKey.getBytes()).build().parseSignedClaims(token).getPayload().get("user_id").toString();
     }
 
     public String getUserRole(String token) {
-        return Jwts.parser().setSigningKey(SecurityConstants.JWT_KEY).build().parseSignedClaims(token).getPayload().get("roles").toString();
+        return Jwts.parser().setSigningKey(secretKey.getBytes()).build().parseSignedClaims(token).getPayload().get("roles").toString();
     }
 
-    public String resolveAccessToken(HttpServletRequest request) {
-        return request.getHeader(SecurityConstants.JWT_HEADER);
+    public Optional<Cookie> resolveAccessToken(HttpServletRequest request) {
+        Cookie[] cookies = request.getCookies();
+        if(cookies != null) {
+            for(Cookie cookie : cookies) {
+                if(cookie.getName().equals("access_token")) {
+                    return Optional.of(cookie);
+                }
+            }
+        }
+        return Optional.empty();
     }
 
-//    public String resolveRefreshToken(HttpServletRequest request) {
-//        return request.getHeader("refreshToken");
-//    }
-//
+    public String reIssueAccessToken(String email){
+        return createToken(accessHeader, email, accessTokenValidTime);
+    }
+
     public boolean validateToken(String jwtToken) {
         try {
-            Jws<Claims> claims = Jwts.parser().setSigningKey(SecurityConstants.JWT_KEY).build().parseSignedClaims(jwtToken);
+            Jws<Claims> claims = Jwts.parser().setSigningKey(secretKey.getBytes()).build().parseSignedClaims(jwtToken);
             return !claims.getPayload().getExpiration().before(new Date());
         } catch (Exception e) {
             return false;

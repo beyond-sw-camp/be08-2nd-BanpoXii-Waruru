@@ -3,27 +3,35 @@ package waruru.backend.member.domain;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.TimeToLive;
+import org.springframework.data.redis.core.index.Indexed;
 
-@Entity
+//@Entity
 @Getter @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@RedisHash(value = "jwt_token")
 public class RefreshToken {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    private String id;
 
-    // email
     @NotNull
-    private String username;
+    @Id
+    private String accessToken;
 
     @NotNull
     private String refreshToken;
 
     @NotNull
+    private String username;
+
+    @NotNull
+    @TimeToLive
     private Long expiration;
 }
