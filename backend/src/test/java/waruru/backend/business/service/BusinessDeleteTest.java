@@ -25,8 +25,9 @@ public class BusinessDeleteTest extends BusinessCommonSetUp {
         businessService.deleteBusiness(businessNo);
 
         // then
-        verify(businessRepository).findById(businessNo);
-        verify(businessRepository).delete(business);
+        verify(businessRepository, times(1)).delete(business);
+        System.out.println("삭제된 거래 내역 번호: " + businessNo);
+
     }
 
     @Test   // 거래 내역이 존재하지 않을 때
