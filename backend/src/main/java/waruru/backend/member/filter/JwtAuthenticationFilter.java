@@ -43,10 +43,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 authentication = jwtTokenProvider.getAuthentication(accessToken);
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             } else {
-                RefreshToken refreshToken = refreshTokenRepository.findByAccessToken(accessToken).orElse(null);
+                RefreshToken refreshToken = refreshTokenRepository.findByAccessToken(accessToken).orElseThrow(() ->
+                        new RuntimeException("Refresh token not found"));
                 if(refreshToken != null) {
                     String userId = refreshToken.getUsername();
                     String newAccessToken = jwtTokenProvider.reIssueAccessToken(userId);
+                    refreshToken.setAccessToken(newAccessToken);
+                    refreshTokenRepository.save(refreshToken);
                     authentication = jwtTokenProvider.getAuthentication(newAccessToken);
 
                     Cookie cookie = new Cookie("access_token", newAccessToken);

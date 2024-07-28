@@ -29,8 +29,6 @@ public class MemberService {
 
     private final JwtTokenProvider jwtTokenProvider;
 
-    private final RedisTemplate<String, String> redisTemplate;
-
     @Value("${jwt.access.header}")
     private String accessHeader;
 
