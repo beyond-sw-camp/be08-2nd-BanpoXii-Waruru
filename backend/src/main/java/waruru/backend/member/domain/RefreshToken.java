@@ -15,21 +15,16 @@ import org.springframework.data.redis.core.index.Indexed;
 @RedisHash(value = "RefreshToken", timeToLive = 86400)
 public class RefreshToken {
 
-    @NotNull
     @Id
     private Long id;
 
-    @NotNull
     @Indexed
     private String accessToken;
 
-    @NotNull
     private String refreshToken;
 
-    @NotNull
     private String username;
 
-    @NotNull
     @TimeToLive
     private Long expiration;
 }
