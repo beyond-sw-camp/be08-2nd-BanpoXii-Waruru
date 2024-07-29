@@ -19,6 +19,7 @@ public class ReviewDeleteTest extends ReviewCommonSetUp{
 
         ReviewDeleteRequestDTO deleteRequestDTO = new ReviewDeleteRequestDTO();
 
+        deleteRequestDTO.setUserNo(2L);
         deleteRequestDTO.setReviewNo(reviewNo);
 
         when(reviewRepository.findById(reviewNo)).thenReturn(Optional.of(review2));

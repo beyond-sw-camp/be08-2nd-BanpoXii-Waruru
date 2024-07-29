@@ -26,6 +26,7 @@ public class ReviewUpdateTest extends ReviewCommonSetUp{
         // given
         ReviewUpdateRequestDTO reviewUpdateRequestDTO = new ReviewUpdateRequestDTO();
 
+        reviewUpdateRequestDTO.setUserNo(1L);
         reviewUpdateRequestDTO.setTitle("수정된 매물 후기 제목");
         reviewUpdateRequestDTO.setContent("수정된 매물 후기 내용");
         reviewUpdateRequestDTO.setUpdateDate(LocalDateTime.now());
