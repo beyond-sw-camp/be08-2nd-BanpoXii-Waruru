@@ -38,8 +38,10 @@ public abstract class DetailCommonSetUp {
 
     @BeforeEach
     public void setUp() {
+
         detail = registDetail(1L, 1L, 1L, "test", "test", "test", 100, "2024-07-21");
         detail2 = registDetail(2L, 2L, 2L, "test2", "test2", "test2", 200, "2024-07-22");
+
         member = Member.builder()
                 .id(1L)
                 .email("test@example.com")
@@ -53,8 +55,9 @@ public abstract class DetailCommonSetUp {
                 .reviews(null)
                 .sales(null)
                 .build();
+
         sale = Sale.builder()
-                .no(1L)
+                .saleNo(1L)
                 .userNo(member)
                 .saleName("test")
                 .saleLocation("test")
@@ -69,15 +72,16 @@ public abstract class DetailCommonSetUp {
                 .build();
     }
 
-    private Detail registDetail(Long id, Long userId, Long saleNo, String title, String category, String description, int price, String detailDate) {
+    private Detail registDetail(Long detailNo, Long userId, Long saleNo, String title, String category, String description, int price, String detailDate) {
+
         Member member = new Member();
         member.setId(userId);
 
         Sale sale = new Sale();
-        sale.setNo(saleNo);
+        sale.setSaleNo(saleNo);
 
         Detail detail = Detail.builder()
-                .id(id)
+                .detailNo(detailNo)
                 .userNo(member)
                 .saleNo(sale)
                 .title(title)

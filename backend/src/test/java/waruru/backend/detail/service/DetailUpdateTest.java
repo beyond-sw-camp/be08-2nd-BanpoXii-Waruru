@@ -27,7 +27,6 @@ public class DetailUpdateTest extends DetailCommonSetUp {
         );
 
         Detail existDetail = Detail.builder()
-                .id(1L)
                 .title("test")
                 .category("test")
                 .description("test")
@@ -42,6 +41,7 @@ public class DetailUpdateTest extends DetailCommonSetUp {
         detailService.updateDetail(1L, detailUpdateRequestDTO);
 
         verify(detailRepository, times(1)).save(any(Detail.class));
+
         assertEquals("updateTest", existDetail.getTitle());
         assertEquals("updateTest", existDetail.getCategory());
         assertEquals("updateTest", existDetail.getDescription());

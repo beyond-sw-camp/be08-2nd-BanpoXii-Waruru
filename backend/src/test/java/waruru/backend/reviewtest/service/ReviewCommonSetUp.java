@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 
 @ExtendWith(MockitoExtension.class)
 public abstract class ReviewCommonSetUp {
-    //공통적으로 사용하는 매물 후기 객체 정의해놓은 클래스
+
     @Mock
     protected ReviewRepository reviewRepository;
 
@@ -34,16 +34,18 @@ public abstract class ReviewCommonSetUp {
 
     @BeforeEach
     public void setUp() {
+
         review = createReview(1L, "1번 후기 Title Test", "1번 후기 Content Test", 1L, 1L, LocalDateTime.now(),null);
         review2 = createReview(2L, "2번 후기 Title Test", "2번 후기 Content Test", 2L, 2L, LocalDateTime.now(),null);
     }
 
     private Review createReview(Long reviewNo, String title, String content, Long userId, Long saleNo,LocalDateTime registerDate, LocalDateTime updateDate) {
+
         Member member = new Member();
         member.setId(userId);
 
         Sale sale = new Sale();
-        sale.setNo(saleNo);
+        sale.setSaleNo(saleNo);
 
         Review review = new Review();
         review.setReviewNo(reviewNo);

@@ -12,15 +12,17 @@ import waruru.backend.common.exception.NotFoundException;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class BusinessRegisterTest extends BusinessCommonSetUp {
     
-    @Test   // Business 등록 테스트
+    @Test
     public void testRegister() {
+
         // given
         BusinessRegisterRequestDTO businessRegisterRequestDTO = new BusinessRegisterRequestDTO();
         businessRegisterRequestDTO.setUserNo(1L);
@@ -43,8 +45,9 @@ public class BusinessRegisterTest extends BusinessCommonSetUp {
         assertEquals(business.getCreatedDate(), businessResponseDTO.getCreatedDate());
     }
 
-    @Test   // 사용자가 존재하지 않을 때
+    @Test
     public void testRegisterBusinessUserNotFound() {
+
         // given
         BusinessRegisterRequestDTO businessRegisterRequestDTO = new BusinessRegisterRequestDTO();
         businessRegisterRequestDTO.setUserNo(10L);
@@ -64,8 +67,9 @@ public class BusinessRegisterTest extends BusinessCommonSetUp {
         System.out.println(thrown.getMessage());
     }
 
-    @Test   // 매물이 존재하지 않을 때
+    @Test
     public void testRegisterBusinessSaleNotFound() {
+
         // given
         BusinessRegisterRequestDTO businessRegisterRequestDTO = new BusinessRegisterRequestDTO();
         businessRegisterRequestDTO.setUserNo(1L);

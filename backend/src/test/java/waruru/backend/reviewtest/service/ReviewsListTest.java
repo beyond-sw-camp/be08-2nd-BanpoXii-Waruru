@@ -1,4 +1,5 @@
 package waruru.backend.reviewtest.service;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -15,6 +16,7 @@ public class ReviewsListTest extends ReviewCommonSetUp{
 
     @Test
     public void testGetListReviews() {
+
         // given
         when(reviewRepository.findAll()).thenReturn(Arrays.asList(review, review2));
 
@@ -22,17 +24,14 @@ public class ReviewsListTest extends ReviewCommonSetUp{
         List<ReviewResponseDTO> reviewResponseDTOList = reviewService.getAllReviews();
 
         // then
-//        assertEquals(1, reviewResponseDTOList.size());//fail
         assertEquals(2, reviewResponseDTOList.size());
 
-        // 첫 번째 리뷰
         ReviewResponseDTO reviewResponseDTO1 = reviewResponseDTOList.get(0);
         assertEquals("1번 후기 Title Test", reviewResponseDTO1.getTitle());
         assertEquals("1번 후기 Content Test", reviewResponseDTO1.getContent());
         assertEquals(Long.valueOf(1L), reviewResponseDTO1.getUserId());
         assertEquals(Long.valueOf(1L), reviewResponseDTO1.getSaleNo());
 
-        // 두 번째 리뷰
         ReviewResponseDTO reviewResponseDTO2 = reviewResponseDTOList.get(1);
         assertEquals("2번 후기 Title Test", reviewResponseDTO2.getTitle());
         assertEquals("2번 후기 Content Test", reviewResponseDTO2.getContent());

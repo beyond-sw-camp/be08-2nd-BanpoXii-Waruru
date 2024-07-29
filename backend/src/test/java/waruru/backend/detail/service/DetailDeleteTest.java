@@ -17,7 +17,7 @@ public class DetailDeleteTest extends DetailCommonSetUp {
     public void deleteDetail_success() {
 
         // given
-        Long detailId = detail.getId();
+        Long detailId = detail.getDetailNo();
         when(detailRepository.findById(detailId)).thenReturn(Optional.of(detail));
 
         // when
