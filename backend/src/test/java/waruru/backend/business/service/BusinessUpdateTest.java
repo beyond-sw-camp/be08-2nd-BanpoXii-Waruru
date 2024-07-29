@@ -16,17 +16,18 @@ import static org.mockito.Mockito.when;
 
 public class BusinessUpdateTest extends BusinessCommonSetUp {
 
-    @Test   // Business 수정 테스트
+    @Test
     public void testBusinessUpdate() {
-        // Given
+
+        // given
         Business existBusiness = new Business();
+
         existBusiness.setBusinessNo(1L);
         existBusiness.setTotalPrice(5000);
         existBusiness.setStatus(BusinessStatus.ING);
         existBusiness.setUpdatedDate(LocalDateTime.now().minusDays(1));
 
         BusinessUpdateRequestDTO businessUpdateRequestDTO = new BusinessUpdateRequestDTO();
-        businessUpdateRequestDTO.setBusinessNo(1L);
         businessUpdateRequestDTO.setTotalPrice(9000);
         businessUpdateRequestDTO.setStatus(BusinessStatus.DONE);
         businessUpdateRequestDTO.setUpdatedDate(LocalDateTime.now());
@@ -41,7 +42,7 @@ public class BusinessUpdateTest extends BusinessCommonSetUp {
         });
 
         // when
-        businessService.updateBusiness(businessUpdateRequestDTO);
+        businessService.updateBusiness(1L, businessUpdateRequestDTO);
 
         // Then
         assertEquals(businessUpdateRequestDTO.getTotalPrice(), existBusiness.getTotalPrice());
@@ -49,11 +50,11 @@ public class BusinessUpdateTest extends BusinessCommonSetUp {
         assertEquals(businessUpdateRequestDTO.getUpdatedDate(), existBusiness.getUpdatedDate());
     }
 
-    @Test   // 거래 내역이 존재하지 않을 때
+    @Test
     public void testUpdateBusinessNotFound() {
+
         // given
         BusinessUpdateRequestDTO businessUpdateRequestDTO = new BusinessUpdateRequestDTO();
-        businessUpdateRequestDTO.setBusinessNo(1L);
         businessUpdateRequestDTO.setTotalPrice(9000);
         businessUpdateRequestDTO.setStatus(BusinessStatus.DONE);
         businessUpdateRequestDTO.setUpdatedDate(LocalDateTime.now());
@@ -63,10 +64,9 @@ public class BusinessUpdateTest extends BusinessCommonSetUp {
 
         // then
         NotFoundException thrown = assertThrows(NotFoundException.class, () -> {
-            businessService.updateBusiness(businessUpdateRequestDTO);
+            businessService.updateBusiness(1L, businessUpdateRequestDTO);
         });
 
         System.out.println(thrown.getMessage());
     }
-
 }

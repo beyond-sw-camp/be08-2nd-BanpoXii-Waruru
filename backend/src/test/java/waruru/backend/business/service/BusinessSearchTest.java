@@ -25,15 +25,16 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class BusinessSearchTest extends BusinessCommonSetUp {
 
-    @Test   // Business 조회 테스트
+    @Test
     public void testSearchBusiness() {
+
         // given
         Long businessNo = 1L;
 
         // when
         when(businessRepository.findById(business.getBusinessNo())).thenReturn(Optional.of(business));
         when(memberRepository.findById(business.getUserNo().getId())).thenReturn(Optional.of(business.getUserNo()));
-        when(saleRepository.findById(business.getSaleNo().getNo())).thenReturn(Optional.of(business.getSaleNo()));
+        when(saleRepository.findById(business.getSaleNo().getSaleNo())).thenReturn(Optional.of(business.getSaleNo()));
 
         BusinessResponseDTO businessResponseDTO = businessService.findBusinessByBusinessNo(businessNo);
 
@@ -48,7 +49,7 @@ public class BusinessSearchTest extends BusinessCommonSetUp {
         assertEquals(business.getUserNo().getId(), businessResponseDTO.getUserNo());
         assertEquals(business.getUserNo().getName(), businessResponseDTO.getName());
 
-        assertEquals(business.getSaleNo().getNo(), businessResponseDTO.getSaleNo());
+        assertEquals(business.getSaleNo().getSaleNo(), businessResponseDTO.getSaleNo());
         assertEquals(business.getSaleNo().getSaleName(), businessResponseDTO.getSaleName());
         assertEquals(business.getSaleNo().getSalePrice(), businessResponseDTO.getSalePrice());
         assertEquals(business.getSaleNo().getRentPrice(), businessResponseDTO.getRentPrice());
@@ -58,11 +59,11 @@ public class BusinessSearchTest extends BusinessCommonSetUp {
         assertEquals(business.getSaleNo().getArea(), businessResponseDTO.getArea());
         assertEquals(business.getSaleNo().getCategory(), businessResponseDTO.getCategory());
         assertEquals(business.getSaleNo().getDescription(), businessResponseDTO.getDescription());
-
     }
 
-    @Test   // 거래 내역이 존재하지 않을 때
+    @Test
     public void testSearchBusinessNotFound() {
+
         // given
         Long businessNo = 10L;
 
@@ -77,14 +78,15 @@ public class BusinessSearchTest extends BusinessCommonSetUp {
         System.out.println(thrown.getMessage());
     }
 
-    @Test   // 사용자의 모든 거래 내역 조회 테스트
+    @Test
     public void testSearchListBusiness() {
+
         // given
         Member member = new Member();
         member.setId(1L);
 
         Sale sale = new Sale();
-        sale.setNo(1L);
+        sale.setSaleNo(1L);
         sale.setSaleName("Test Sale");
         sale.setSaleLocation("Test Location");
         sale.setArea(10);
@@ -103,16 +105,13 @@ public class BusinessSearchTest extends BusinessCommonSetUp {
         testBusiness.setUserNo(member);
         testBusiness.setSaleNo(sale);
 
-        when(memberRepository.findById(1L)).thenReturn(Optional.of(member));
-        when(businessRepository.findByUserNo_Id(1L)).thenReturn(Arrays.asList(business, testBusiness));
+        when(businessRepository.findByUserNo_Id(1L)).thenReturn(Arrays.asList(testBusiness));
 
         // when
         List<BusinessListResponseDTO> businessListResponseDTOs = businessService.findAllList(1L);
 
         // Then
-        verify(memberRepository, times(1)).findById(1L);  // 올바른 메소드 호출 검증
-        verify(businessRepository, times(1)).findByUserNo_Id(1L);  // 올바른 메소드 호출 검증
-        assertEquals(2, businessListResponseDTOs.size());
+        verify(businessRepository, times(1)).findByUserNo_Id(1L);
+        assertEquals(1, businessListResponseDTOs.size());
     }
-
 }

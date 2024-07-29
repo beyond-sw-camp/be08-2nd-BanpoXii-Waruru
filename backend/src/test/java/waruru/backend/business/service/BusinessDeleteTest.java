@@ -12,8 +12,9 @@ import static org.mockito.Mockito.*;
 
 public class BusinessDeleteTest extends BusinessCommonSetUp {
 
-    @Test   // Business 삭제 테스트
+    @Test
     public void testDeleteBusiness() {
+
         // given
         Long businessNo = 2L;
         Business business = new Business();
@@ -27,11 +28,11 @@ public class BusinessDeleteTest extends BusinessCommonSetUp {
         // then
         verify(businessRepository, times(1)).delete(business);
         System.out.println("삭제된 거래 내역 번호: " + businessNo);
-
     }
 
-    @Test   // 거래 내역이 존재하지 않을 때
+    @Test
     public void testDeleteBusinessNotFound() {
+
         // given
 
         // when
@@ -41,7 +42,5 @@ public class BusinessDeleteTest extends BusinessCommonSetUp {
         // then
         verify(businessRepository).findById(10L);
         verify(businessRepository, never()).delete(any(Business.class));
-
     }
-
 }

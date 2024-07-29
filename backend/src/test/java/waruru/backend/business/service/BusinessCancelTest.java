@@ -16,8 +16,9 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class BusinessCancelTest extends BusinessCommonSetUp {
 
-    @Test   // Business 취소 테스트
+    @Test
     public void testCancelBusiness() {
+
         // given
         BusinessCancelRequestDTO businessCancelRequestDTO = new BusinessCancelRequestDTO();
 
@@ -29,8 +30,9 @@ public class BusinessCancelTest extends BusinessCommonSetUp {
         assertEquals(BusinessStatus.CANCEL, businessCancelRequestDTO.getStatus());
     }
 
-    @Test   // 거래 내역이 존재하지 않을 때
+    @Test
     public void testCancelBusinessNotFound() {
+
         // given
         Long businessNo = 10L;
         BusinessCancelRequestDTO businessCancelRequestDTO = new BusinessCancelRequestDTO();
@@ -45,5 +47,4 @@ public class BusinessCancelTest extends BusinessCommonSetUp {
 
         System.out.println(thrown.getMessage());
     }
-
 }
