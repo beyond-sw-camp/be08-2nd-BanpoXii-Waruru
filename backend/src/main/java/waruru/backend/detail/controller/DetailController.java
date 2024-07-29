@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import waruru.backend.detail.dto.DetailDeleteRequestDTO;
 import waruru.backend.detail.dto.DetailRegisterRequestDTO;
 import waruru.backend.detail.dto.DetailResponseDTO;
 import waruru.backend.detail.dto.DetailUpdateRequestDTO;

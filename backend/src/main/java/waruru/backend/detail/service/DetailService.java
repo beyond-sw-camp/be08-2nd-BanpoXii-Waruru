@@ -8,7 +8,6 @@ import waruru.backend.common.exception.ErrorCode;
 import waruru.backend.common.exception.NotFoundException;
 import waruru.backend.detail.domain.Detail;
 import waruru.backend.detail.domain.DetailRepository;
-import waruru.backend.detail.dto.DetailDeleteRequestDTO;
 import waruru.backend.detail.dto.DetailRegisterRequestDTO;
 import waruru.backend.detail.dto.DetailResponseDTO;
 import waruru.backend.detail.dto.DetailUpdateRequestDTO;
