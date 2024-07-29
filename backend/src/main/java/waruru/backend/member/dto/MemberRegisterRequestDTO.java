@@ -29,5 +29,4 @@ public class MemberRegisterRequestDTO {
 
     @NotNull
     private MemberStatus status;
-
 }

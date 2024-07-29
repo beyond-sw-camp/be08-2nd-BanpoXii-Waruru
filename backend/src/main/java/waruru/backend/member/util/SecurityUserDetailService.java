@@ -1,4 +1,4 @@
-package waruru.backend.member.config;
+package waruru.backend.member.util;
 
 import java.util.Optional;
 

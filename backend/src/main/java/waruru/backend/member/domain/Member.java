@@ -5,9 +5,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import waruru.backend.business.domain.Business;
 import waruru.backend.detail.domain.Detail;
+import waruru.backend.member.dto.MemberUpdateRequestDTO;
 import waruru.backend.review.domain.Review;
 import waruru.backend.sale.domain.Sale;
-import waruru.backend.member.dto.MemberUpdateRequestDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,12 +60,14 @@ public class Member {
     private List<Sale> sales = new ArrayList<>();
 
     public void update(MemberUpdateRequestDTO memberUpdateRequestDTO) {
+
         Optional.ofNullable(memberUpdateRequestDTO.getName()).ifPresent(name -> this.name = name);
         Optional.ofNullable(memberUpdateRequestDTO.getNickname()).ifPresent(nickname -> this.nickname = nickname);
         Optional.ofNullable(memberUpdateRequestDTO.getRole()).ifPresent(role -> this.role = role);
     }
 
     public void updateStatus() {
+
         this.status = MemberStatus.N;
     }
 }

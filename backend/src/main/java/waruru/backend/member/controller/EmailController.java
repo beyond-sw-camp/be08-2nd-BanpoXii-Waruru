@@ -1,5 +1,6 @@
 package waruru.backend.member.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
@@ -12,15 +13,16 @@ import waruru.backend.member.dto.MemberEmailRequestDto;
 import waruru.backend.member.dto.MemberEmailVerifyRequestDto;
 import waruru.backend.member.service.EmailService;
 
-@Tag(name = "UserEmail", description = "이메일 인증 관리")
+@Tag(name = "User")
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/user/email")
+@RequestMapping("/v1/api/user/email")
 public class EmailController {
 
     private final EmailService emailService;
 
+    @Operation(summary = "회원 가입 시 입력한 이메일로 인증 코드를 발송하는 API")
     @PostMapping("/send")
     public String mailSend(@RequestBody MemberEmailRequestDto dto) throws MessagingException {
         log.info("EmailController.mailSend()");
@@ -29,7 +31,7 @@ public class EmailController {
         return "인증코드가 발송되었습니다.";
     }
 
-    // 인증코드 인증
+    @Operation(summary = "이메일과 인증코드를 대조하여 확인하는 API")
     @PostMapping("/verify")
     public String verify(@RequestBody MemberEmailVerifyRequestDto dto) {
         log.info("EmailController.verify()");

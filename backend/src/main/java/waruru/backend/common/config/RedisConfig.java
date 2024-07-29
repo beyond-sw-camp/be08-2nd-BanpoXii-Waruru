@@ -1,4 +1,4 @@
-package waruru.backend.member.config;
+package waruru.backend.common.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +11,8 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @EnableRedisRepositories
 @Configuration
-public class RedisConfiguration {
+public class RedisConfig {
+
     @Value("${spring.data.redis.host}")
     private String redisHost;
 

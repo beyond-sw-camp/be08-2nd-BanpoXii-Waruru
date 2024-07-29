@@ -1,4 +1,4 @@
-package waruru.backend.member.config;
+package waruru.backend.member.util;
 
 import lombok.Getter;
 import org.springframework.security.core.authority.AuthorityUtils;

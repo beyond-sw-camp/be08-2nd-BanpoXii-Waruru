@@ -1,4 +1,4 @@
-package waruru.backend.member.config;
+package waruru.backend.common.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +10,7 @@ import java.util.Properties;
 
 @Configuration
 public class EmailConfig {
+
     @Value("${spring.mail.host}")
     private String host;
 
@@ -42,6 +43,7 @@ public class EmailConfig {
 
     @Bean
     public JavaMailSender javaMailSender() {
+
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost(host);
         mailSender.setPort(port);
@@ -54,6 +56,7 @@ public class EmailConfig {
     }
 
     private Properties getMailProperties() {
+
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", auth);
         properties.put("mail.smtp.starttls.enable", starttlsEnable);

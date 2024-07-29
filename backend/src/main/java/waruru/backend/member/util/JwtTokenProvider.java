@@ -1,4 +1,4 @@
-package waruru.backend.member.config;
+package waruru.backend.member.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Header;
@@ -44,20 +44,23 @@ public class JwtTokenProvider {
     @Value("${jwt.refresh.expiration}")
     private long refreshTokenValidTime;
 
-
     private final UserDetailsService userDetailsService;
 
     private final RefreshTokenRepository refreshTokenRepository;
 
     public String createToken(String sub ,String userPK, long tokenValidTime) {
+
         Header header = Jwts.header()
                 .add("typ", "JWT")
                 .build();
+
         Claims claims = Jwts.claims()
                 .add("sub", sub)
                 .add("user_id", userPK)
                 .build();
+
         SecretKey key = Keys.hmacShaKeyFor(secretKey.getBytes());
+
         Date now = new Date();
 
         return Jwts.builder()
@@ -71,28 +74,36 @@ public class JwtTokenProvider {
     }
 
     public String createAccessToken(String sub, String userPK, MemberRole roles) {
+
         return this.createToken(accessHeader, userPK, accessTokenValidTime);
     }
 
     public String createRefreshToken(String sub, String userPK, MemberRole roles) {
+
         return this.createToken(refreshHeader, userPK, refreshTokenValidTime);
     }
 
     public Authentication getAuthentication(String token) {
+
         UserDetails userDetails = userDetailsService.loadUserByUsername(this.getUserPK(token));
+
         return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
     }
 
     public String getUserPK(String token) {
+
         return Jwts.parser().setSigningKey(secretKey.getBytes()).build().parseSignedClaims(token).getPayload().get("user_id").toString();
     }
 
     public String getUserRole(String token) {
+
         return Jwts.parser().setSigningKey(secretKey.getBytes()).build().parseSignedClaims(token).getPayload().get("roles").toString();
     }
 
     public Optional<Cookie> resolveAccessToken(HttpServletRequest request) {
+
         Cookie[] cookies = request.getCookies();
+
         if(cookies != null) {
             for(Cookie cookie : cookies) {
                 if(cookie.getName().equals("access_token")) {
@@ -100,14 +111,17 @@ public class JwtTokenProvider {
                 }
             }
         }
+
         return Optional.empty();
     }
 
     public String reIssueAccessToken(String email){
+
         return createToken(accessHeader, email, accessTokenValidTime);
     }
 
     public boolean validateToken(String jwtToken) {
+
         try {
             Jws<Claims> claims = Jwts.parser().setSigningKey(secretKey.getBytes()).build().parseSignedClaims(jwtToken);
             return !claims.getPayload().getExpiration().before(new Date());
@@ -115,5 +129,4 @@ public class JwtTokenProvider {
             return false;
         }
     }
-
 }

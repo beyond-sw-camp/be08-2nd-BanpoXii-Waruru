@@ -22,5 +22,4 @@ public class MemberUpdateRequestDTO {
 
     @NotNull
     private MemberRole role;
-
 }

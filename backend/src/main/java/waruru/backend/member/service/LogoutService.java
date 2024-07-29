@@ -9,13 +9,11 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.stereotype.Service;
-import waruru.backend.member.config.JwtTokenProvider;
 import waruru.backend.member.domain.RefreshToken;
 import waruru.backend.member.domain.RefreshTokenRepository;
+import waruru.backend.member.util.JwtTokenProvider;
 
-import java.util.Objects;
 import java.util.Optional;
-
 
 @Service
 @RequiredArgsConstructor
@@ -32,6 +30,7 @@ public class LogoutService implements LogoutHandler {
 
     @Override
     public void logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
+
         Optional<Cookie> accessTokenCookie = jwtTokenProvider.resolveAccessToken(request);
         String accessToken = accessTokenCookie.get().getValue();
         RefreshToken refreshToken = refreshTokenRepository.findByAccessToken(accessToken).orElseThrow(() ->
@@ -40,5 +39,4 @@ public class LogoutService implements LogoutHandler {
 
         response.setStatus(HttpServletResponse.SC_OK);
     }
-
 }

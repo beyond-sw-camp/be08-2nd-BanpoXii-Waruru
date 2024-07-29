@@ -16,7 +16,7 @@ import waruru.backend.member.service.MemberService;
 @Tag(name = "User", description = "회원 관리")
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/user")
+@RequestMapping("/v1/api/user")
 public class MemberController {
 
     private final MemberService memberService;

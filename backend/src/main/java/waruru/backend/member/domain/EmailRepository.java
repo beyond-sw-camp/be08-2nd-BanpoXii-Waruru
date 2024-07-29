@@ -7,6 +7,7 @@ import java.util.Optional;
 
 @Repository
 public interface EmailRepository extends CrudRepository<Email, String> {
+
     Optional<Email> findByEmail(String email);
 
     void deleteByEmail(String email);

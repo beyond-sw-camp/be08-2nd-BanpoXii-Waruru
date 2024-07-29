@@ -23,8 +23,9 @@ public class EmailService {
     private static final String senderEmail = "macleod.park@gmail.com";
 
     private String createCode() {
-        int leftLimit = 48; // number '0'
-        int rightLimit = 122; // alphabet 'z'
+
+        int leftLimit = 48;
+        int rightLimit = 122;
         int targetStringLength = 6;
         Random random = new Random();
 
@@ -36,6 +37,7 @@ public class EmailService {
     }
 
     private MimeMessage createEmailForm(String email) throws MessagingException {
+
         String authCode = createCode();
 
         MimeMessage message = javaMailSender.createMimeMessage();
@@ -55,6 +57,7 @@ public class EmailService {
     }
 
     public void sendEmail(String toEmail) throws MessagingException {
+
         Email exist = emailRepository.findByEmail(toEmail).orElse(null);
         if(exist != null) {
             emailRepository.deleteByEmail(toEmail);
@@ -66,6 +69,7 @@ public class EmailService {
     }
 
     public Boolean verifyEmailCode(String email, String code) {
+
         Email found = emailRepository.findByEmail(email).orElse(null);
         log.info("code found by email: " + found);
         if (found == null) {
