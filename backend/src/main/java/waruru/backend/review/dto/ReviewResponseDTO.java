@@ -1,8 +1,6 @@
 package waruru.backend.review.dto;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import waruru.backend.review.domain.Review;
 
 import java.time.LocalDateTime;
@@ -25,6 +23,7 @@ public class ReviewResponseDTO {
     private LocalDateTime updateDate;
 
     public ReviewResponseDTO(Review review) {
+
         this.reviewNo = review.getReviewNo();
         this.userId = review.getUserNo().getId();
         this.saleNo = review.getSaleNo().getSaleNo();
@@ -33,5 +32,4 @@ public class ReviewResponseDTO {
         this.registerDate = review.getRegisterDate();
         this.updateDate = review.getUpdateDate();
     }
-
 }
