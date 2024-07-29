@@ -29,18 +29,16 @@ public class DetailReadTest extends DetailCommonSetUp {
         // then
         assertEquals(2, details.size());
 
-        // 첫 번째 납부 내역
         DetailResponseDTO detailDTO = details.get(0);
-        assertEquals(Long.valueOf(1L), detailDTO.getId());
+        assertEquals(Long.valueOf(1L), detailDTO.getDetailNo());
         assertEquals("test", detailDTO.getTitle());
         assertEquals("test", detailDTO.getCategory());
         assertEquals("test", detailDTO.getDescription());
         assertEquals(100, detailDTO.getPrice());
         assertEquals("2024-07-21", detailDTO.getDetailDate());
 
-        // 두 번째 납부 내역
         DetailResponseDTO detailDTO2 = details.get(1);
-        assertEquals(Long.valueOf(2L), detailDTO2.getId());
+        assertEquals(Long.valueOf(2L), detailDTO2.getDetailNo());
         assertEquals("test2", detailDTO2.getTitle());
         assertEquals("test2", detailDTO2.getCategory());
         assertEquals("test2", detailDTO2.getDescription());
@@ -62,7 +60,7 @@ public class DetailReadTest extends DetailCommonSetUp {
         //then
         DetailResponseDTO detailResponseDTO = detailService.getDetailById(detailId);
 
-        assertEquals(detail.getId(), detailResponseDTO.getId());
+        assertEquals(detail.getDetailNo(), detailResponseDTO.getDetailNo());
         assertEquals(detail.getTitle(), detailResponseDTO.getTitle());
         assertEquals(detail.getCategory(), detailResponseDTO.getCategory());
         assertEquals(detail.getDescription(), detailResponseDTO.getDescription());
