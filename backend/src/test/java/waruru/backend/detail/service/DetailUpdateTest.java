@@ -23,7 +23,7 @@ public class DetailUpdateTest extends DetailCommonSetUp {
 
         // given
         DetailUpdateRequestDTO detailUpdateRequestDTO = new DetailUpdateRequestDTO(
-                1L, "updateTest", "updateTest", "updateTest", 300, "2024-07-27"
+                "updateTest", "updateTest", "updateTest", 300, "2024-07-27"
         );
 
         Detail existDetail = Detail.builder()
@@ -39,7 +39,7 @@ public class DetailUpdateTest extends DetailCommonSetUp {
         when(detailRepository.findById(anyLong())).thenReturn(Optional.of(existDetail));
 
         // then
-        detailService.updateDetail(detailUpdateRequestDTO);
+        detailService.updateDetail(1L, detailUpdateRequestDTO);
 
         verify(detailRepository, times(1)).save(any(Detail.class));
         assertEquals("updateTest", existDetail.getTitle());
@@ -54,14 +54,14 @@ public class DetailUpdateTest extends DetailCommonSetUp {
 
         // given
         DetailUpdateRequestDTO detailUpdateRequestDTO = new DetailUpdateRequestDTO(
-                1L, "updateTest", "updateTest", "updateTest", 300, "2024-07-27"
+                "updateTest", "updateTest", "updateTest", 300, "2024-07-27"
         );
 
         // when
         when(detailRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         // then
-        NotFoundException thrown = assertThrows(NotFoundException.class, () -> detailService.updateDetail(detailUpdateRequestDTO));
+        NotFoundException thrown = assertThrows(NotFoundException.class, () -> detailService.updateDetail(1L, detailUpdateRequestDTO));
 
         System.out.println(thrown);
     }
