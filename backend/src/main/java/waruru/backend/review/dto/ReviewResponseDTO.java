@@ -10,9 +10,9 @@ public class ReviewResponseDTO {
 
     private Long reviewNo;
 
-    private Long userId;
+    private String userNickname;
 
-    private Long saleNo;
+    private String saleName;
 
     private String title;
 
@@ -25,8 +25,8 @@ public class ReviewResponseDTO {
     public ReviewResponseDTO(Review review) {
 
         this.reviewNo = review.getReviewNo();
-        this.userId = review.getUserNo().getId();
-        this.saleNo = review.getSaleNo().getSaleNo();
+        this.userNickname = review.getUserNo().getNickname();
+        this.saleName = review.getSaleNo().getSaleName();
         this.title = review.getTitle();
         this.content = review.getContent();
         this.registerDate = review.getRegisterDate();
