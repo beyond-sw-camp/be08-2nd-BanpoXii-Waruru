@@ -9,16 +9,19 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import waruru.backend.member.domain.*;
+import waruru.backend.member.domain.Member;
+import waruru.backend.member.domain.MemberRepository;
+import waruru.backend.member.domain.MemberRole;
+import waruru.backend.member.domain.MemberStatus;
 import waruru.backend.member.dto.MemberLoginRequestDTO;
 import waruru.backend.member.dto.MemberRegisterRequestDTO;
 import waruru.backend.member.dto.MemberUpdateRequestDTO;
 
 import java.util.Optional;
 
-import static org.mockito.Mockito.*;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class MemberServiceTest {
@@ -31,14 +34,11 @@ public class MemberServiceTest {
 
     @Spy
     private PasswordEncoder passwordEncoder;
-//
-//    private RefreshTokenRepository refreshTokenRepository;
-//
-//    private JwtTokenProvider jwtTokenProvider;
 
     @DisplayName("회원 가입")
     @Test
     public void registerMemberTest() {
+
         // given
         passwordEncoder = new BCryptPasswordEncoder();
         MemberRegisterRequestDTO requestDTO = MemberRegisterRequestDTO.builder()
@@ -78,6 +78,7 @@ public class MemberServiceTest {
     @DisplayName("이메일 패스워드로 회원 확인")
     @Test
     public void findMemberByEmailPasswordTest() {
+
         //given
         passwordEncoder = new BCryptPasswordEncoder();
         String hashedPassword = passwordEncoder.encode("test");
@@ -106,13 +107,10 @@ public class MemberServiceTest {
         assertTrue(passwordEncoder.matches(requestDTO.getPassword(), member.getPassword()));
     }
 
-//    @Test
-//    public void createToken() {
-//    }
-
     @DisplayName("회원 정보 수정")
     @Test
     public void updateMember() {
+
         //given
         String hashedPassword = passwordEncoder.encode("testpassword");
         Member member = Member.builder()
@@ -180,11 +178,9 @@ public class MemberServiceTest {
         String path = member.getEmail();
 
         //when
-
         Member foundmember = memberRepository.findByEmail(path).orElseThrow(() ->
                 new IllegalArgumentException("invalid email address :" + path));
         foundmember.updateStatus();
         assertEquals(member.getStatus(), MemberStatus.N);
-
     }
 }
