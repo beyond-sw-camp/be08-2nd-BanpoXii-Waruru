@@ -30,5 +30,4 @@ public class BusinessRegisterRequestDTO {
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime createdDate;
-
 }

@@ -14,52 +14,64 @@ import java.util.List;
 
 @Tag(name = "Business", description = "거래 내역 관리")
 @RestController
-@RequestMapping("api/business")
+@RequestMapping("/v1/api/business")
 @RequiredArgsConstructor(access = AccessLevel.PUBLIC)
 public class BusinessController {
 
     private final BusinessService businessService;
 
-    @Operation(summary = "거래 내역 조회 API")
-    @GetMapping("/business/{business_no}")
-    public ResponseEntity<BusinessResponseDTO> search(@PathVariable long business_no) {
-        BusinessResponseDTO businessResponseDTO = businessService.findBusinessByBusinessNo(business_no);
-        return ResponseEntity.ok(businessResponseDTO);
-    }
-
-    @Operation(summary = "사용자의 모든 거래 내역 조회")
-    @GetMapping("/business/list/{user_no}") //OK
-    public ResponseEntity<List<BusinessListResponseDTO>> findAllList(@PathVariable long user_no) {
-        List<BusinessListResponseDTO> lists = businessService.findAllList(user_no);
-        return ResponseEntity.ok(lists);
-    }
-
-    @Operation(summary = "거래 내역 등록 API")
+    @Operation(summary = "거래 내역을 등록하는 API")
     @PostMapping("/register")
     public ResponseEntity<Void> register(@RequestBody BusinessRegisterRequestDTO businessRegisterRequestDTO) {
+
         businessService.registerBusiness(businessRegisterRequestDTO);
+
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @Operation(summary = "거래 내역 수정 API")
-    @PutMapping("/update/{business_no}")
-    public ResponseEntity<Void> update(@RequestBody BusinessUpdateRequestDTO businessUpdateRequestDTO) {
-        businessService.updateBusiness(businessUpdateRequestDTO);
+    @Operation(summary = "사용자의 모든 거래 내역의 리스트를 반환하는 API")
+    @GetMapping("/list/{userNo}")
+    public ResponseEntity<List<BusinessListResponseDTO>> findAllList(@PathVariable long userNo) {
+
+        List<BusinessListResponseDTO> lists = businessService.findAllList(userNo);
+
+        return ResponseEntity.ok(lists);
+    }
+
+    @Operation(summary = "특정 거래 내역의 정보를 반환하는 API")
+    @GetMapping("/{businessNo}")
+    public ResponseEntity<BusinessResponseDTO> search(@PathVariable long businessNo) {
+
+        BusinessResponseDTO businessResponseDTO = businessService.findBusinessByBusinessNo(businessNo);
+
+        return ResponseEntity.ok(businessResponseDTO);
+    }
+
+    @Operation(summary = "거래 내역을 수정하는 API")
+    @PutMapping("/update/{businessNo}")
+    public ResponseEntity<Void> update(@PathVariable("businessNo") Long businessNo,
+                                       @RequestBody BusinessUpdateRequestDTO businessUpdateRequestDTO) {
+
+        businessService.updateBusiness(businessNo, businessUpdateRequestDTO);
+
         return ResponseEntity.noContent().build();
     }
 
-    @Operation(summary = "거래 내역 취소 API")
-    @PutMapping("/cancel/{business_no}")
-    public ResponseEntity<Void> cancel(@PathVariable long business_no, @RequestBody BusinessCancelRequestDTO businessCancelRequestDTO) {
-        businessService.cancelBusiness(business_no, businessCancelRequestDTO);
+    @Operation(summary = "거래를 취소하는 API")
+    @PutMapping("/cancel/{businessNo}")
+    public ResponseEntity<Void> cancel(@PathVariable long businessNo, @RequestBody BusinessCancelRequestDTO businessCancelRequestDTO) {
+
+        businessService.cancelBusiness(businessNo, businessCancelRequestDTO);
+
         return ResponseEntity.noContent().build();
     }
 
-    @Operation(summary = "거래 내역 삭제 API")
-    @DeleteMapping("/delete/{business_no}")
-    public ResponseEntity<Void> delete(@PathVariable long business_no) {
-        businessService.deleteBusiness(business_no);
+    @Operation(summary = "거래 내역을 삭제하는 API")
+    @DeleteMapping("/delete/{businessNo}")
+    public ResponseEntity<Void> delete(@PathVariable long businessNo) {
+
+        businessService.deleteBusiness(businessNo);
+
         return ResponseEntity.noContent().build();
     }
-
 }

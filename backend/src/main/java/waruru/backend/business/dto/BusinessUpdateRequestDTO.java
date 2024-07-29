@@ -17,9 +17,6 @@ import java.time.LocalDateTime;
 @Data
 public class BusinessUpdateRequestDTO {
 
-    @NotNull
-    private long businessNo;
-
     @Min(0)
     private int totalPrice;
 
@@ -28,5 +25,4 @@ public class BusinessUpdateRequestDTO {
     private BusinessStatus status;
 
     private LocalDateTime updatedDate;
-
 }

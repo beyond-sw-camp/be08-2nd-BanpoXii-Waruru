@@ -88,7 +88,6 @@ public class BusinessResponseDTO {
                 business.getSaleNo().getSaleStatus(),
                 business.getCreatedDate(),
                 business.getUpdatedDate()
-
         );
     }
 }
