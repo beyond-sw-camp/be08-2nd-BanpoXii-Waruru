@@ -20,7 +20,8 @@ import static org.mockito.Mockito.when;
 public class ReviewCreateTest extends ReviewCommonSetUp{
 
     @Test
-    public void testCreateReview() {//매물 후기 생성 테스트
+    public void testCreateReview() {
+
         // given
         ReviewRequestDTO reviewRequestDTO = new ReviewRequestDTO();
         reviewRequestDTO.setUserNo(1L);
@@ -45,7 +46,8 @@ public class ReviewCreateTest extends ReviewCommonSetUp{
 
     @Test
     public void testCreateReviewUserNotFound() {
-        // given, 존재하지 않는 회원에 대한 정의
+
+        // given
         ReviewRequestDTO reviewRequestDTO = new ReviewRequestDTO();
 
         reviewRequestDTO.setUserNo(10L); 
@@ -53,37 +55,36 @@ public class ReviewCreateTest extends ReviewCommonSetUp{
         reviewRequestDTO.setTitle("회원 없음 Title Test");
         reviewRequestDTO.setContent("회원 없음 Content Test");
 
-        // when, 존재하지 않는 회원 ID
+        // when
         when(memberRepository.findById(10L)).thenReturn(Optional.empty());
 
-        // then, 테스트 실패 -> 예외 발생으로 검증
+        // then
         EntityNotFoundException thrown = assertThrows(EntityNotFoundException.class, () -> {
             reviewService.createReview(reviewRequestDTO);
         });
 
         System.out.println(thrown.getMessage());
-//        assertEquals("예외처리 내용 불일치 => fail", thrown.getMessage());
     }
 
     @Test
     public void testCreateReviewSaleNotFound() {
-        // given, 존재하지 않는 매물에 대한 정의
+
+        // given
         ReviewRequestDTO reviewRequestDTO = new ReviewRequestDTO();
         reviewRequestDTO.setUserNo(1L);
         reviewRequestDTO.setSaleNo(10L); 
         reviewRequestDTO.setTitle("매물 없음 Title Test");
         reviewRequestDTO.setContent("매물 없음 Content Test");
 
-        // when, 존재하지 않는 매물 번호로 설정
+        // when
         when(memberRepository.findById(1L)).thenReturn(Optional.of(review.getUserNo()));
         when(saleRepository.findById(10L)).thenReturn(Optional.empty());
 
-        // then, 테스트 실패 -> 예외 발생으로 검증
+        // then
         EntityNotFoundException thrown = assertThrows(EntityNotFoundException.class, () -> {
             reviewService.createReview(reviewRequestDTO);
         });
 
         System.out.println(thrown.getMessage());
-//        assertEquals("예외처리 내용 불일치 => fail", thrown.getMessage());
     }
 }
