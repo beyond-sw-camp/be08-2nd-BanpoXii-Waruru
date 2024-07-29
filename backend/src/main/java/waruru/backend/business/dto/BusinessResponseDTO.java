@@ -76,7 +76,7 @@ public class BusinessResponseDTO {
                 business.getStatus(),
                 business.getUserNo().getId(),
                 business.getUserNo().getName(),
-                business.getSaleNo().getNo(),
+                business.getSaleNo().getSaleNo(),
                 business.getSaleNo().getSaleName(),
                 business.getSaleNo().getSaleLocation(),
                 business.getSaleNo().getArea(),

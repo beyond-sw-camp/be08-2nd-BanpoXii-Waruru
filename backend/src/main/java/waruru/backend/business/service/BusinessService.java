@@ -41,7 +41,7 @@ public class BusinessService {
         Member member = memberRepository.findById(business.getUserNo().getId())
                 .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_USER));
 
-        Sale sale = saleRepository.findById(business.getSaleNo().getNo())
+        Sale sale = saleRepository.findById(business.getSaleNo().getSaleNo())
                 .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_SALE));
 
         BusinessResponseDTO responseDTO = BusinessResponseDTO.builder()
@@ -50,7 +50,7 @@ public class BusinessService {
                 .status(business.getStatus())
                 .userNo(member.getId())
                 .name(member.getName())
-                .saleNo(sale.getNo())
+                .saleNo(sale.getSaleNo())
                 .saleName(sale.getSaleName())
                 .saleLocation(sale.getSaleLocation())
                 .area(sale.getArea())
@@ -85,7 +85,7 @@ public class BusinessService {
                         business.getStatus(),
                         business.getUserNo().getId(),
                         business.getUserNo().getName(),
-                        business.getSaleNo().getNo(),
+                        business.getSaleNo().getSaleNo(),
                         business.getSaleNo().getSaleName(),
                         business.getSaleNo().getSaleLocation(),
                         business.getSaleNo().getArea(),

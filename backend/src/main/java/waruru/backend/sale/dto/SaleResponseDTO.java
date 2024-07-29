@@ -14,9 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 public class SaleResponseDTO {
 
-    private Long no;
-
-    //private Long userNo;
+    private Long saleNo;
 
     private String nickname;
 
@@ -46,10 +44,9 @@ public class SaleResponseDTO {
 
     private LocalDateTime updatedDate;
 
-
     public SaleResponseDTO(Sale sale) {
-        this.no = sale.getNo();
-        //this.userNo = sale.getUserNo().getId();
+
+        this.saleNo = sale.getSaleNo();
         this.nickname = sale.getUserNo().getNickname();
         this.saleName = sale.getSaleName();
         this.saleLocation = sale.getSaleLocation();
@@ -64,6 +61,5 @@ public class SaleResponseDTO {
         this.createdDate = sale.getCreatedDate();
         this.updatedDate = sale.getUpdatedDate();
     }
-
 }
 

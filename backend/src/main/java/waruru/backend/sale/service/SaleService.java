@@ -7,7 +7,10 @@ import waruru.backend.member.domain.Member;
 import waruru.backend.member.domain.MemberRepository;
 import waruru.backend.sale.domain.Sale;
 import waruru.backend.sale.domain.SaleRepository;
-import waruru.backend.sale.dto.*;
+import waruru.backend.sale.dto.SaleListResponseDTO;
+import waruru.backend.sale.dto.SaleRegisterRequestDTO;
+import waruru.backend.sale.dto.SaleResponseDTO;
+import waruru.backend.sale.dto.SaleUpdateRequestDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,15 +21,21 @@ import static waruru.backend.common.exception.ErrorCode.NOT_FOUND_USER;
 @Service
 @Transactional
 public class SaleService {
+
     private final SaleRepository saleRepository;
+
     private final MemberRepository memberRepository;
 
     public SaleService(SaleRepository saleRepository, MemberRepository memberRepository) {
+
         this.saleRepository = saleRepository;
         this.memberRepository = memberRepository;
     }
+
     public SaleResponseDTO registerSale(SaleRegisterRequestDTO registerRequestDTO) {
+
         Sale sale = new Sale();
+
         Member member = memberRepository.findById(registerRequestDTO.getUserNo()).orElseThrow(()
                 -> new EntityNotFoundException(NOT_FOUND_USER.getMessage() + " no = " + registerRequestDTO.getUserNo()));
 
@@ -41,29 +50,17 @@ public class SaleService {
         sale.setDescription(registerRequestDTO.getDescription());
         sale.setSaleStatus(registerRequestDTO.getSaleStatus());
         Sale savedSale = saleRepository.save(sale);
+
         return new SaleResponseDTO(savedSale);
     }
 
-    public SaleResponseDTO findById(Long no) {
-        //상세 정보 확인
-        Sale sale = saleRepository.findById(no).orElseThrow(()
-                -> new IllegalArgumentException(NOT_FOUND_SALE.getMessage() + " no = " + no));
-        sale.setReviewCount(saleRepository.getReviewCount(sale.getNo()));
-        return new SaleResponseDTO(sale);
-    }
-
-    public void deleteSale(Long no) {
-        Sale sale = saleRepository.findById(no).orElseThrow(()
-                -> new IllegalArgumentException(NOT_FOUND_SALE.getMessage() + " no = " + no));
-        saleRepository.delete(sale);
-    }
-
     public List<SaleListResponseDTO> findAllList() {
+
         List<Sale> sales = saleRepository.findAll();
+
         List<SaleListResponseDTO> responseDTO = sales.stream()
                 .map(sale -> new SaleListResponseDTO(
                         sale.getUserNo().getNickname(),
-                        //sale.getUserNo().getId(),
                         sale.getSaleName(),
                         sale.getSaleLocation(),
                         sale.getArea(),
@@ -71,22 +68,44 @@ public class SaleService {
                         sale.getSalePrice(),
                         sale.getDepositPrice(),
                         sale.getRentPrice(),
-                        //sale.getRegisterDate()
-                        saleRepository.getReviewCount(sale.getNo()),
+                        saleRepository.getReviewCount(sale.getSaleNo()),
                         sale.getCreatedDate()
                 ))
                 .collect(Collectors.toList());
+
         return responseDTO;
     }
 
-    public void updateSale(Long no, SaleUpdateRequestDTO updateRequestDTO) {
-        Sale sale = saleRepository.findById(no).orElseThrow(()
-                -> new IllegalArgumentException(NOT_FOUND_SALE.getMessage() + " no = " + no));
+    public SaleResponseDTO findById(Long saleNo) {
+
+        Sale sale = saleRepository.findById(saleNo).orElseThrow(()
+                -> new IllegalArgumentException(NOT_FOUND_SALE.getMessage() + " saleNo = " + saleNo));
+
+        sale.setReviewCount(saleRepository.getReviewCount(sale.getSaleNo()));
+
+        return new SaleResponseDTO(sale);
+    }
+
+    public void updateSale(Long saleNo, SaleUpdateRequestDTO updateRequestDTO) {
+
+        Sale sale = saleRepository.findById(saleNo).orElseThrow(()
+                -> new IllegalArgumentException(NOT_FOUND_SALE.getMessage() + " no = " + saleNo));
+
         mapToUpdate(sale, updateRequestDTO);
+
         saleRepository.save(sale);
     }
 
+    public void deleteSale(Long saleNo) {
+
+        Sale sale = saleRepository.findById(saleNo).orElseThrow(()
+                -> new IllegalArgumentException(NOT_FOUND_SALE.getMessage() + " saleNo = " + saleNo));
+
+        saleRepository.delete(sale);
+    }
+
     private void mapToUpdate(Sale sale, SaleUpdateRequestDTO updateDTO) {
+
         sale.setSaleName(updateDTO.getSaleName() != null ? updateDTO.getSaleName() : sale.getSaleName());
         sale.setSaleLocation(updateDTO.getSaleLocation() != null ? updateDTO.getSaleLocation() : sale.getSaleLocation());
         sale.setArea(updateDTO.getArea() != null ? updateDTO.getArea() : sale.getArea()); //
@@ -97,5 +116,4 @@ public class SaleService {
         sale.setDescription(updateDTO.getDescription() != null ? updateDTO.getDescription() : sale.getDescription());
         sale.setSaleStatus(updateDTO.getSaleStatus() != null ? updateDTO.getSaleStatus() : sale.getSaleStatus());
     }
-
 }
