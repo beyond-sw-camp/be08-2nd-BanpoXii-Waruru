@@ -41,19 +41,16 @@ public class BusinessListResponseDTO {
     private String saleLocation;
 
     @NotBlank
-    private int area;
+    private Integer area;
 
     @Enumerated(EnumType.STRING)
     private Category category;
 
-    @NotBlank
-    private int salePrice;
+    private Integer salePrice;
 
-    @NotBlank
-    private int depositPrice;
+    private Integer depositPrice;
 
-    @NotBlank
-    private int rentPrice;
+    private Integer rentPrice;
 
     private String description;
 
@@ -64,7 +61,7 @@ public class BusinessListResponseDTO {
 
     private LocalDateTime updatedDate;
 
-    public BusinessListResponseDTO(Long businessNo, int totalPrice, BusinessStatus status, Long userNo, String name, Long saleNo, String saleName, String saleLocation, int area, Category category, int salePrice, int depositPrice, int rentPrice, String description, SaleStatus saleStatus, LocalDateTime createdDate, LocalDateTime updatedDate) {
+    public BusinessListResponseDTO(Long businessNo, int totalPrice, BusinessStatus status, Long userNo, String name, Long saleNo, String saleName, String saleLocation, Integer area, Category category, Integer salePrice, Integer depositPrice, Integer rentPrice, String description, SaleStatus saleStatus, LocalDateTime createdDate, LocalDateTime updatedDate) {
 
         this.businessNo = businessNo;
         this.totalPrice = totalPrice;
