@@ -16,7 +16,7 @@ public class BusinessCancelRequestDTO {
     private BusinessStatus status;
 
     public BusinessCancelRequestDTO() {
+
         this.status = BusinessStatus.CANCEL;
     }
-
 }

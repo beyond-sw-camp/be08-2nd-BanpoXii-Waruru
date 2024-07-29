@@ -65,6 +65,7 @@ public class BusinessListResponseDTO {
     private LocalDateTime updatedDate;
 
     public BusinessListResponseDTO(Long businessNo, int totalPrice, BusinessStatus status, Long userNo, String name, Long saleNo, String saleName, String saleLocation, int area, Category category, int salePrice, int depositPrice, int rentPrice, String description, SaleStatus saleStatus, LocalDateTime createdDate, LocalDateTime updatedDate) {
+
         this.businessNo = businessNo;
         this.totalPrice = totalPrice;
         this.status = status;

@@ -51,6 +51,7 @@ public class Business extends BaseTimeEntity {
 
     @Builder
     public Business(Long businessNo, Member userNo, Sale saleNo, int totalPrice, BusinessStatus status, LocalDateTime createdDate, LocalDateTime updateDate) {
+
         this.businessNo = businessNo;
         this.userNo = userNo;
         this.saleNo = saleNo;
@@ -61,9 +62,9 @@ public class Business extends BaseTimeEntity {
     }
 
     public void update(BusinessUpdateRequestDTO businessUpdateRequestDTO) {
+
         Optional.of(businessUpdateRequestDTO.getTotalPrice()).ifPresent(totalPrice -> this.totalPrice = totalPrice);
         Optional.ofNullable(businessUpdateRequestDTO.getStatus()).ifPresent(status -> this.status = status);
         Optional.ofNullable(businessUpdateRequestDTO.getUpdatedDate()).ifPresent(updatedDate -> this.updatedDate = updatedDate);
     }
-
 }

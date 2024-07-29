@@ -28,6 +28,7 @@ public class BusinessService {
     private final SaleRepository saleRepository;
 
     public BusinessService(BusinessRepository businessRepository, MemberRepository memberRepository, SaleRepository saleRepository) {
+
         this.businessRepository = businessRepository;
         this.memberRepository = memberRepository;
         this.saleRepository = saleRepository;
@@ -35,6 +36,7 @@ public class BusinessService {
 
     @Transactional
     public BusinessResponseDTO findBusinessByBusinessNo(Long businessNo) {
+
         Business business = businessRepository.findById(businessNo)
                 .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_BUSINESS));
 
@@ -69,9 +71,6 @@ public class BusinessService {
 
     @Transactional
     public List<BusinessListResponseDTO> findAllList(Long userNo) {
-
-        Member member = memberRepository.findById(userNo)
-                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_USER));
 
         List<Business> businessLists = businessRepository.findByUserNo_Id(userNo);
 
@@ -125,8 +124,9 @@ public class BusinessService {
     }
 
     @Transactional
-    public void updateBusiness(BusinessUpdateRequestDTO businessUpdateRequestDTO) {
-        Business business = businessRepository.findById((Long) (businessUpdateRequestDTO.getBusinessNo()))
+    public void updateBusiness(Long businessNo, BusinessUpdateRequestDTO businessUpdateRequestDTO) {
+
+        Business business = businessRepository.findById(businessNo)
                 .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_BUSINESS));
 
         business.update(businessUpdateRequestDTO);
@@ -136,6 +136,7 @@ public class BusinessService {
 
     @Transactional
     public Optional<Void> cancelBusiness(@PathVariable Long businessNo, BusinessCancelRequestDTO businessCancelRequestDTO) {
+
         Business business = businessRepository.findById(businessNo)
                 .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_BUSINESS));
 
@@ -146,15 +147,16 @@ public class BusinessService {
 
     @Transactional
     public void cancel(Business business, BusinessCancelRequestDTO businessCancelRequestDTO) {
+
         business.setStatus(businessCancelRequestDTO.getStatus());
     }
 
     @Transactional
     public void deleteBusiness(@PathVariable long businessNo) {
+
         Business business = businessRepository.findById(businessNo)
                 .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_BUSINESS));
 
         businessRepository.delete(business);
     }
-
 }
