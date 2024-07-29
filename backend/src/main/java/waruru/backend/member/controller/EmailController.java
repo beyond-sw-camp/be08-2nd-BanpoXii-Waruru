@@ -26,7 +26,6 @@ public class EmailController {
     @PostMapping("/send")
     public String mailSend(@RequestBody MemberEmailRequestDto dto) throws MessagingException {
         log.info("EmailController.mailSend()");
-        System.out.println("Email : " + dto.getEmail());
         emailService.sendEmail(dto.getEmail());
         return "인증코드가 발송되었습니다.";
     }
@@ -37,5 +36,13 @@ public class EmailController {
         log.info("EmailController.verify()");
         boolean isVerify = emailService.verifyEmailCode(dto.getEmail(), dto.getVerificationCode());
         return isVerify ? "인증이 완료되었습니다." : "인증을 실패하셨습니다.";
+    }
+
+    @Operation(summary = "이메일로 초기화된 비밀번호를 발송하는 API")
+    @PostMapping("/send/password")
+    public String passwordMailSend(@RequestBody MemberEmailRequestDto memberEmailRequestDto) throws MessagingException{
+        log.info("EmailController.passwordMailSend()");
+        emailService.sendPasswordEmail(memberEmailRequestDto.getEmail());
+        return "초기화된 비밀번호가 발송되었습니다.";
     }
 }

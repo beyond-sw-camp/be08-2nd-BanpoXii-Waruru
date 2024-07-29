@@ -26,7 +26,7 @@ public class Member {
     @Column(name = "user_no")
     private Long id;
 
-    @Column(unique = true, nullable = false, length = 20)
+    @Column(unique = true, nullable = false, length = 30)
     private String email;
 
     @Column(name = "pw" ,nullable = false, length = 100)
@@ -60,14 +60,16 @@ public class Member {
     private List<Sale> sales = new ArrayList<>();
 
     public void update(MemberUpdateRequestDTO memberUpdateRequestDTO) {
-
         Optional.ofNullable(memberUpdateRequestDTO.getName()).ifPresent(name -> this.name = name);
         Optional.ofNullable(memberUpdateRequestDTO.getNickname()).ifPresent(nickname -> this.nickname = nickname);
         Optional.ofNullable(memberUpdateRequestDTO.getRole()).ifPresent(role -> this.role = role);
     }
 
     public void updateStatus() {
-
         this.status = MemberStatus.N;
+    }
+
+    public void updatePassword(String password) {
+        Optional.ofNullable(password).ifPresent(name -> this.password = password);
     }
 }

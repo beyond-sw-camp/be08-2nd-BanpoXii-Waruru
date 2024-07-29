@@ -2,12 +2,16 @@ package waruru.backend.member.service;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import waruru.backend.member.domain.Email;
 import waruru.backend.member.domain.EmailRepository;
+import waruru.backend.member.domain.Member;
+import waruru.backend.member.domain.MemberRepository;
 
 import java.util.Random;
 
@@ -20,13 +24,17 @@ public class EmailService {
 
     private final EmailRepository emailRepository;
 
+    private final MemberRepository memberRepository;
+
     private static final String senderEmail = "macleod.park@gmail.com";
 
-    private String createCode() {
+    private final PasswordEncoder passwordEncoder;
 
+    private final MemberService memberService;
+
+    private String createCode(int targetStringLength) {
         int leftLimit = 48;
         int rightLimit = 122;
-        int targetStringLength = 6;
         Random random = new Random();
 
         return random.ints(leftLimit, rightLimit + 1)
@@ -37,8 +45,7 @@ public class EmailService {
     }
 
     private MimeMessage createEmailForm(String email) throws MessagingException {
-
-        String authCode = createCode();
+        String authCode = createCode(6);
 
         MimeMessage message = javaMailSender.createMimeMessage();
         message.addRecipients(MimeMessage.RecipientType.TO, email);
@@ -57,7 +64,6 @@ public class EmailService {
     }
 
     public void sendEmail(String toEmail) throws MessagingException {
-
         Email exist = emailRepository.findByEmail(toEmail).orElse(null);
         if(exist != null) {
             emailRepository.deleteByEmail(toEmail);
@@ -69,12 +75,38 @@ public class EmailService {
     }
 
     public Boolean verifyEmailCode(String email, String code) {
-
         Email found = emailRepository.findByEmail(email).orElse(null);
         log.info("code found by email: " + found);
         if (found == null) {
             return false;
         }
         return found.getVerificationCode().equals(code);
+    }
+
+    @Transactional
+    protected MimeMessage createPasswordEmailForm(String email) throws MessagingException {
+        String code = createCode(8);
+        String newPassword = passwordEncoder.encode(code);
+
+        Member member = memberRepository.findByEmail(email).orElseThrow(() ->
+                new IllegalArgumentException("Invalid email address: " + email));
+
+        MimeMessage message = javaMailSender.createMimeMessage();
+        message.addRecipients(MimeMessage.RecipientType.TO, email);
+        message.setSubject("안녕하세요. 초기화된 비밀번호입니다.");
+        message.setFrom(senderEmail);
+        message.setText("새로운 비밀번호 : " + code, "utf-8", "html");
+
+        member.setPassword(newPassword);
+        memberRepository.save(member);
+
+        return message;
+    }
+
+    public void sendPasswordEmail(String email) throws MessagingException {
+
+        MimeMessage emailForm = createPasswordEmailForm(email);
+
+        javaMailSender.send(emailForm);
     }
 }
