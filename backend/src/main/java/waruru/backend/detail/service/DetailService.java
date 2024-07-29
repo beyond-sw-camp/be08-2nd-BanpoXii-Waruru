@@ -23,13 +23,13 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor(access = AccessLevel.PUBLIC)
+@Transactional
 public class DetailService {
 
     private final DetailRepository detailRepository;
     private final MemberRepository memberRepository;
     private final SaleRepository saleRepository;
 
-    @Transactional
     public Optional<Detail> registerDetail(DetailRegisterRequestDTO detailRegisterRequestDTO) {
 
         Sale sale = saleRepository.findById(detailRegisterRequestDTO.getSaleNo()).orElseThrow(
@@ -53,12 +53,10 @@ public class DetailService {
         return Optional.of(detailRepository.save(detail));
     }
 
-    @Transactional
     public List<DetailResponseDTO> getAllDetails() {
         return Collections.unmodifiableList(DetailResponseDTO.listOf(detailRepository.findAll()));
     }
 
-    @Transactional
     public DetailResponseDTO getDetailById(Long detailNo) {
         Detail detail = detailRepository.findById(detailNo).orElseThrow(
                 () -> new NotFoundException(ErrorCode.NOT_FOUND_DETAIL)
@@ -67,7 +65,6 @@ public class DetailService {
         return DetailResponseDTO.of(detail);
     }
 
-    @Transactional
     public Optional<Void> updateDetail(DetailUpdateRequestDTO detailUpdateRequestDTO) {
         Detail detail = detailRepository.findById(detailUpdateRequestDTO.getId()).orElseThrow(
                 () -> new NotFoundException(ErrorCode.NOT_FOUND_DETAIL)
@@ -80,9 +77,8 @@ public class DetailService {
         return Optional.empty();
     }
 
-    @Transactional
-    public void deleteDetail(DetailDeleteRequestDTO detailDeleteRequestDTO) {
-        Detail detail = detailRepository.findById(detailDeleteRequestDTO.getId()).orElseThrow(
+    public void deleteDetail(Long id) {
+        Detail detail = detailRepository.findById(id).orElseThrow(
                 () -> new NotFoundException(ErrorCode.NOT_FOUND_DETAIL));
 
         detailRepository.delete(detail);

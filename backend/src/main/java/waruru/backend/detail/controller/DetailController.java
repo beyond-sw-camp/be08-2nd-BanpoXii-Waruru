@@ -54,9 +54,9 @@ public class DetailController {
     }
 
     @Operation(summary = "납부 내역을 삭제하는 API")
-    @DeleteMapping("/delete")
-    public ResponseEntity<Void> deleteDetail(@RequestBody @Valid DetailDeleteRequestDTO detailDeleteRequestDTO) {
-        detailService.deleteDetail(detailDeleteRequestDTO);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteDetail(@PathVariable("id") Long id) {
+        detailService.deleteDetail(id);
 
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
