@@ -2,7 +2,10 @@ package waruru.backend.detail.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import waruru.backend.common.domain.BaseTimeEntity;
 import waruru.backend.detail.dto.DetailUpdateRequestDTO;
 import waruru.backend.member.domain.Member;
@@ -22,7 +25,7 @@ public class Detail extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "detail_no")
-    private Long id;
+    private Long detailNo;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "sale_no", nullable = false)

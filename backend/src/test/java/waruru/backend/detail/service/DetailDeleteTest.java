@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import waruru.backend.common.exception.NotFoundException;
-import waruru.backend.detail.dto.DetailDeleteRequestDTO;
 
 import java.util.Optional;
 
@@ -15,31 +14,30 @@ import static org.mockito.Mockito.*;
 public class DetailDeleteTest extends DetailCommonSetUp {
 
     @Test
-    public void deleteDetail() {
+    public void deleteDetail_success() {
 
         // given
-        DetailDeleteRequestDTO detailDeleteRequestDTO = new DetailDeleteRequestDTO(2L);
+        Long detailId = detail.getId();
+        when(detailRepository.findById(detailId)).thenReturn(Optional.of(detail));
 
         // when
-        when(detailRepository.findById(anyLong())).thenReturn(Optional.of(detail2));
-        detailService.deleteDetail(detailDeleteRequestDTO);
+        detailService.deleteDetail(detailId);
 
-        //then
-        verify(detailRepository, times(1)).delete(detail2);
+        // then
+        verify(detailRepository, times(1)).delete(detail);
     }
 
     @Test
-    public void NotFoundDetail() {
+    public void deleteDetail_notFound() {
 
         // given
-        DetailDeleteRequestDTO detailDeleteRequestDTO = new DetailDeleteRequestDTO(2L);
+        Long detailId = 999L;
+        when(detailRepository.findById(detailId)).thenReturn(Optional.empty());
 
-        // when
-        when(detailRepository.findById(anyLong())).thenReturn(Optional.empty());
+        // when & then
+        NotFoundException thrown = assertThrows(NotFoundException.class,
+                () -> detailService.deleteDetail(detailId));
 
-        // then
-        NotFoundException thrown = assertThrows(NotFoundException.class, () -> detailService.deleteDetail(detailDeleteRequestDTO));
-
-        System.out.println(thrown);
+        System.out.println(thrown.getMessage());
     }
 }

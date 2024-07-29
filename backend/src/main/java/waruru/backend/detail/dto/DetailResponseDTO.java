@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 public class DetailResponseDTO {
 
-    private Long id;
+    private Long detailNo;
     private String title;
     private String category;
     private String description;
@@ -29,7 +29,7 @@ public class DetailResponseDTO {
 
         return new DetailResponseDTO(
 
-                detail.getId(),
+                detail.getDetailNo(),
                 detail.getTitle(),
                 detail.getCategory(),
                 detail.getDescription(),

@@ -1,7 +1,6 @@
 package waruru.backend.detail.dto;
 
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -10,10 +9,6 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @Getter
 public class DetailUpdateRequestDTO {
-
-    @NotNull
-    @Min(0)
-    private Long id;
 
     private String title;
 
