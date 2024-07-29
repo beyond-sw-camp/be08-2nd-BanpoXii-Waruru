@@ -17,6 +17,9 @@ import waruru.backend.member.domain.RefreshTokenRepository;
 import waruru.backend.member.filter.JwtAuthenticationFilter;
 import waruru.backend.member.service.LogoutService;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 
 @Configuration
 @RequiredArgsConstructor
@@ -46,29 +49,18 @@ public class SecurityConfig {
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, refreshTokenRepository), UsernamePasswordAuthenticationFilter.class)
 //                .addFilterAt(new AuthoritiesLoggingAtFilter(), BasicAuthenticationFilter.class)
 //                .addFilterAfter(new AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter.class)
-                .authorizeHttpRequests(requests -> requests.anyRequest().permitAll())
+                .authorizeHttpRequests(requests -> requests//.anyRequest().permitAll()
+                        .requestMatchers("/api/user/login", "/api/user/register").permitAll()
+                        .anyRequest().authenticated())
 //                        .requestMatchers("/api/reviews/list").authenticated()
 //                        .requestMatchers("/api/user/login", "api/user/register").permitAll())
 //                .formLogin(Customizer.withDefaults())
-//                .httpBasic(Customizer.withDefaults());
+//                .httpBasic(Customizer.withDefaults())
                 .logout(logoutConfig -> logoutConfig
                         .logoutUrl("/api/user/logout")
                         .addLogoutHandler(logoutService)
                         .logoutSuccessHandler(((request, response, authentication) -> SecurityContextHolder.clearContext())));
 
-//        .cors(corsCustomizer -> corsCustomizer.configurationSource(new CorsConfigurationSource() {
-//                    @Override
-//                    public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
-//                        CorsConfiguration config = new CorsConfiguration();
-//                        config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
-//                        config.setAllowedMethods(Collections.singletonList("*"));
-//                        config.setAllowCredentials(true);
-//                        config.setAllowedHeaders(Collections.singletonList("*"));
-//                        config.setExposedHeaders(Arrays.asList("Authorization"));
-//                        config.setMaxAge(3600L);
-//                        return config;
-//                    }
-//                }))
         return http.build();
     }
 

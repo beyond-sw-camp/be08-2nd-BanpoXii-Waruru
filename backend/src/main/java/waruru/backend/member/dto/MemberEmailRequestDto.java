@@ -1,18 +1,15 @@
 package waruru.backend.member.dto;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @Builder
 @AllArgsConstructor
-public class MemberLoginRequestDTO {
+@NoArgsConstructor
+public class MemberEmailRequestDto {
 
-    @NotNull
     private String email;
-
-    @NotNull
-    private String password;
 }

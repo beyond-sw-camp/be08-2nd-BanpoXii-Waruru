@@ -2,6 +2,7 @@ package waruru.backend.member.config;
 
 import java.util.Optional;
 
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,6 +12,7 @@ import waruru.backend.member.domain.Member;
 import waruru.backend.member.domain.MemberRepository;
 
 @Service
+@NoArgsConstructor
 public class SecurityUserDetailService implements UserDetailsService {
 
     @Autowired

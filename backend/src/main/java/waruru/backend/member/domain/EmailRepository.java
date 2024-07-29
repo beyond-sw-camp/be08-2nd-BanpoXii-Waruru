@@ -5,9 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-
 @Repository
-public interface RefreshTokenRepository extends CrudRepository<RefreshToken, String> {
+public interface EmailRepository extends CrudRepository<Email, String> {
+    Optional<Email> findByEmail(String email);
 
-    Optional<RefreshToken> findByAccessToken(String accessToken);
+    void deleteByEmail(String email);
 }
