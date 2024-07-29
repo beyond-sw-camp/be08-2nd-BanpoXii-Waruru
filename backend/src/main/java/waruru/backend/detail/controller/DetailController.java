@@ -26,6 +26,7 @@ public class DetailController {
     @Operation(summary = "납부 내역을 등록하는 API")
     @PostMapping("/register")
     public ResponseEntity<Void> register(@RequestBody @Valid DetailRegisterRequestDTO detailRegisterRequestDTO) {
+
         detailService.registerDetail(detailRegisterRequestDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -34,13 +35,16 @@ public class DetailController {
     @Operation(summary = "모든 납부 내역의 리스트를 반환하는 API")
     @GetMapping("/list")
     public ResponseEntity<List<DetailResponseDTO>> getAllDetails() {
+
         return ResponseEntity.ok(detailService.getAllDetails());
     }
 
     @Operation(summary = "특정 납부 내역의 정보를 반환하는 API")
     @GetMapping("/{detailNo}")
     public ResponseEntity<DetailResponseDTO> getDetailById(@PathVariable("detailNo") Long detailNo) {
+
         DetailResponseDTO detailResponseDTO = detailService.getDetailById(detailNo);
+
         return ResponseEntity.ok(detailResponseDTO);
     }
 
@@ -48,6 +52,7 @@ public class DetailController {
     @PutMapping("/update/{detailNo}")
     public ResponseEntity<Void> updateDetail(@PathVariable("detailNo") Long detailNo,
                                              @RequestBody @Valid DetailUpdateRequestDTO detailUpdateRequestDTO) {
+
         detailService.updateDetail(detailNo, detailUpdateRequestDTO);
 
         return ResponseEntity.noContent().build();
@@ -56,6 +61,7 @@ public class DetailController {
     @Operation(summary = "납부 내역을 삭제하는 API")
     @DeleteMapping("/delete/{detailNo}")
     public ResponseEntity<Void> deleteDetail(@PathVariable("detailNo") Long detailNo) {
+
         detailService.deleteDetail(detailNo );
 
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();

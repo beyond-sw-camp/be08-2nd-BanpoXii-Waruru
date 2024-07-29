@@ -53,10 +53,12 @@ public class DetailService {
     }
 
     public List<DetailResponseDTO> getAllDetails() {
+
         return Collections.unmodifiableList(DetailResponseDTO.listOf(detailRepository.findAll()));
     }
 
     public DetailResponseDTO getDetailById(Long detailNo) {
+
         Detail detail = detailRepository.findById(detailNo).orElseThrow(
                 () -> new NotFoundException(ErrorCode.NOT_FOUND_DETAIL)
         );
@@ -65,6 +67,7 @@ public class DetailService {
     }
 
     public Optional<Void> updateDetail(Long detailNo, DetailUpdateRequestDTO detailUpdateRequestDTO) {
+
         Detail detail = detailRepository.findById(detailNo).orElseThrow(
                 () -> new NotFoundException(ErrorCode.NOT_FOUND_DETAIL)
         );
@@ -77,6 +80,7 @@ public class DetailService {
     }
 
     public void deleteDetail(Long detailNo) {
+
         Detail detail = detailRepository.findById(detailNo).orElseThrow(
                 () -> new NotFoundException(ErrorCode.NOT_FOUND_DETAIL));
 
