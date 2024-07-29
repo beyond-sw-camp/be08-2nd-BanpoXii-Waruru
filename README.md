@@ -115,7 +115,8 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 ## 💾 Project Implementation
 
 ### API Specification
-![api_Specification](https://github.com/user-attachments/assets/eb45cd02-d0ee-41aa-a7b7-7b4858238b46)
+![api_Specification](https://github.com/user-attachments/assets/5aea6869-5e1d-4b1d-bc13-3e6e858513e7)
+
 
 <br>
 
