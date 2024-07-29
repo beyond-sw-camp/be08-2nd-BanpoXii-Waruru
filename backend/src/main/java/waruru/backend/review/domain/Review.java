@@ -2,7 +2,9 @@ package waruru.backend.review.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import waruru.backend.member.domain.Member;
@@ -47,5 +49,4 @@ public class Review {
     @UpdateTimestamp
     @Column(name = "updateDate" ,nullable = true)
     private LocalDateTime updateDate;
-
 }
