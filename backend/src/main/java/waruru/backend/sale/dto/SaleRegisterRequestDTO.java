@@ -1,9 +1,11 @@
 package waruru.backend.sale.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import waruru.backend.sale.domain.Category;
 import waruru.backend.sale.domain.SaleStatus;
-
 
 @RequiredArgsConstructor
 @AllArgsConstructor
@@ -30,6 +32,5 @@ public class SaleRegisterRequestDTO {
     private String description;
 
     private SaleStatus saleStatus;
-
 }
 

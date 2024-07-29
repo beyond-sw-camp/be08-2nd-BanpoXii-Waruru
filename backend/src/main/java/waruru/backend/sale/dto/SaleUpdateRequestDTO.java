@@ -2,7 +2,9 @@ package waruru.backend.sale.dto;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import waruru.backend.sale.domain.Category;
 import waruru.backend.sale.domain.SaleStatus;
 
@@ -10,6 +12,7 @@ import waruru.backend.sale.domain.SaleStatus;
 @AllArgsConstructor
 @Getter
 public class SaleUpdateRequestDTO {
+
     private String saleName;
 
     private String saleLocation;
@@ -29,5 +32,4 @@ public class SaleUpdateRequestDTO {
 
     @Enumerated(EnumType.STRING)
     private SaleStatus saleStatus;
-
 }

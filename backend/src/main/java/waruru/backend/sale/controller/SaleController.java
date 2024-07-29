@@ -1,6 +1,5 @@
 package waruru.backend.sale.controller;
 
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -8,13 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import waruru.backend.sale.dto.*;
+import waruru.backend.sale.dto.SaleListResponseDTO;
+import waruru.backend.sale.dto.SaleRegisterRequestDTO;
+import waruru.backend.sale.dto.SaleResponseDTO;
+import waruru.backend.sale.dto.SaleUpdateRequestDTO;
 import waruru.backend.sale.service.SaleService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/sales")
+@RequestMapping("/v1/api/sales")
 @Tag(name = "Sale", description = "매물 관리")
 public class SaleController {
 
@@ -22,38 +24,48 @@ public class SaleController {
     private SaleService saleService;
 
     @PostMapping("/register")
-    @Operation(summary = "매물 등록", description = "/api/sales 새 매물 등록")
+    @Operation(summary = "매물을 등록하는 API")
     public ResponseEntity<SaleResponseDTO> registerSale(@RequestBody @Valid SaleRegisterRequestDTO registerRequestDTO) {
+
         SaleResponseDTO saleresponseDTO = saleService.registerSale(registerRequestDTO);
+
         return ResponseEntity.ok(saleresponseDTO);
     }
 
     @GetMapping("/list")
-    @Operation(summary = "모든 매물 리스트 조회", description = "/api/sales/list 매물 정보 리스트 조회(특정 필드)")
+    @Operation(summary = "모든 매물의 리스트를 반환하는 API")
     public ResponseEntity<List<SaleListResponseDTO>> findAllList() {
+
         List<SaleListResponseDTO> lists = saleService.findAllList();
+
         return ResponseEntity.ok(lists);
     }
 
-    @GetMapping("/detail/{no}")
-    @Operation(summary = "상세 매물 조회", description = "/api/sales/detail/{no} 특정 매물 상세 조회(전체 필드)")
-    public ResponseEntity<SaleResponseDTO> findById(@PathVariable("no") Long no) {
-        SaleResponseDTO saleResponseDTO = saleService.findById(no);
+    @GetMapping("/{saleNo}")
+    @Operation(summary = "특정 매물의 정보를 반환하는 API")
+    public ResponseEntity<SaleResponseDTO> findById(@PathVariable("saleNo") Long saleNo) {
+
+        SaleResponseDTO saleResponseDTO = saleService.findById(saleNo);
+
         return ResponseEntity.ok(saleResponseDTO);
     }
 
-    @DeleteMapping("/delete/{no}")
-    @Operation(summary = "매물 삭제", description = "/api/sales/delete/{no} 매물 삭제")
-    public ResponseEntity<Void> deleteSale(@PathVariable("no") Long no) {
-        saleService.deleteSale(no);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    @PutMapping("/update/{saleNo}")
+    @Operation(summary = "매물 정보를 수정하는 API")
+    public ResponseEntity<Void> updateSale(@PathVariable("saleNo") Long saleNo,
+                                           @RequestBody @Valid SaleUpdateRequestDTO updateRequestDTO) {
+
+        saleService.updateSale(saleNo, updateRequestDTO);
+
+        return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/update/{no}")
-    @Operation(summary = "매물 정보 수정", description = "/api/sales/update/{no} 매물 정보 수정")
-    public ResponseEntity<Void> updateSale(@PathVariable("no") Long no,
-                                           @RequestBody @Valid SaleUpdateRequestDTO updateRequestDTO) {
-        saleService.updateSale(no, updateRequestDTO);
-        return ResponseEntity.noContent().build();
+    @DeleteMapping("/delete/{saleNo}")
+    @Operation(summary = "매물을 삭제하는 API")
+    public ResponseEntity<Void> deleteSale(@PathVariable("saleNo") Long saleNo) {
+
+        saleService.deleteSale(saleNo);
+
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

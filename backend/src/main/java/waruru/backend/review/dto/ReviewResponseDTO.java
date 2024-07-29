@@ -27,7 +27,7 @@ public class ReviewResponseDTO {
     public ReviewResponseDTO(Review review) {
         this.reviewNo = review.getReviewNo();
         this.userId = review.getUserNo().getId();
-        this.saleNo = review.getSaleNo().getNo();
+        this.saleNo = review.getSaleNo().getSaleNo();
         this.title = review.getTitle();
         this.content = review.getContent();
         this.registerDate = review.getRegisterDate();

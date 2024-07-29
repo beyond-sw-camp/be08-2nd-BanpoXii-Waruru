@@ -17,10 +17,11 @@ import waruru.backend.member.domain.Member;
 @Setter
 @Builder(toBuilder = true)
 public class Sale extends BaseTimeEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sale_no")
-    private Long no;
+    private Long saleNo;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_no", nullable = false)
@@ -61,6 +62,5 @@ public class Sale extends BaseTimeEntity {
 
     @ColumnDefault("0")
     private Integer reviewCount;
-
 }
 

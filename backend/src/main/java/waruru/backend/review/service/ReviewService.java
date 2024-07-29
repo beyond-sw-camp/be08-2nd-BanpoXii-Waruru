@@ -37,7 +37,7 @@ public class ReviewService {
     @Transactional
     public ReviewResponseDTO createReview(ReviewRequestDTO rrq){
 
-        boolean reviewExists = reviewRepository.existsByUserNo_IdAndSaleNo_No(rrq.getUserNo(), rrq.getSaleNo());
+        boolean reviewExists = reviewRepository.existsByUserNo_IdAndSaleNo_SaleNo(rrq.getUserNo(), rrq.getSaleNo());
         if (reviewExists) {
             throw new IllegalStateException("해당 매물에 관해 작성한 후기가 존재합니다.");
         }
