@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,9 +31,12 @@ public class MemberController {
 
     @Operation(summary = "로그인 API")
     @PostMapping("/login")
-    public String login(@RequestBody @Valid MemberLoginRequestDTO memberLoginRequestDTO) {
+    public ResponseEntity<String> login(@RequestBody @Valid MemberLoginRequestDTO memberLoginRequestDTO) {
+        memberService.findMemberByEmail(memberLoginRequestDTO.getEmail());
 
-        return memberService.createToken(memberLoginRequestDTO);
+        return ResponseEntity.ok()
+                .header(HttpHeaders.SET_COOKIE, memberService.createToken(memberLoginRequestDTO).toString())
+                .body("login success");
     }
 
     @Operation(summary = "회원 정보를 수정하는 API")
@@ -40,7 +44,7 @@ public class MemberController {
     public ResponseEntity<String> updateMember(@RequestBody @Valid MemberUpdateRequestDTO memberUpdateRequestDTO) {
         memberService.updateMember(memberUpdateRequestDTO);
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 
     @Operation(summary = "회원 상태를 탈퇴 상태로 수정하는 API")
@@ -48,6 +52,6 @@ public class MemberController {
     public ResponseEntity<String> deleteMember(@PathVariable String email) {
         memberService.deleteMember(email);
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 }
