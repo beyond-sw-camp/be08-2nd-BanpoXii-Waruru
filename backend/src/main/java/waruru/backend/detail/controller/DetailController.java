@@ -17,7 +17,7 @@ import java.util.List;
 
 @Tag(name = "Detail", description = "납부 내역 관리")
 @RestController
-@RequestMapping("/api/details")
+@RequestMapping("/v1/api/detail")
 @RequiredArgsConstructor(access = AccessLevel.PUBLIC)
 public class DetailController {
 
@@ -38,25 +38,25 @@ public class DetailController {
     }
 
     @Operation(summary = "특정 납부 내역의 정보를 반환하는 API")
-    @GetMapping("/detail/{id}")
-    public ResponseEntity<DetailResponseDTO> getDetailById(@PathVariable Long id) {
-        DetailResponseDTO detailResponseDTO = detailService.getDetailById(id);
+    @GetMapping("/{detailNo}")
+    public ResponseEntity<DetailResponseDTO> getDetailById(@PathVariable("detailNo") Long detailNo) {
+        DetailResponseDTO detailResponseDTO = detailService.getDetailById(detailNo);
         return ResponseEntity.ok(detailResponseDTO);
     }
 
     @Operation(summary = "납부 내역을 수정하는 API")
-    @PutMapping("/update/{id}")
-    public ResponseEntity<Void> updateDetail(@PathVariable Long id,
+    @PutMapping("/update/{detailNo}")
+    public ResponseEntity<Void> updateDetail(@PathVariable("detailNo") Long detailNo,
                                              @RequestBody @Valid DetailUpdateRequestDTO detailUpdateRequestDTO) {
-        detailService.updateDetail(id, detailUpdateRequestDTO);
+        detailService.updateDetail(detailNo, detailUpdateRequestDTO);
 
         return ResponseEntity.noContent().build();
     }
 
     @Operation(summary = "납부 내역을 삭제하는 API")
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteDetail(@PathVariable("id") Long id) {
-        detailService.deleteDetail(id);
+    @DeleteMapping("/delete/{detailNo}")
+    public ResponseEntity<Void> deleteDetail(@PathVariable("detailNo") Long detailNo) {
+        detailService.deleteDetail(detailNo );
 
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

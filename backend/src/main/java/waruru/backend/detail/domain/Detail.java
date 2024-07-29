@@ -25,7 +25,7 @@ public class Detail extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "detail_no")
-    private Long id;
+    private Long detailNo;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "sale_no", nullable = false)

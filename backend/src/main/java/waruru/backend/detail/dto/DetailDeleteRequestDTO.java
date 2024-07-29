@@ -11,5 +11,5 @@ import lombok.RequiredArgsConstructor;
 public class DetailDeleteRequestDTO {
 
     @NotNull
-    private Long id;
+    private Long detailNo;
 }
