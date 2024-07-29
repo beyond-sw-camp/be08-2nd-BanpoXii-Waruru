@@ -65,8 +65,8 @@ public class DetailService {
         return DetailResponseDTO.of(detail);
     }
 
-    public Optional<Void> updateDetail(DetailUpdateRequestDTO detailUpdateRequestDTO) {
-        Detail detail = detailRepository.findById(detailUpdateRequestDTO.getId()).orElseThrow(
+    public Optional<Void> updateDetail(Long id, DetailUpdateRequestDTO detailUpdateRequestDTO) {
+        Detail detail = detailRepository.findById(id).orElseThrow(
                 () -> new NotFoundException(ErrorCode.NOT_FOUND_DETAIL)
         );
 

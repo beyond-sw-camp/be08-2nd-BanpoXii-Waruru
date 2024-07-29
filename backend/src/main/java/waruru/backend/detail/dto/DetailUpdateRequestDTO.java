@@ -11,10 +11,6 @@ import lombok.RequiredArgsConstructor;
 @Getter
 public class DetailUpdateRequestDTO {
 
-    @NotNull
-    @Min(0)
-    private Long id;
-
     private String title;
 
     private String category;
