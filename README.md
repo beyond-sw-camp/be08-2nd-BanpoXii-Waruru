@@ -132,30 +132,91 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 <details>
       <summary>매물</summary> 
 
-등록
+<details>
+      <summary>등록</summary>
+      
 ![sale_register_success](https://github.com/user-attachments/assets/d7d45e93-8591-448f-9b9d-b7debb1eebef)
+      
+</details>
 
-조회
+<details>
+      <summary>조회</summary>
+      
 ![sale_findAllList_success](https://github.com/user-attachments/assets/5b54d508-5f02-4280-a894-78af839253e6)
 ![sale_findById_success](https://github.com/user-attachments/assets/69e1685e-8f35-4089-b391-38ab34349318)
 조회_notfound
 ![sale_findById_notfound](https://github.com/user-attachments/assets/679335b8-0b38-4794-99c7-15d05d039b2c)
+      
+</details>
 
-수정
+<details>
+      <summary>수정</summary>
+      
 ![sale_update_success](https://github.com/user-attachments/assets/1f1f287e-9d05-44c4-8b3b-06bc8c1895d4)
 수정_notfound
 ![sale_update_notfound](https://github.com/user-attachments/assets/3cc0d4ca-f9a6-4057-9f5b-ffbddf385448)
+      
+</details>
 
-삭제
+<details>
+      <summary>삭제</summary>
+      
 ![sale_delete_success](https://github.com/user-attachments/assets/5bec4714-3114-4413-a348-b077a381a577)
 ![sale_delete_success_check](https://github.com/user-attachments/assets/dd0b736c-9178-4e15-a0b2-05ceb9f61043)
+      
+</details>
 
 </details>
 
 <details>
       <summary>거래</summary> 
+
+
+<details>
+      <summary>등록</summary>
       
-접은 내용(ex 소스 코드)
+![1_거래등록](https://github.com/user-attachments/assets/2aaf92c5-0406-40c4-8910-de0d584d501e)
+![2_거래등록](https://github.com/user-attachments/assets/5ba91287-c86e-4741-b26f-33e3bd3f657b)
+      
+</details>
+
+<details>
+      <summary>조회</summary>
+      
+![6_사용자거래조회](https://github.com/user-attachments/assets/d92ff986-7ef5-43b4-92f1-580210424a39)
+![7_사용자거래조회](https://github.com/user-attachments/assets/673a9fc5-aade-4e15-9fc8-770592ba1321)
+![3_거래조회](https://github.com/user-attachments/assets/c63acf31-3bbf-406c-aa4a-f3de1e8fe55d)
+![4_거래조회](https://github.com/user-attachments/assets/7e512c40-c268-4598-9b34-56f1d75237d5)
+조회_notfound
+![5_거래조회X](https://github.com/user-attachments/assets/cd9e282c-1a37-4aa1-afa5-93aeb7327a01)
+      
+</details>
+
+<details>
+      <summary>수정</summary>
+      
+![8_거래수정](https://github.com/user-attachments/assets/1560831e-61c0-47ee-a67b-c434a89a24c6)
+![9_거래수정](https://github.com/user-attachments/assets/4bc9ad4e-ea58-45c5-9894-160382ce4fd9)
+      
+</details>
+
+<details>
+      <summary>취소</summary>
+      
+![10_거래취소](https://github.com/user-attachments/assets/b4ebcd79-f91c-46a3-a097-d6126b1e569f)
+![11_거래취소](https://github.com/user-attachments/assets/9914a2d7-95e2-47fc-a37e-1572e6198555)
+      
+</details>
+
+<details>
+      <summary>삭제</summary>
+      
+![12_거래삭제](https://github.com/user-attachments/assets/35bae835-3eb7-4883-8a5f-346f5f1a0fa4)
+![13_거래삭제](https://github.com/user-attachments/assets/953edb2c-6606-4468-8fe9-627f996e705d)
+![14_거래삭제](https://github.com/user-attachments/assets/e37929be-f9d0-4abd-9f27-0bbf1895d5e8)
+
+</details>
+
 </details>
 
 <details>
@@ -166,8 +227,42 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 
 <details>
       <summary>후기</summary> 
+
+<details>
+      <summary>등록</summary>
       
-접은 내용(ex 소스 코드)
+![2  등록 101번 등록_](https://github.com/user-attachments/assets/5c2f85a9-7dc2-4569-af2d-eec38ec6d014)
+
+      
+</details>
+
+<details>
+      <summary>조회</summary>
+      
+![4   리스트 조회  후기 리스트 페이징](https://github.com/user-attachments/assets/c5eb4058-f178-4571-9faf-8e9014629b54)
+![3-1   단건조회  1번 후기 수정 전 조회](https://github.com/user-attachments/assets/b466b95b-df71-4a99-97a6-7c17d1c6cb39)
+조회_notfound
+![1   단건조회  없는 매물](https://github.com/user-attachments/assets/27d11a50-d65f-4b2d-a6f8-c5edcda424fb)
+
+      
+</details>
+
+<details>
+      <summary>수정</summary>
+      
+![3-2   수정  1번 후기 수정](https://github.com/user-attachments/assets/05b491af-4842-4ec6-95a6-4337da697bbb)
+![3-3   수정 후 단건조회  1번 후기 제목 수정 결과 조회](https://github.com/user-attachments/assets/09320974-1eb1-4569-a6d1-5ce3f4e053f6)
+      
+</details>
+
+<details>
+      <summary>삭제</summary>
+      
+![5   삭제  후기 삭제](https://github.com/user-attachments/assets/8886ee1d-d6fd-4711-a846-2bff40312a05)
+![5-1   삭제 후 단건조회  후기 삭제](https://github.com/user-attachments/assets/396482b3-92f2-4aeb-8f8b-a37546b81511)
+
+</details>
+
 </details>
 
 <br>
