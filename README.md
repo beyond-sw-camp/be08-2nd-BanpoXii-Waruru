@@ -123,6 +123,13 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
   <img width="1067" alt="004_ERD" src="https://github.com/user-attachments/assets/9a98a5db-597e-4b25-96d1-2bd4411dd8e3">
 </p>
 <br>
+
+### 4. Table Specification
+
+[테이블 명세서 바로가기](https://github.com/user-attachments/files/16424476/WRR_jihoon.1.xlsx)
+<p align="center">
+  <img width="1067" alt="Table Specification" src="">
+</p>
 <br>
 
 ## 💾 Project Implementation
@@ -768,7 +775,7 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 
 [김나현](https://github.com/NAHYEON0713)|[박성준](https://github.com/sjpark-08)|[서현지](https://github.com/henhen7)|[이유진](https://github.com/uzz99)|[임지훈](https://github.com/limjihoon99)|
 ------|------|------|--------------------------------------|------|
-<img alt="김나현" src="https://github.com/user-attachments/assets/c6c4a184-1c08-4844-92c3-1f9b424959a5" width="400"/> | <img alt="박성준" src="https://github.com/user-attachments/assets/cff3e5d4-0f80-4099-871f-8b96b188c873" width="400"/> | <img alt="서현지" src="https://github.com/user-attachments/assets/de74da42-59c1-4720-bbd4-d60031673d8b" width="400"/> | <img alt="이유진" src="https://github.com/user-attachments/assets/59884d23-ecbd-4771-bc78-3c9d0d143142" width="400"/> | <img alt="임지훈" src="https://github.com/user-attachments/assets/2537abe6-29f7-4670-8ae6-e1e9160b7f07" width="400"/> | 
+<img alt="김나현" src="https://github.com/user-attachments/assets/c6c4a184-1c08-4844-92c3-1f9b424959a5" width="400"/> | <img alt="박성준" src="https://github.com/user-attachments/assets/cff3e5d4-0f80-4099-871f-8b96b188c873" width="400"/> | <img alt="서현지" src="https://github.com/user-attachments/assets/de74da42-59c1-4720-bbd4-d60031673d8b" width="400"/> | <img alt="이유진" src="https://github.com/user-attachments/assets/c07871af-59a1-47b1-91bd-7dbe682ece22" width="400"/> | <img alt="임지훈" src="https://github.com/user-attachments/assets/2537abe6-29f7-4670-8ae6-e1e9160b7f07" width="400"/> | 
 
 <br>
 
