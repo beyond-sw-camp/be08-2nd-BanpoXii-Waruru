@@ -760,7 +760,7 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 
 [WBS 바로가기](https://docs.google.com/spreadsheets/d/1TDmOl5j3vZNaGWeYezut2Q3TcUXTCWlijob-cgjeBgo/edit?usp=sharing)
 <p align="center">
-  <img alt="WBS" src="">
+  <img alt="WBS" src="https://github.com/user-attachments/assets/e3aa6d81-c794-4d18-ba94-831b4216c0d7">
 </p>
 <br>
 
