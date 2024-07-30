@@ -126,7 +126,8 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 <details>
       <summary>회원</summary> 
 
-<details style="margin-left: 20px;">
+<blockquote>
+<details
        <summary>등록</summary>
       
 <img width="1430" alt="request" src="https://github.com/user-attachments/assets/67006d05-a04b-4ed3-b105-dd203d784f55">
@@ -134,7 +135,7 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
       
 </details>
 
-<details style="margin-left: 20px;">
+<details>
       <summary>email</summary>
       
 - send
@@ -194,12 +195,14 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 <img width="890" alt="후" src="https://github.com/user-attachments/assets/85931d83-b455-4631-82df-28812103789b">
       
 </details>
+</blockquote>
 
 </details>
 
 <details>
       <summary>매물</summary> 
 
+<blockquote>
 <details>
       <summary>등록</summary>
       
@@ -235,13 +238,14 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 ![sale_delete_success_check](https://github.com/user-attachments/assets/dd0b736c-9178-4e15-a0b2-05ceb9f61043)
       
 </details>
+</blockquote>
 
 </details>
 
 <details>
       <summary>거래</summary> 
 
-
+<blockquote>
 <details>
       <summary>등록</summary>
       
@@ -287,12 +291,14 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 ![14_거래삭제](https://github.com/user-attachments/assets/e37929be-f9d0-4abd-9f27-0bbf1895d5e8)
 
 </details>
+</blockquote>
 
 </details>
 
 <details>
       <summary>납부</summary> 
-      
+
+<blockquote>
 <details>
       <summary>등록</summary>
       
@@ -337,12 +343,14 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 
       
 </details>
+</blockquote>
 
 </details>
 
 <details>
       <summary>후기</summary> 
 
+<blockquote>
 <details>
       <summary>등록</summary>
       
@@ -378,6 +386,7 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 ![5-1   삭제 후 단건조회  후기 삭제](https://github.com/user-attachments/assets/396482b3-92f2-4aeb-8f8b-a37546b81511)
 
 </details>
+</blockquote>
 
 </details>
 
