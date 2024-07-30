@@ -1,6 +1,9 @@
 package waruru.backend.sale.service;
 
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import waruru.backend.member.domain.Member;
@@ -54,9 +57,11 @@ public class SaleService {
         return new SaleResponseDTO(savedSale);
     }
 
-    public List<SaleListResponseDTO> findAllList() {
+    public List<SaleListResponseDTO> findAllList(int page, int size) {
 
-        List<Sale> sales = saleRepository.findAll();
+        Pageable pageable = PageRequest.of(page, size);
+
+        Page<Sale> sales = saleRepository.findAll(pageable);
 
         List<SaleListResponseDTO> responseDTO = sales.stream()
                 .map(sale -> new SaleListResponseDTO(

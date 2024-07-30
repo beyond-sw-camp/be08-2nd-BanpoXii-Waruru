@@ -32,9 +32,9 @@ public class ReviewController {
 
     @GetMapping("/list")
     @Operation(summary = "모든 후기의 리스트를 반환하는 API")
-    public ResponseEntity<List<ReviewResponseDTO>> getAllReviews() {
-
-        List<ReviewResponseDTO> reviews = reviewService.getAllReviews();
+    public ResponseEntity<List<ReviewResponseDTO>> getAllReviews(@RequestParam(value="page", defaultValue="0") int page,
+                                                                 @RequestParam(value="size", defaultValue="0") int size) {
+        List<ReviewResponseDTO> reviews = reviewService.getAllReviews(page,size);
 
         return ResponseEntity.ok(reviews);
     }

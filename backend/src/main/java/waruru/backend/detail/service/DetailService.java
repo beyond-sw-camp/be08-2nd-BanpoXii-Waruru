@@ -3,6 +3,9 @@ package waruru.backend.detail.service;
 import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import waruru.backend.common.exception.ErrorCode;
 import waruru.backend.common.exception.NotFoundException;
@@ -16,9 +19,9 @@ import waruru.backend.member.domain.MemberRepository;
 import waruru.backend.sale.domain.Sale;
 import waruru.backend.sale.domain.SaleRepository;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor(access = AccessLevel.PUBLIC)
@@ -52,9 +55,14 @@ public class DetailService {
         return Optional.of(detailRepository.save(detail));
     }
 
-    public List<DetailResponseDTO> getAllDetails() {
+    public List<DetailResponseDTO> getAllDetails(int page, int size) {
 
-        return Collections.unmodifiableList(DetailResponseDTO.listOf(detailRepository.findAll()));
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Detail> detailPage = detailRepository.findAll(pageable);
+
+        return detailPage.getContent().stream()
+                .map(DetailResponseDTO::of)
+                .collect(Collectors.toList());
     }
 
     public DetailResponseDTO getDetailById(Long detailNo) {

@@ -3,6 +3,11 @@ package waruru.backend.reviewtest.service;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import waruru.backend.review.domain.Review;
 import waruru.backend.review.dto.ReviewResponseDTO;
 
 import java.util.Arrays;
@@ -17,11 +22,14 @@ public class ReviewsListTest extends ReviewCommonSetUp{
     @Test
     public void testGetListReviews() {
 
+        List<Review> reviews = Arrays.asList(review, review2);
+        Pageable pageable = PageRequest.of(0, 10);
+        Page<Review> page = new PageImpl<>(reviews, pageable, reviews.size());
         // given
         when(reviewRepository.findAll()).thenReturn(Arrays.asList(review, review2));
 
         // when
-        List<ReviewResponseDTO> reviewResponseDTOList = reviewService.getAllReviews();
+        List<ReviewResponseDTO> reviewResponseDTOList = reviewService.getAllReviews(0,10);
 
         // then
         assertEquals(2, reviewResponseDTOList.size());
@@ -29,13 +37,13 @@ public class ReviewsListTest extends ReviewCommonSetUp{
         ReviewResponseDTO reviewResponseDTO1 = reviewResponseDTOList.get(0);
         assertEquals("1번 후기 Title Test", reviewResponseDTO1.getTitle());
         assertEquals("1번 후기 Content Test", reviewResponseDTO1.getContent());
-        assertEquals(Long.valueOf(1L), reviewResponseDTO1.getUserId());
+        assertEquals(Long.valueOf(1L), reviewResponseDTO1.getUserNo());
         assertEquals(Long.valueOf(1L), reviewResponseDTO1.getSaleNo());
 
         ReviewResponseDTO reviewResponseDTO2 = reviewResponseDTOList.get(1);
         assertEquals("2번 후기 Title Test", reviewResponseDTO2.getTitle());
         assertEquals("2번 후기 Content Test", reviewResponseDTO2.getContent());
-        assertEquals(Long.valueOf(2L), reviewResponseDTO2.getUserId());
+        assertEquals(Long.valueOf(2L), reviewResponseDTO2.getUserNo());
         assertEquals(Long.valueOf(2L), reviewResponseDTO2.getSaleNo());
 
         reviewResponseDTOList.forEach(System.out::println);

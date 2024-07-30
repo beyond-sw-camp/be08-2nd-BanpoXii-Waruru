@@ -2,6 +2,8 @@ package waruru.backend.review.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import waruru.backend.member.domain.Member;
@@ -63,12 +65,15 @@ public class ReviewService {
         return new ReviewResponseDTO(review);
     }
 
-    public List<ReviewResponseDTO> getAllReviews() {
+    public List<ReviewResponseDTO> getAllReviews(int page,int size) {
 
-        return reviewRepository.findAll().stream()
+        Pageable pageable = PageRequest.of(page, 10);
+
+        return reviewRepository.findAll(pageable).stream()
                 .map(ReviewResponseDTO::new)
                 .collect(Collectors.toList());
     }
+
 
     public ReviewResponseDTO getReviewById(Long reviewNo){
 

@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,9 +35,10 @@ public class SaleController {
 
     @GetMapping("/list")
     @Operation(summary = "모든 매물의 리스트를 반환하는 API")
-    public ResponseEntity<List<SaleListResponseDTO>> findAllList() {
+    public ResponseEntity<List<SaleListResponseDTO>> findAllList(@RequestParam(defaultValue = "0") int page,
+                                                                 @RequestParam(defaultValue = "10") int size) {
 
-        List<SaleListResponseDTO> lists = saleService.findAllList();
+        List<SaleListResponseDTO> lists = saleService.findAllList(page, size);
 
         return ResponseEntity.ok(lists);
     }
