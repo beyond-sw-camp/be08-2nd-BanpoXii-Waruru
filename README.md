@@ -126,9 +126,10 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 
 ### 4. Table Specification
 
-[테이블 명세서 바로가기](https://github.com/user-attachments/files/16424476/WRR_jihoon.1.xlsx)
+[테이블 명세서 바로가기](https://github.com/user-attachments/files/16424668/_wrr.xlsx)
 <p align="center">
-  <img width="1067" alt="Table Specification" src="">
+  <img width="1067" alt="Table Specification" src="https://github.com/user-attachments/assets/9f635f5e-1c41-4b32-9a4e-d737471f5c2b">
+">
 </p>
 <br>
 
