@@ -131,8 +131,25 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 
 <details>
       <summary>매물</summary> 
-      
-접은 내용(ex 소스 코드)
+
+등록
+![sale_register_success](https://github.com/user-attachments/assets/d7d45e93-8591-448f-9b9d-b7debb1eebef)
+
+조회
+![sale_findAllList_success](https://github.com/user-attachments/assets/5b54d508-5f02-4280-a894-78af839253e6)
+![sale_findById_success](https://github.com/user-attachments/assets/69e1685e-8f35-4089-b391-38ab34349318)
+조회_notfound
+![sale_findById_notfound](https://github.com/user-attachments/assets/679335b8-0b38-4794-99c7-15d05d039b2c)
+
+수정
+![sale_update_success](https://github.com/user-attachments/assets/1f1f287e-9d05-44c4-8b3b-06bc8c1895d4)
+수정_notfound
+![sale_update_notfound](https://github.com/user-attachments/assets/3cc0d4ca-f9a6-4057-9f5b-ffbddf385448)
+
+삭제
+![sale_delete_success](https://github.com/user-attachments/assets/5bec4714-3114-4413-a348-b077a381a577)
+![sale_delete_success_check](https://github.com/user-attachments/assets/dd0b736c-9178-4e15-a0b2-05ceb9f61043)
+
 </details>
 
 <details>
