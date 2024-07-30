@@ -1,5 +1,5 @@
 # 🏠 Waruru
-![logo-eng-horiz](https://github.com/user-attachments/assets/0936c5ff-8046-4a81-9690-0caf16a18d69)
+![logo-eng-horiz](https://github.com/user-attachments/assets/2d0d4063-161a-4565-95c0-2aff13f27515)
 > [PLAYDATA] 한화시스템 BEYOND SW캠프 / Waruru
 
 > Team - BanpoXii
@@ -102,14 +102,22 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 <br>
 
 ## 🛠️ Project Design
-### 1. Relation Schema
+
+### 1. System Architecture
+
+<p align="center">
+  <img width="1067" alt="system architecture" src="https://github.com/user-attachments/assets/1048a069-cfc1-45a3-a0c8-fc1445884b73">
+</p>
+<br>
+
+### 2. Relation Schema
 
 <p align="center">
   <img width="1067" alt="010_RelationSchema_fieldO" src="https://github.com/user-attachments/assets/518bc483-26aa-4f34-9a43-ee9ccdaf302c">
 </p>
 <br>
 
-### 2. E-R Diagram
+### 3. E-R Diagram
 
 <p align="center">
   <img width="1067" alt="004_ERD" src="https://github.com/user-attachments/assets/9a98a5db-597e-4b25-96d1-2bd4411dd8e3">
@@ -119,13 +127,13 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 
 ## 💾 Project Implementation
 
-### API Specification
+### 1. API Specification
 ![api_Specification](https://github.com/user-attachments/assets/5aea6869-5e1d-4b1d-bc13-3e6e858513e7)
 
 
 <br>
 
-### 기능 구현
+### 2. Functional Implementation
 
 <details>
       <summary>회원</summary> 
@@ -396,7 +404,7 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 
 <br>
 
-### 테스트 코드
+### 3. Test Case
 
 <details>
     <summary>회원</summary>
@@ -760,7 +768,7 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 
 [김나현](https://github.com/NAHYEON0713)|[박성준](https://github.com/sjpark-08)|[서현지](https://github.com/henhen7)|[이유진](https://github.com/uzz99)|[임지훈](https://github.com/limjihoon99)|
 ------|------|------|--------------------------------------|------|
-<img alt="김나현" src="https://github.com/user-attachments/assets/8de85308-a7d1-449e-8c8e-4db8c04b5513" /> | <img alt="박성준" src="https://github.com/user-attachments/assets/3ba1bf25-bf0e-45ac-b27b-3a57a73bc41f" /> | <img alt="서현지" src="https://github.com/user-attachments/assets/47534fb0-201b-4487-a39e-190a8ec3bc79" /> | <img alt="이유진" src="https://github.com/user-attachments/assets/41ef2ad7-1857-4937-9a40-f3aa4030587f" /> | <img alt="임지훈" src="https://github.com/user-attachments/assets/99ebdf70-198a-43de-ae2d-7c1ac628ff1d" /> | 
+<img alt="김나현" src="https://github.com/user-attachments/assets/c6c4a184-1c08-4844-92c3-1f9b424959a5" width="400"/> | <img alt="박성준" src="https://github.com/user-attachments/assets/cff3e5d4-0f80-4099-871f-8b96b188c873" width="400"/> | <img alt="서현지" src="https://github.com/user-attachments/assets/de74da42-59c1-4720-bbd4-d60031673d8b" width="400"/> | <img alt="이유진" src="https://github.com/user-attachments/assets/ec252216-fe5c-43d2-bdc7-5d011d9304e4" width="400"/> | <img alt="임지훈" src="https://github.com/user-attachments/assets/2537abe6-29f7-4670-8ae6-e1e9160b7f07" width="400"/> | 
 
 <br>
 
