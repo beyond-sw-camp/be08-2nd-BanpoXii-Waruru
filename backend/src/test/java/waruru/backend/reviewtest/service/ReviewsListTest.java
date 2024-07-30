@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class ReviewsListTest extends ReviewCommonSetUp{
+public class  ReviewsListTest extends ReviewCommonSetUp{
 
     @Test
     public void testGetListReviews() {
@@ -26,11 +26,10 @@ public class ReviewsListTest extends ReviewCommonSetUp{
         Pageable pageable = PageRequest.of(0, 10);
         Page<Review> page = new PageImpl<>(reviews, pageable, reviews.size());
         // given
-        when(reviewRepository.findAll()).thenReturn(Arrays.asList(review, review2));
+        when(reviewRepository.findAll(pageable)).thenReturn(page);
 
         // when
         List<ReviewResponseDTO> reviewResponseDTOList = reviewService.getAllReviews(0,10);
-
         // then
         assertEquals(2, reviewResponseDTOList.size());
 
