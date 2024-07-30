@@ -6,7 +6,7 @@
 <br>
 
 ## ✨ Medium
-- [🇺🇸 Medium English.ver]() <br>
+- [🇺🇸 Medium English.ver](https://medium.com/@ljh01051826177/waruru-housing-sales-and-payment-management-system-e43338308957) <br>
 - [🇰🇷 Medium Korean.ver]()
 <br>
 
