@@ -25,7 +25,7 @@ public class ReviewDetailTest extends ReviewCommonSetUp{
 
         // then
         assertEquals(review.getReviewNo(), reviewResponseDTO.getReviewNo());
-        assertEquals(review.getUserNo().getId(), reviewResponseDTO.getUserId());
+        assertEquals(review.getUserNo().getId(), reviewResponseDTO.getUserNo());
         assertEquals(review.getSaleNo().getSaleNo(), reviewResponseDTO.getSaleNo());
         assertEquals(review.getTitle(), reviewResponseDTO.getTitle());
         assertEquals(review.getContent(), reviewResponseDTO.getContent());
