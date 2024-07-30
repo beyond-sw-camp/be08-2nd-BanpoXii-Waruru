@@ -4,8 +4,11 @@
 
 > Team - BanpoXii
 <br>
-<br>
 
+## ✨ Medium
+- [🇺🇸 Medium English.ver]() <br>
+- [🇰🇷 Medium Korean.ver]()
+<br>
 
 ## ⚙Tech Stack
 <p><strong> Backend <br></strong>
@@ -16,6 +19,7 @@
 </p>
 <p><strong> Database <br></strong>
 <img alt="MySQL" src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=FFFFFF"/>
+<img alt="Redis" src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=FFFFFF"/>
 </p>
 <p><strong> Collaboration Tool <br></strong>
 <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white">
@@ -296,7 +300,7 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 </details>
 
 <details>
-      <summary>납부</summary> 
+      <summary>납부 내역</summary> 
 
 <blockquote>
 <details>
@@ -394,6 +398,328 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 
 ### 테스트 코드
 
+<details>
+    <summary>회원</summary>
+    <blockquote>
+        <details>
+            <summary>회원 가입</summary>
+            <img width="489" alt="image" src="https://github.com/user-attachments/assets/16dd0ff9-13c4-4d81-837b-738f12658b1c"> <br>
+            <img width="239" alt="image" src="https://github.com/user-attachments/assets/56f6d0c6-7b1c-460e-bdb7-53ec52842ac4">
+        </details>
+        <details>
+            <summary>이메일 패스워드로 회원 확인</summary>
+            <img width="842" alt="image" src="https://github.com/user-attachments/assets/97ac27b6-e698-4770-811a-6c2ae3a7783c"><br>
+            <img width="235" alt="image" src="https://github.com/user-attachments/assets/1fd2045f-6df4-4ec5-9776-d1dc3057a127">
+        </details>
+        <details>
+            <summary>회원 정보 수정</summary>
+            <img width="518" alt="image" src="https://github.com/user-attachments/assets/c84629b2-9da2-49ca-ba50-0dbedd45ceff"><br>
+            <img width="237" alt="image" src="https://github.com/user-attachments/assets/99b705d9-aa9a-400a-a459-c915c1aaae00">
+        </details>
+        <details>
+            <summary>회원 탈퇴</summary>
+            <img width="497" alt="image" src="https://github.com/user-attachments/assets/6c2c589a-183a-4101-becc-b13ab8f21388"><br>
+            <img width="235" alt="image" src="https://github.com/user-attachments/assets/14d33810-a4b4-4556-b8f8-1987419f19f0">
+        </details>
+    </blockquote>
+</details>
+
+<details>
+    <summary>매물</summary>
+    <blockquote>
+        <details>
+            <summary>매물 등록 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>등록 성공</summary>
+                  <img width="727" alt="image" src="https://github.com/user-attachments/assets/0ff1afec-6364-4f9d-8e13-357ed806b649"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/676dbf38-268e-4e11-b50f-22f19afc0a11">
+                  </details>
+                  <details>
+                  <summary>회원이 없을 경우</summary>
+                  <img width="724" alt="image" src="https://github.com/user-attachments/assets/a2643d13-ea4d-4a9e-9bba-e7f5fa9c311d">
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/58b69cde-504b-47db-bcd7-7c21bac352fb">
+                  </details>
+            </blockquote>
+        </details>
+        <details>
+            <summary>특정 매물 조회 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>조회 성공</summary>
+                  <img width="542" alt="image" src="https://github.com/user-attachments/assets/d2647876-6c5e-4ce0-ba3c-fad3ca905194"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/bb2a9ceb-6bb8-4c80-8e90-75fbd876f706">
+                  </details>
+                  <details>
+                  <summary>매물이 없을 경우</summary>
+                  <img width="646" alt="image" src="https://github.com/user-attachments/assets/733edbc4-f697-4f2e-9d44-051ebd6664b7"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/95668bbc-2667-4844-9c36-29a413b11210">
+                  </details>
+            </blockquote>
+        </details>
+        <details>
+            <summary>매물 삭제 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>삭제 성공</summary>
+                  <img width="398" alt="image" src="https://github.com/user-attachments/assets/203ae92d-daa6-48f9-ae8d-bff8f8716db6">
+                  <img width="233" alt="image" src="https://github.com/user-attachments/assets/b5c2f07f-4298-4c9c-80b3-ef3addd3d942">
+                  </details>
+                  <details>
+                  <summary>매물이 없을 경우</summary>
+                  <img width="652" alt="image" src="https://github.com/user-attachments/assets/db802b98-3a37-482c-ad93-8fdca0523d40"><br>
+                  <img width="238" alt="image" src="https://github.com/user-attachments/assets/acbf04d3-b55d-43e1-a2de-6a89e9cb4663">
+                  </details>
+            </blockquote>
+        </details>
+        <details>
+            <summary>매물 리스트 조회</summary>
+            <blockquote>
+                  <details>
+                  <summary>조회 성공</summary>
+                  <img width="637" alt="image" src="https://github.com/user-attachments/assets/5bd728d9-9a04-4675-902a-b6d1c7060793"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/6e523732-43b2-468c-8201-d1b777bbeb2b">
+                  </details>
+            </blockquote>
+        </details>
+        <details>
+            <summary>매물 수정 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>수정 성공</summary>
+                  <img width="749" alt="image" src="https://github.com/user-attachments/assets/92cd3316-1025-4b07-8047-011dfbce8527"><br>
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/631fa1b4-7c32-404a-82cf-81b461223d08">
+                  </details>
+                  <details>
+                  <summary>매물이 없을 경우</summary>
+                  <img width="774" alt="image" src="https://github.com/user-attachments/assets/e3370ffb-7723-4ef6-81c3-e66e5cfc5950"><br>
+                  <img width="237" alt="image" src="https://github.com/user-attachments/assets/212a998a-e726-42b2-8aa8-600e6e91c36f">
+                  </details>
+            </blockquote>
+        </details>
+    </blockquote>
+</details>
+
+<details>
+    <summary>거래</summary>
+    <blockquote>
+        <details>
+            <summary>거래 등록 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>등록 성공</summary>
+                  <img width="961" alt="image" src="https://github.com/user-attachments/assets/cc6946cb-8fbe-473a-a57a-b6087962f161"><br>
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/46453da5-80f6-4c53-8060-2ed3fb2cdbe6">
+                  </details>
+                  <details>
+                  <summary>회원이 없을 경우</summary>
+                  <img width="855" alt="image" src="https://github.com/user-attachments/assets/e697d3c7-318d-452d-99ce-79ff1b0ab6b9"><br>
+                  <img width="239" alt="image" src="https://github.com/user-attachments/assets/38f3f0a8-62e0-4057-a678-6485f717bbe8">
+                  </details>
+                  <details>
+                  <summary>매물이 없을 경우</summary>
+                  <img width="844" alt="image" src="https://github.com/user-attachments/assets/a30d69c6-8eb0-4331-b020-65f70df7ce47"><br>
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/24e1e801-2401-4acc-9b61-c4c12049233a">
+                  </details>
+            </blockquote>
+        </details>
+        <details>
+            <summary>거래 조회 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>조회 성공</summary>
+                  <img width="795" alt="image" src="https://github.com/user-attachments/assets/8577989c-5f88-464a-baad-79127ed33735"><br>
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/c71d2ab0-3596-4921-8f51-547b1ef42b32">
+                  </details>
+                  <details>
+                  <summary>거래가 없을 경우</summary>
+                  <img width="578" alt="image" src="https://github.com/user-attachments/assets/da8e2f75-bde8-4119-a905-316e8bbc6c39"><br>
+                  <img width="239" alt="image" src="https://github.com/user-attachments/assets/06623fe2-7b04-47ff-b477-82de3ace37e3">
+                  </details>
+                  <details>
+                  <summary>전체 거래 조회</summary>
+                  <img width="733" alt="image" src="https://github.com/user-attachments/assets/97e60d93-14e0-4c2d-8fc4-aadbc5c07331"><br>
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/6577a43b-6ef7-4b76-bcb9-1c04f7f48cd5">
+                  </details>
+            </blockquote>
+        </details>
+        <details>
+            <summary>거래 취소 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>취소 성공</summary>
+                  <img width="991" alt="image" src="https://github.com/user-attachments/assets/8d0b3cec-21cc-4a99-9792-df69bb9b203f"><br>
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/b9abb568-fe4b-4676-aa3f-132961796863">
+                  </details>
+                  <details>
+                  <summary>거래가 없을 경우</summary>
+                  <img width="776" alt="image" src="https://github.com/user-attachments/assets/7594acef-c330-4c14-a6d1-7993b8373d6d"><br>
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/cfb9b7c9-f9e0-4d08-839e-2ba2e4028667">
+                  </details>
+            </blockquote>
+        </details>
+        <details>
+            <summary>거래 변경 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>변경 성공</summary>
+                  <img width="856" alt="image" src="https://github.com/user-attachments/assets/ed040015-8bb3-4189-a470-31c9e79fcd21"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/9e6e9f4d-005a-42e3-8b16-96696c894926">
+                  </details>
+                  <details>
+                  <summary>거래가 없을 경우</summary>
+                  <img width="783" alt="image" src="https://github.com/user-attachments/assets/bab0f8bc-197d-4222-8791-fd777cd96162"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/4acf6b57-4662-4620-9b2c-3c840d5c72d3">
+                  </details>
+            </blockquote>
+        </details>
+    </blockquote>
+</details>
+
+<details>
+    <summary>납부 내역</summary>
+    <blockquote>
+        <details>
+            <summary>납부 내역 등록 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>등록 성공</summary>
+                  <img width="847" alt="image" src="https://github.com/user-attachments/assets/abae143d-ef6c-4074-9cc5-f6bccec19d27"><br>
+                  <img width="238" alt="image" src="https://github.com/user-attachments/assets/d42e01e2-200f-4566-9f1a-4e6dd8ed09e3">
+                  </details>
+                  <details>
+                  <summary>회원이 없을 경우</summary>
+                  <img width="762" alt="image" src="https://github.com/user-attachments/assets/8c07688f-e122-43c2-8b3c-e67feefc5d3e"><br>
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/106f7ca0-51c7-44b4-bedd-784c4c7e93fb">
+                  </details>
+            </blockquote>
+        </details>
+        <details>
+            <summary>납부 내역 조회 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>전체 리스트 조회</summary>
+                  <img width="851" alt="image" src="https://github.com/user-attachments/assets/01a2c06e-2426-4bcc-a572-2df60fdf87d3"><br>
+                  <img width="232" alt="image" src="https://github.com/user-attachments/assets/7d75f5a2-6f4e-4a89-951b-d61a83e40808">
+                  </details>
+                  <details>
+                  <summary>특정 납부 내역 조회</summary>
+                  <img width="778" alt="image" src="https://github.com/user-attachments/assets/68c881ad-1a89-455f-9649-b05bfdd10a53"><br>
+                  <img width="237" alt="image" src="https://github.com/user-attachments/assets/445bf1b3-3d0c-44b0-bb62-e4ac84cf9918">
+                  </details>
+                  <details>
+                  <summary>납부 내역이 없는 경우</summary>
+                  <img width="698" alt="image" src="https://github.com/user-attachments/assets/431001bf-0f07-4a70-856c-3f360d2f8ff3"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/3485696f-620c-4462-95be-10d3753d2603">
+                  </details>
+            </blockquote>
+        </details>
+        <details>
+            <summary>납부 내역 수정 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>수정 성공</summary>
+                  <img width="834" alt="image" src="https://github.com/user-attachments/assets/fd22fc61-9f99-42d6-8bd0-5c7125b5b143"><br>
+                  <img width="233" alt="image" src="https://github.com/user-attachments/assets/0b7a8bf0-00f8-4671-9f7b-9a81e278dba9">
+                  </details>
+                  <details>
+                  <summary>납부 내역이 없는 경우</summary>
+                  <img width="797" alt="image" src="https://github.com/user-attachments/assets/aac48e5a-1e92-4ea1-b433-fd21bd135a3c"><br>
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/d033ee30-10b2-4654-9392-a342d2de95da">
+                  </details>
+            </blockquote>
+        </details>
+        <details>
+            <summary>납부 내역 삭제 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>삭제 성공</summary>
+                  <img width="725" alt="image" src="https://github.com/user-attachments/assets/987e7f8c-1a3a-47db-9afa-decfb465b894"><br>
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/2389bb42-bad6-4b6c-91de-3c6d45892f29">
+                  </details>
+                  <details>
+                  <summary>납부 내역이 없는 경우</summary>
+                  <img width="704" alt="image" src="https://github.com/user-attachments/assets/b5f5079c-1712-4cc5-8198-4028a20e7b3e"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/69bc8da4-4eb9-4285-bb33-4b4af22598f0"><br>
+                  <img width="242" alt="image" src="https://github.com/user-attachments/assets/78ce1d8b-6e34-4fcf-a7b6-a79515585b3d">
+                  </details>
+            </blockquote>
+        </details>
+    </blockquote>
+</details>
+
+<details>
+    <summary>후기</summary>
+    <blockquote>
+        <details>
+            <summary>후기 등록 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>등록 성공</summary>
+                  <img width="847" alt="image" src="https://github.com/user-attachments/assets/abae143d-ef6c-4074-9cc5-f6bccec19d27"><br>
+                  <img width="238" alt="image" src="https://github.com/user-attachments/assets/d42e01e2-200f-4566-9f1a-4e6dd8ed09e3">
+                  </details>
+                  <details>
+                  <summary>회원이 없을 경우</summary>
+                  <img width="762" alt="image" src="https://github.com/user-attachments/assets/8c07688f-e122-43c2-8b3c-e67feefc5d3e"><br>
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/106f7ca0-51c7-44b4-bedd-784c4c7e93fb">
+                  </details>
+            </blockquote>
+        </details>
+        <details>
+            <summary>후기 조회 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>전체 리스트 조회</summary>
+                  <img width="851" alt="image" src="https://github.com/user-attachments/assets/01a2c06e-2426-4bcc-a572-2df60fdf87d3"><br>
+                  <img width="232" alt="image" src="https://github.com/user-attachments/assets/7d75f5a2-6f4e-4a89-951b-d61a83e40808">
+                  </details>
+                  <details>
+                  <summary>특정 납부 내역 조회</summary>
+                  <img width="778" alt="image" src="https://github.com/user-attachments/assets/68c881ad-1a89-455f-9649-b05bfdd10a53"><br>
+                  <img width="237" alt="image" src="https://github.com/user-attachments/assets/445bf1b3-3d0c-44b0-bb62-e4ac84cf9918">
+                  </details>
+                  <details>
+                  <summary>납부 내역이 없는 경우</summary>
+                  <img width="698" alt="image" src="https://github.com/user-attachments/assets/431001bf-0f07-4a70-856c-3f360d2f8ff3"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/3485696f-620c-4462-95be-10d3753d2603">
+                  </details>
+            </blockquote>
+        </details>
+        <details>
+            <summary>후기 수정 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>수정 성공</summary>
+                  <img width="834" alt="image" src="https://github.com/user-attachments/assets/fd22fc61-9f99-42d6-8bd0-5c7125b5b143"><br>
+                  <img width="233" alt="image" src="https://github.com/user-attachments/assets/0b7a8bf0-00f8-4671-9f7b-9a81e278dba9">
+                  </details>
+                  <details>
+                  <summary>납부 내역이 없는 경우</summary>
+                  <img width="797" alt="image" src="https://github.com/user-attachments/assets/aac48e5a-1e92-4ea1-b433-fd21bd135a3c"><br>
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/d033ee30-10b2-4654-9392-a342d2de95da">
+                  </details>
+            </blockquote>
+        </details>
+        <details>
+            <summary>후기 삭제 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>삭제 성공</summary>
+                  <img width="725" alt="image" src="https://github.com/user-attachments/assets/987e7f8c-1a3a-47db-9afa-decfb465b894"><br>
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/2389bb42-bad6-4b6c-91de-3c6d45892f29">
+                  </details>
+                  <details>
+                  <summary>납부 내역이 없는 경우</summary>
+                  <img width="704" alt="image" src="https://github.com/user-attachments/assets/b5f5079c-1712-4cc5-8198-4028a20e7b3e"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/69bc8da4-4eb9-4285-bb33-4b4af22598f0"><br>
+                  <img width="242" alt="image" src="https://github.com/user-attachments/assets/78ce1d8b-6e34-4fcf-a7b6-a79515585b3d">
+                  </details>
+            </blockquote>
+        </details>
+    </blockquote>
+</details>
+
 <br>
 
 ## 📆 WBS
@@ -406,9 +732,9 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 
 ## 👨‍👩‍👧‍👦 Member
 
-[김나현](https://github.com/NAHYEON0713)|[서현지](https://github.com/henhen7)|[박성준](https://github.com/sjpark-08)|[이유진](https://github.com/uzz99)|[임지훈](https://github.com/limjihoon99)|
+[김나현](https://github.com/NAHYEON0713)|[박성준](https://github.com/sjpark-08)|[서현지](https://github.com/henhen7)|[이유진](https://github.com/uzz99)|[임지훈](https://github.com/limjihoon99)|
 ------|------|------|--------------------------------------|------|
-<img alt="김나현" src="" width="400px"/> | <img alt="서현지" src="" width="400px"/> | <img alt="박성준" src="" width="400px"/> | <img alt="이유진" src="" width="400px"/> | <img alt="임지훈" src="" width="400px"/> | 
+<img alt="김나현" src="https://github.com/user-attachments/assets/8de85308-a7d1-449e-8c8e-4db8c04b5513" /> | <img alt="박성준" src="https://github.com/user-attachments/assets/3ba1bf25-bf0e-45ac-b27b-3a57a73bc41f" /> | <img alt="서현지" src="https://github.com/user-attachments/assets/47534fb0-201b-4487-a39e-190a8ec3bc79" /> | <img alt="이유진" src="https://github.com/user-attachments/assets/41ef2ad7-1857-4937-9a40-f3aa4030587f" /> | <img alt="임지훈" src="https://github.com/user-attachments/assets/99ebdf70-198a-43de-ae2d-7c1ac628ff1d" /> | 
 
 <br>
 
@@ -416,8 +742,8 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 |&nbsp;&nbsp;팀&nbsp;원&nbsp;&nbsp;&nbsp;|회고록|
 |:---:|---|
 |김나현|&nbsp;|
-|서현지|&nbsp;|
 |박성준|&nbsp;|
+|서현지|&nbsp;|
 |이유진|&nbsp;|
 |임지훈|&nbsp;|
 <br>
