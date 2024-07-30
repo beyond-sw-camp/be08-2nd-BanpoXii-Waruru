@@ -436,7 +436,7 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
                   <img width="236" alt="image" src="https://github.com/user-attachments/assets/676dbf38-268e-4e11-b50f-22f19afc0a11">
                   </details>
                   <details>
-                  <summary>회원이 없을 경우</summary>
+                  <summary>회원이 없는 경우</summary>
                   <img width="724" alt="image" src="https://github.com/user-attachments/assets/a2643d13-ea4d-4a9e-9bba-e7f5fa9c311d">
                   <img width="235" alt="image" src="https://github.com/user-attachments/assets/58b69cde-504b-47db-bcd7-7c21bac352fb">
                   </details>
@@ -451,7 +451,7 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
                   <img width="236" alt="image" src="https://github.com/user-attachments/assets/bb2a9ceb-6bb8-4c80-8e90-75fbd876f706">
                   </details>
                   <details>
-                  <summary>매물이 없을 경우</summary>
+                  <summary>매물이 없는 경우</summary>
                   <img width="646" alt="image" src="https://github.com/user-attachments/assets/733edbc4-f697-4f2e-9d44-051ebd6664b7"><br>
                   <img width="236" alt="image" src="https://github.com/user-attachments/assets/95668bbc-2667-4844-9c36-29a413b11210">
                   </details>
@@ -466,7 +466,7 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
                   <img width="233" alt="image" src="https://github.com/user-attachments/assets/b5c2f07f-4298-4c9c-80b3-ef3addd3d942">
                   </details>
                   <details>
-                  <summary>매물이 없을 경우</summary>
+                  <summary>매물이 없는 경우</summary>
                   <img width="652" alt="image" src="https://github.com/user-attachments/assets/db802b98-3a37-482c-ad93-8fdca0523d40"><br>
                   <img width="238" alt="image" src="https://github.com/user-attachments/assets/acbf04d3-b55d-43e1-a2de-6a89e9cb4663">
                   </details>
@@ -491,7 +491,7 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
                   <img width="235" alt="image" src="https://github.com/user-attachments/assets/631fa1b4-7c32-404a-82cf-81b461223d08">
                   </details>
                   <details>
-                  <summary>매물이 없을 경우</summary>
+                  <summary>매물이 없는 경우</summary>
                   <img width="774" alt="image" src="https://github.com/user-attachments/assets/e3370ffb-7723-4ef6-81c3-e66e5cfc5950"><br>
                   <img width="237" alt="image" src="https://github.com/user-attachments/assets/212a998a-e726-42b2-8aa8-600e6e91c36f">
                   </details>
@@ -512,14 +512,15 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
                   <img width="235" alt="image" src="https://github.com/user-attachments/assets/46453da5-80f6-4c53-8060-2ed3fb2cdbe6">
                   </details>
                   <details>
-                  <summary>회원이 없을 경우</summary>
+                  <summary>회원이 없는 경우</summary>
                   <img width="855" alt="image" src="https://github.com/user-attachments/assets/e697d3c7-318d-452d-99ce-79ff1b0ab6b9"><br>
                   <img width="239" alt="image" src="https://github.com/user-attachments/assets/38f3f0a8-62e0-4057-a678-6485f717bbe8">
                   </details>
                   <details>
-                  <summary>매물이 없을 경우</summary>
+                  <summary>매물이 없는 경우</summary>
                   <img width="844" alt="image" src="https://github.com/user-attachments/assets/a30d69c6-8eb0-4331-b020-65f70df7ce47"><br>
-                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/24e1e801-2401-4acc-9b61-c4c12049233a">
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/24e1e801-2401-4acc-9b61-c4c12049233a"><br>
+                  <img width="185" alt="image" src="https://github.com/user-attachments/assets/744eb730-85da-4322-b721-8dc00003596a">
                   </details>
             </blockquote>
         </details>
@@ -532,9 +533,10 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
                   <img width="235" alt="image" src="https://github.com/user-attachments/assets/c71d2ab0-3596-4921-8f51-547b1ef42b32">
                   </details>
                   <details>
-                  <summary>거래가 없을 경우</summary>
+                  <summary>거래가 없는 경우</summary>
                   <img width="578" alt="image" src="https://github.com/user-attachments/assets/da8e2f75-bde8-4119-a905-316e8bbc6c39"><br>
-                  <img width="239" alt="image" src="https://github.com/user-attachments/assets/06623fe2-7b04-47ff-b477-82de3ace37e3">
+                  <img width="239" alt="image" src="https://github.com/user-attachments/assets/06623fe2-7b04-47ff-b477-82de3ace37e3"><br>
+                  <img width="190" alt="image" src="https://github.com/user-attachments/assets/f442e52e-a871-4471-bc2e-a2a0df7da4b5">
                   </details>
                   <details>
                   <summary>전체 거래 조회</summary>
@@ -552,9 +554,10 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
                   <img width="235" alt="image" src="https://github.com/user-attachments/assets/b9abb568-fe4b-4676-aa3f-132961796863">
                   </details>
                   <details>
-                  <summary>거래가 없을 경우</summary>
+                  <summary>거래가 없는 경우</summary>
                   <img width="776" alt="image" src="https://github.com/user-attachments/assets/7594acef-c330-4c14-a6d1-7993b8373d6d"><br>
-                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/cfb9b7c9-f9e0-4d08-839e-2ba2e4028667">
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/cfb9b7c9-f9e0-4d08-839e-2ba2e4028667"><br>
+                  <img width="190" alt="image" src="https://github.com/user-attachments/assets/e6327d61-45f5-4128-b606-bb812755d424">
                   </details>
             </blockquote>
         </details>
@@ -567,9 +570,25 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
                   <img width="236" alt="image" src="https://github.com/user-attachments/assets/9e6e9f4d-005a-42e3-8b16-96696c894926">
                   </details>
                   <details>
-                  <summary>거래가 없을 경우</summary>
+                  <summary>거래가 없는 경우</summary>
                   <img width="783" alt="image" src="https://github.com/user-attachments/assets/bab0f8bc-197d-4222-8791-fd777cd96162"><br>
-                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/4acf6b57-4662-4620-9b2c-3c840d5c72d3">
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/4acf6b57-4662-4620-9b2c-3c840d5c72d3"><br>
+                  <img width="190" alt="image" src="https://github.com/user-attachments/assets/001e7ec3-f649-41bc-81da-16f55b0a0965">
+                  </details>
+            </blockquote>
+        </details>
+        <details>
+            <summary>거래 삭제 테스트</summary>
+            <blockquote>
+                  <details>
+                  <summary>삭제 성공</summary>
+                  <img width="791" alt="image" src="https://github.com/user-attachments/assets/462fae61-270e-40c1-a49b-a254323b8863"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/763fb877-467d-465f-97cc-5e1711fe1d30">
+                  </details>
+                  <details>
+                  <summary>거래가 없는 경우</summary>
+                  <img width="852" alt="image" src="https://github.com/user-attachments/assets/3970c016-8637-4cb6-8a39-a77eb39ed5e8"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/e223e10b-d7a3-4ea1-9596-42eb8fa08f5b">
                   </details>
             </blockquote>
         </details>
@@ -588,9 +607,10 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
                   <img width="238" alt="image" src="https://github.com/user-attachments/assets/d42e01e2-200f-4566-9f1a-4e6dd8ed09e3">
                   </details>
                   <details>
-                  <summary>회원이 없을 경우</summary>
+                  <summary>회원이 없는 경우</summary>
                   <img width="762" alt="image" src="https://github.com/user-attachments/assets/8c07688f-e122-43c2-8b3c-e67feefc5d3e"><br>
-                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/106f7ca0-51c7-44b4-bedd-784c4c7e93fb">
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/106f7ca0-51c7-44b4-bedd-784c4c7e93fb"><br>
+                  <img width="191" alt="image" src="https://github.com/user-attachments/assets/d962806b-771d-4ca5-a08e-b5703694b2a9">
                   </details>
             </blockquote>
         </details>
@@ -603,14 +623,15 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
                   <img width="232" alt="image" src="https://github.com/user-attachments/assets/7d75f5a2-6f4e-4a89-951b-d61a83e40808">
                   </details>
                   <details>
-                  <summary>특정 납부 내역 조회</summary>
+                  <summary>특정 납부 내역 조회</summary>
                   <img width="778" alt="image" src="https://github.com/user-attachments/assets/68c881ad-1a89-455f-9649-b05bfdd10a53"><br>
                   <img width="237" alt="image" src="https://github.com/user-attachments/assets/445bf1b3-3d0c-44b0-bb62-e4ac84cf9918">
                   </details>
                   <details>
                   <summary>납부 내역이 없는 경우</summary>
                   <img width="698" alt="image" src="https://github.com/user-attachments/assets/431001bf-0f07-4a70-856c-3f360d2f8ff3"><br>
-                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/3485696f-620c-4462-95be-10d3753d2603">
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/3485696f-620c-4462-95be-10d3753d2603"><br>
+                  <img width="227" alt="image" src="https://github.com/user-attachments/assets/23b5f56d-cf21-420c-861e-033d5b58c0d3">
                   </details>
             </blockquote>
         </details>
@@ -625,7 +646,8 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
                   <details>
                   <summary>납부 내역이 없는 경우</summary>
                   <img width="797" alt="image" src="https://github.com/user-attachments/assets/aac48e5a-1e92-4ea1-b433-fd21bd135a3c"><br>
-                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/d033ee30-10b2-4654-9392-a342d2de95da">
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/d033ee30-10b2-4654-9392-a342d2de95da"><br>
+                  <img width="227" alt="image" src="https://github.com/user-attachments/assets/aac116cb-0c34-4b1e-9ba4-270a4ed7ae02">
                   </details>
             </blockquote>
         </details>
@@ -656,13 +678,20 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
             <blockquote>
                   <details>
                   <summary>등록 성공</summary>
-                  <img width="847" alt="image" src="https://github.com/user-attachments/assets/abae143d-ef6c-4074-9cc5-f6bccec19d27"><br>
-                  <img width="238" alt="image" src="https://github.com/user-attachments/assets/d42e01e2-200f-4566-9f1a-4e6dd8ed09e3">
+                  <img width="779" alt="image" src="https://github.com/user-attachments/assets/98068382-9f30-42ae-8e8c-4a005fb435a8"><br>
+                  <img width="233" alt="image" src="https://github.com/user-attachments/assets/4005c2f7-38c5-48cd-9455-4a35c1d411c0">
                   </details>
                   <details>
-                  <summary>회원이 없을 경우</summary>
-                  <img width="762" alt="image" src="https://github.com/user-attachments/assets/8c07688f-e122-43c2-8b3c-e67feefc5d3e"><br>
-                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/106f7ca0-51c7-44b4-bedd-784c4c7e93fb">
+                  <summary>회원이 없는 경우</summary>
+                  <img width="802" alt="image" src="https://github.com/user-attachments/assets/39470403-717a-41c1-9e8b-10308f5ab874"><br>
+                  <img width="237" alt="image" src="https://github.com/user-attachments/assets/ee615995-2124-47bf-bfe4-6532d6083afe"><br>
+                  <img width="183" alt="image" src="https://github.com/user-attachments/assets/3ff63408-dafc-48f9-a151-696c198ad2f1">
+                  </details>
+                  <details>
+                  <summary>매물이 없는 경우</summary>
+                  <img width="783" alt="image" src="https://github.com/user-attachments/assets/cb22bbb6-a088-4352-ae3f-9a6bfe268dd5"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/65b7d0c7-5abe-412e-a9e2-ed76b03b9e2e"><br>
+                  <img width="195" alt="image" src="https://github.com/user-attachments/assets/e6bd0ebb-58df-40a3-a7ad-b0117b42d3f8">
                   </details>
             </blockquote>
         </details>
@@ -670,19 +699,15 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
             <summary>후기 조회 테스트</summary>
             <blockquote>
                   <details>
-                  <summary>전체 리스트 조회</summary>
-                  <img width="851" alt="image" src="https://github.com/user-attachments/assets/01a2c06e-2426-4bcc-a572-2df60fdf87d3"><br>
-                  <img width="232" alt="image" src="https://github.com/user-attachments/assets/7d75f5a2-6f4e-4a89-951b-d61a83e40808">
+                  <summary>특정 후기 조회</summary>
+                  <img width="742" alt="image" src="https://github.com/user-attachments/assets/489feaed-c5ae-4c4f-b21a-2316675626bf"><br>
+                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/3ce6abef-1c3f-41f8-a4f9-a35f5673fc1f">
                   </details>
                   <details>
-                  <summary>특정 납부 내역 조회</summary>
-                  <img width="778" alt="image" src="https://github.com/user-attachments/assets/68c881ad-1a89-455f-9649-b05bfdd10a53"><br>
-                  <img width="237" alt="image" src="https://github.com/user-attachments/assets/445bf1b3-3d0c-44b0-bb62-e4ac84cf9918">
-                  </details>
-                  <details>
-                  <summary>납부 내역이 없는 경우</summary>
-                  <img width="698" alt="image" src="https://github.com/user-attachments/assets/431001bf-0f07-4a70-856c-3f360d2f8ff3"><br>
-                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/3485696f-620c-4462-95be-10d3753d2603">
+                  <summary>후기가 없는 경우</summary>
+                  <img width="789" alt="image" src="https://github.com/user-attachments/assets/d51993df-8cdf-4868-9d3a-22246e202d98"><br>
+                  <img width="237" alt="image" src="https://github.com/user-attachments/assets/a793dda5-a7c8-44d1-9c25-6e6f8bd4e477"><br>
+                  <img width="228" alt="image" src="https://github.com/user-attachments/assets/807abee7-0243-41a2-a73c-2146211fb23d">
                   </details>
             </blockquote>
         </details>
@@ -691,13 +716,14 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
             <blockquote>
                   <details>
                   <summary>수정 성공</summary>
-                  <img width="834" alt="image" src="https://github.com/user-attachments/assets/fd22fc61-9f99-42d6-8bd0-5c7125b5b143"><br>
-                  <img width="233" alt="image" src="https://github.com/user-attachments/assets/0b7a8bf0-00f8-4671-9f7b-9a81e278dba9">
+                  <img width="952" alt="image" src="https://github.com/user-attachments/assets/e5aa4eaa-08b0-4f00-90d2-4504ff603f21"><br>
+                  <img width="239" alt="image" src="https://github.com/user-attachments/assets/8cf135ca-e896-494a-b41a-4cadbbcf7a36">
                   </details>
                   <details>
-                  <summary>납부 내역이 없는 경우</summary>
-                  <img width="797" alt="image" src="https://github.com/user-attachments/assets/aac48e5a-1e92-4ea1-b433-fd21bd135a3c"><br>
-                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/d033ee30-10b2-4654-9392-a342d2de95da">
+                  <summary>후기가 없는 경우</summary>
+                  <img width="807" alt="image" src="https://github.com/user-attachments/assets/db3da4c2-e7bb-49cf-8c8f-d9f75de13d99"><br>
+                  <img width="234" alt="image" src="https://github.com/user-attachments/assets/a5ba183e-6442-4a5f-99c8-6a8325683355"><br>
+                  <img width="196" alt="image" src="https://github.com/user-attachments/assets/a977d0f9-a1fc-4c7d-a228-2dc97eea0c84">
                   </details>
             </blockquote>
         </details>
@@ -706,14 +732,14 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
             <blockquote>
                   <details>
                   <summary>삭제 성공</summary>
-                  <img width="725" alt="image" src="https://github.com/user-attachments/assets/987e7f8c-1a3a-47db-9afa-decfb465b894"><br>
-                  <img width="235" alt="image" src="https://github.com/user-attachments/assets/2389bb42-bad6-4b6c-91de-3c6d45892f29">
+                  <img width="739" alt="image" src="https://github.com/user-attachments/assets/6faa775e-8761-4807-a279-8096f105e3b3"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/35bf9ff1-de4b-40de-a634-4255a2a43add">
                   </details>
                   <details>
-                  <summary>납부 내역이 없는 경우</summary>
-                  <img width="704" alt="image" src="https://github.com/user-attachments/assets/b5f5079c-1712-4cc5-8198-4028a20e7b3e"><br>
-                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/69bc8da4-4eb9-4285-bb33-4b4af22598f0"><br>
-                  <img width="242" alt="image" src="https://github.com/user-attachments/assets/78ce1d8b-6e34-4fcf-a7b6-a79515585b3d">
+                  <summary>후기가 없는 경우</summary>
+                  <img width="820" alt="image" src="https://github.com/user-attachments/assets/efb86c95-159e-480d-b8ac-50f6f20d391b"><br>
+                  <img width="236" alt="image" src="https://github.com/user-attachments/assets/21082024-0bf8-4d94-a9b6-75021e4bfec0"><br>
+                  <img width="186" alt="image" src="https://github.com/user-attachments/assets/e147acfa-1d43-4972-b27a-c5e0fb3e3e21">
                   </details>
             </blockquote>
         </details>
