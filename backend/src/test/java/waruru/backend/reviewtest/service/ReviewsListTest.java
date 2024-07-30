@@ -29,13 +29,13 @@ public class ReviewsListTest extends ReviewCommonSetUp{
         ReviewResponseDTO reviewResponseDTO1 = reviewResponseDTOList.get(0);
         assertEquals("1번 후기 Title Test", reviewResponseDTO1.getTitle());
         assertEquals("1번 후기 Content Test", reviewResponseDTO1.getContent());
-        assertEquals(Long.valueOf(1L), reviewResponseDTO1.getUserId());
+        assertEquals(Long.valueOf(1L), reviewResponseDTO1.getUserNo());
         assertEquals(Long.valueOf(1L), reviewResponseDTO1.getSaleNo());
 
         ReviewResponseDTO reviewResponseDTO2 = reviewResponseDTOList.get(1);
         assertEquals("2번 후기 Title Test", reviewResponseDTO2.getTitle());
         assertEquals("2번 후기 Content Test", reviewResponseDTO2.getContent());
-        assertEquals(Long.valueOf(2L), reviewResponseDTO2.getUserId());
+        assertEquals(Long.valueOf(2L), reviewResponseDTO2.getUserNo());
         assertEquals(Long.valueOf(2L), reviewResponseDTO2.getSaleNo());
 
         reviewResponseDTOList.forEach(System.out::println);

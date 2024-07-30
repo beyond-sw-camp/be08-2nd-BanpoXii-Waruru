@@ -39,7 +39,7 @@ public class ReviewCreateTest extends ReviewCommonSetUp{
         ReviewResponseDTO reviewResponseDTO = reviewService.createReview(reviewRequestDTO);
         assertEquals("1번 후기 Title Test", reviewResponseDTO.getTitle());
         assertEquals("1번 후기 Content Test", reviewResponseDTO.getContent());
-        assertEquals(Long.valueOf(1L), reviewResponseDTO.getUserId());
+        assertEquals(Long.valueOf(1L), reviewResponseDTO.getUserNo());
         assertEquals(Long.valueOf(1L), reviewResponseDTO.getSaleNo());
         assertEquals(review.getRegisterDate(), reviewResponseDTO.getRegisterDate());
     }
