@@ -41,9 +41,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 authentication = jwtTokenProvider.getAuthentication(accessToken);
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             } else {
-                RefreshToken refreshToken = refreshTokenRepository.findByAccessToken(accessToken).orElseThrow(() ->
-                        new RuntimeException("Refresh token not found"));
-                if(refreshToken != null) {
+                RefreshToken refreshToken = refreshTokenRepository.findByAccessToken(accessToken).orElse(null);
+                if(refreshToken == null) {
+                    response.sendError(HttpServletResponse.SC_FORBIDDEN);
+                } else {
                     String userId = refreshToken.getUsername();
                     String newAccessToken = jwtTokenProvider.reIssueAccessToken(userId);
                     refreshToken.setAccessToken(newAccessToken);
