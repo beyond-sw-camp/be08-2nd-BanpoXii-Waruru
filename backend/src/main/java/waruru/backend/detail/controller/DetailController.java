@@ -34,9 +34,12 @@ public class DetailController {
 
     @Operation(summary = "모든 납부 내역의 리스트를 반환하는 API")
     @GetMapping("/list")
-    public ResponseEntity<List<DetailResponseDTO>> getAllDetails() {
+    public ResponseEntity<List<DetailResponseDTO>> getAllDetails(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
 
-        return ResponseEntity.ok(detailService.getAllDetails());
+        List<DetailResponseDTO> details = detailService.getAllDetails(page, size);
+        return ResponseEntity.ok(details);
     }
 
     @Operation(summary = "특정 납부 내역의 정보를 반환하는 API")
