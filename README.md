@@ -212,7 +212,8 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
       
 ![sale_findAllList_success](https://github.com/user-attachments/assets/5b54d508-5f02-4280-a894-78af839253e6)
 ![sale_findById_success](https://github.com/user-attachments/assets/69e1685e-8f35-4089-b391-38ab34349318)
-조회_notfound
+
+- 조회_notfound
 ![sale_findById_notfound](https://github.com/user-attachments/assets/679335b8-0b38-4794-99c7-15d05d039b2c)
       
 </details>
@@ -221,7 +222,8 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
       <summary>수정</summary>
       
 ![sale_update_success](https://github.com/user-attachments/assets/1f1f287e-9d05-44c4-8b3b-06bc8c1895d4)
-수정_notfound
+
+- 수정_notfound
 ![sale_update_notfound](https://github.com/user-attachments/assets/3cc0d4ca-f9a6-4057-9f5b-ffbddf385448)
       
 </details>
@@ -255,7 +257,8 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 ![7_사용자거래조회](https://github.com/user-attachments/assets/673a9fc5-aade-4e15-9fc8-770592ba1321)
 ![3_거래조회](https://github.com/user-attachments/assets/c63acf31-3bbf-406c-aa4a-f3de1e8fe55d)
 ![4_거래조회](https://github.com/user-attachments/assets/7e512c40-c268-4598-9b34-56f1d75237d5)
-조회_notfound
+
+- 조회_notfound
 ![5_거래조회X](https://github.com/user-attachments/assets/cd9e282c-1a37-4aa1-afa5-93aeb7327a01)
       
 </details>
@@ -290,7 +293,51 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 <details>
       <summary>납부</summary> 
       
-접은 내용(ex 소스 코드)
+<details>
+      <summary>등록</summary>
+      
+<img width="1000" alt="detail_register_success" src="https://github.com/user-attachments/assets/afab1761-b54d-402c-908b-5e8e6351e070">
+<img width="1000" alt="detail_register_check" src="https://github.com/user-attachments/assets/b4d2b3a5-68ed-4774-8ceb-66c0a5172048">
+
+      
+</details>
+
+<details>
+      <summary>조회</summary>
+      
+<img width="1000" alt="detail_findAllList" src="https://github.com/user-attachments/assets/5ca2ebbe-d0ad-4920-b96c-695bca7ea65d">
+<img width="1000" alt="detail_findById_success" src="https://github.com/user-attachments/assets/fa4e0b9e-7361-4132-832a-05aab269e530">
+
+- 조회_notfound
+<img width="1000" alt="detail_findById_notfound" src="https://github.com/user-attachments/assets/d08ab641-9853-471b-be0a-79e449ffe4b8">
+
+      
+</details>
+
+<details>
+      <summary>수정</summary>
+      
+<img width="1000" alt="detail_update_success" src="https://github.com/user-attachments/assets/dcfe6764-05f3-4bfc-91a6-7ebd763e44ad">
+<img width="1000" alt="detail_update_check" src="https://github.com/user-attachments/assets/6c4b5e60-7025-4044-b3d1-9d9dc4950c21">
+
+- 수정_notfound
+<img width="1000" alt="detail_update_notfound" src="https://github.com/user-attachments/assets/b84982a5-fc7a-4cb0-9dbc-ea1b783f91dc">
+
+      
+</details>
+
+<details>
+      <summary>삭제</summary>
+      
+<img width="1000" alt="detail_delete_success" src="https://github.com/user-attachments/assets/b4e13ba7-534a-409f-92dd-17ae6c405b62">
+<img width="1000" alt="detail_delete_check" src="https://github.com/user-attachments/assets/aebdd11d-dd8b-4f04-9d72-3ee1c09d0368">
+
+- 삭제_notfound
+<img width="1000" alt="detail_delete_notfound" src="https://github.com/user-attachments/assets/d66c9cda-420b-4bc8-85b4-165db119aec3">
+
+      
+</details>
+
 </details>
 
 <details>
@@ -309,7 +356,8 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
       
 ![4   리스트 조회  후기 리스트 페이징](https://github.com/user-attachments/assets/c5eb4058-f178-4571-9faf-8e9014629b54)
 ![3-1   단건조회  1번 후기 수정 전 조회](https://github.com/user-attachments/assets/b466b95b-df71-4a99-97a6-7c17d1c6cb39)
-조회_notfound
+
+- 조회_notfound
 ![1   단건조회  없는 매물](https://github.com/user-attachments/assets/27d11a50-d65f-4b2d-a6f8-c5edcda424fb)
 
       
