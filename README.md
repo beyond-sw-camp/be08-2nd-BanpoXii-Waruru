@@ -126,7 +126,75 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 <details>
       <summary>회원</summary> 
       
-접은 내용(ex 소스 코드)
+<details>
+      <summary>등록</summary>
+      
+<img width="1430" alt="request" src="https://github.com/user-attachments/assets/67006d05-a04b-4ed3-b105-dd203d784f55">
+<img width="1430" alt="response" src="https://github.com/user-attachments/assets/9c066385-1713-465c-8792-983f9b97fc62">
+      
+</details>
+
+<details>
+      <summary>email</summary>
+      
+- send
+<img width="1429" alt="request" src="https://github.com/user-attachments/assets/4d20216a-3355-4449-afa6-53a73333261f">
+<img width="1431" alt="response" src="https://github.com/user-attachments/assets/d257f671-9994-47eb-9496-21b04ab017ec">
+<img width="551" alt="email" src="https://github.com/user-attachments/assets/b4b0f828-e3ae-4af4-ac53-73a2f61a0fe4">
+
+- verify
+<img width="1429" alt="request" src="https://github.com/user-attachments/assets/830088de-441d-4463-a40e-db6a689cda6d">
+<img width="1434" alt="response" src="https://github.com/user-attachments/assets/5352497c-add0-42a7-9dce-a67cdb27e3c6">
+      
+</details>
+
+<details>
+      <summary>로그인&로그아웃</summary>
+      
+- 로그인
+<img width="1079" alt="로그인 resquest와 response" src="https://github.com/user-attachments/assets/62561877-8594-4f20-b9b6-47500077d762">
+<img width="503" alt="로그인 request로 받은 액세스 토큰 쿠키" src="https://github.com/user-attachments/assets/bfde9b9c-3335-494c-8ea9-2ceed5fbcc44">
+
+- 액세스 토큰이 만료된 경우
+<img width="1077" alt="request" src="https://github.com/user-attachments/assets/038e864a-ebf3-46bf-b98d-dfc97fb123e9">
+<img width="1106" alt="response(새로운 액세스 토큰이 발급됨)" src="https://github.com/user-attachments/assets/c47b0818-d978-4828-96d0-29c17d7b2170">
+<img width="1082" alt="액세스 토큰 재발급 후 기존의 토큰은 무효화됨(기존 토큰으로 요청 시도)" src="https://github.com/user-attachments/assets/622f1436-c1e8-4cd1-8542-96b01cd2a5ff">
+
+- 로그아웃
+<img width="1076" alt="액세스토큰으로 로그아웃 요청 결과" src="https://github.com/user-attachments/assets/6a57df48-cc74-48d7-b58f-cb907a34f1db">
+      
+</details>
+
+<details>
+      <summary>비밀번호 변경</summary>
+      
+<img width="1432" alt="request" src="https://github.com/user-attachments/assets/4fad4d20-33f6-490d-af62-35b302444ae9">
+<img width="1430" alt="response" src="https://github.com/user-attachments/assets/51ad9b7d-ea86-47af-9a1e-0b3d1e36cec9">
+<img width="515" alt="mail" src="https://github.com/user-attachments/assets/fc8963f2-2899-4847-be09-fe2586059f7b">
+<img width="1433" alt="변경된 비밀번호로 로그인 시도" src="https://github.com/user-attachments/assets/b9de248a-209e-40e6-950f-0fde70508be1">
+<img width="1430" alt="로그인 성공" src="https://github.com/user-attachments/assets/5cd60d0c-4216-478c-aa08-5ebcef559d1d">
+      
+</details>
+
+<details>
+      <summary>수정</summary>
+      
+<img width="872" alt="전" src="https://github.com/user-attachments/assets/71707507-1f03-4517-8a22-c04f5190b505">
+<img width="1432" alt="request" src="https://github.com/user-attachments/assets/ea07be10-cb05-44fe-90a2-8f51ea98d75e">
+<img width="1435" alt="response" src="https://github.com/user-attachments/assets/e9882106-4749-4abe-bfbb-66d14ae249a0">
+<img width="866" alt="후" src="https://github.com/user-attachments/assets/3ace6acc-4a8c-4849-a47b-201aac3ba943">
+      
+</details>
+
+<details>
+      <summary>삭제</summary>
+      
+<img width="873" alt="전" src="https://github.com/user-attachments/assets/81bc16dd-0ff2-4c47-845b-929645def1f8">
+<img width="1425" alt="request response" src="https://github.com/user-attachments/assets/7e3f2352-d721-4908-9bc4-26f7dcb445f5">
+<img width="890" alt="후" src="https://github.com/user-attachments/assets/85931d83-b455-4631-82df-28812103789b">
+      
+</details>
+
 </details>
 
 <details>
