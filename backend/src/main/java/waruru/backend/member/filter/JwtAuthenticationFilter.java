@@ -31,7 +31,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         Optional<Cookie> accessTokenCookie = jwtTokenProvider.resolveAccessToken(request);
-        System.out.println(accessTokenCookie);
 
         if (accessTokenCookie.isPresent()) {
             String accessToken = accessTokenCookie.get().getValue();

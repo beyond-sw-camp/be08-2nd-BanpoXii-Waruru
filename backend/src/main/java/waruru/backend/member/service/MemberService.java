@@ -101,10 +101,6 @@ public class MemberService {
 
         RefreshToken found = refreshTokenRepository.findByAccessToken(newRefreshToken.getAccessToken()).orElseThrow(() ->
                 new IllegalArgumentException("invalid email"));
-        System.out.println(found.getUsername());
-        System.out.println(found.getRefreshToken());
-        System.out.println(found.getAccessToken());
-        System.out.println(found.getExpiration());
 
         return cookie;
     }
