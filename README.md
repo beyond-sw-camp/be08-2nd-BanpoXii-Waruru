@@ -7,7 +7,7 @@
 
 ## ✨ Medium
 - [🇺🇸 Medium English.ver](https://medium.com/@ljh01051826177/waruru-housing-sales-and-payment-management-system-e43338308957) <br>
-- [🇰🇷 Medium Korean.ver]()
+- [🇰🇷 Medium Korean.ver](https://medium.com/@ljh01051826177/waruru-%EC%A3%BC%ED%83%9D-%EB%A7%A4%EB%A7%A4-%EB%82%A9%EB%B6%80-%EA%B4%80%EB%A6%AC-%EC%8B%9C%EC%8A%A4%ED%85%9C-dc39fdf492fa)
 <br>
 
 ## ⚙Tech Stack
