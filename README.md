@@ -92,7 +92,8 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 
 [요구사항 명세서 바로가기](https://docs.google.com/spreadsheets/d/1UrTgAezP7tLJum2T6NiB6tG07uUp1iyeuspyDNw72-g/edit?gid=0#gid=0)
 <p align="center">
-  <img alt="Document" src="">
+  <img width="1194" alt="006_Requirements1" src="https://github.com/user-attachments/assets/b6428602-5816-42b8-a98a-4c044c4b54d7">
+  <img width="1194" alt="007_Requirements2" src="https://github.com/user-attachments/assets/b47d8462-3b8b-4a26-a696-4c5a8f11efa2">
 </p>
 <br>
 
@@ -100,14 +101,14 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 ### 1. Relation Schema
 
 <p align="center">
-  <img alt="Diagram" src="">
+  <img width="1067" alt="010_RelationSchema_fieldO" src="https://github.com/user-attachments/assets/518bc483-26aa-4f34-9a43-ee9ccdaf302c">
 </p>
 <br>
 
 ### 2. E-R Diagram
 
 <p align="center">
-  <img alt="ERD" src="">
+  <img width="1067" alt="004_ERD" src="https://github.com/user-attachments/assets/9a98a5db-597e-4b25-96d1-2bd4411dd8e3">
 </p>
 <br>
 <br>
@@ -120,6 +121,43 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 
 <br>
 
+### 기능 구현
+
+<details>
+      <summary>회원</summary> 
+      
+접은 내용(ex 소스 코드)
+</details>
+
+<details>
+      <summary>매물</summary> 
+      
+접은 내용(ex 소스 코드)
+</details>
+
+<details>
+      <summary>거래</summary> 
+      
+접은 내용(ex 소스 코드)
+</details>
+
+<details>
+      <summary>납부</summary> 
+      
+접은 내용(ex 소스 코드)
+</details>
+
+<details>
+      <summary>후기</summary> 
+      
+접은 내용(ex 소스 코드)
+</details>
+
+<br>
+
+### 테스트 코드
+
+<br>
 
 ## 📆 WBS
 
