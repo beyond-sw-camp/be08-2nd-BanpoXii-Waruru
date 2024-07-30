@@ -67,7 +67,7 @@ public class ReviewService {
 
     public List<ReviewResponseDTO> getAllReviews(int page,int size) {
 
-        Pageable pageable = PageRequest.of(page, 10);
+        Pageable pageable = PageRequest.of(page, size);
 
         return reviewRepository.findAll(pageable).stream()
                 .map(ReviewResponseDTO::new)

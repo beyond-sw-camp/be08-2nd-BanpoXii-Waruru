@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface ReviewRepository extends JpaRepository<Review, Long> {
 
     boolean existsByUserNo_IdAndSaleNo_SaleNo(Long userNo, Long saleNo);
-    Page<Review> findAll(Pageable pageable);
+
 }
