@@ -6,6 +6,11 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import waruru.backend.detail.domain.Detail;
 import waruru.backend.member.domain.Member;
 import waruru.backend.member.domain.MemberRepository;
 import waruru.backend.sale.domain.Category;
@@ -191,13 +196,17 @@ class SaleServiceTest {
         testSale.setSaleStatus(SaleStatus.Y);
         testSale.setUserNo(testMember);
 
-        when(saleRepository.findAll()).thenReturn(Arrays.asList(existedSale, testSale));
+        List<Sale> sales = Arrays.asList(existedSale, testSale);
+        Pageable pageable = PageRequest.of(0, 10);
+        Page<Sale> page = new PageImpl<>(sales, pageable, sales.size());
+
+        when(saleRepository.findAll(pageable)).thenReturn(page);
 
         // when
-        List<SaleListResponseDTO> salesList = saleService.findAllList();
+        List<SaleListResponseDTO> salesList = saleService.findAllList(0, 10);
 
         // then
-        verify(saleRepository, times(1)).findAll();
+        verify(saleRepository, times(1)).findAll(pageable);
         assertEquals(2, salesList.size());
         assertEquals("Test Sale", salesList.get(1).getSaleName());
     }
