@@ -10,6 +10,10 @@
 - [🇰🇷 Medium Korean.ver](https://medium.com/@ljh01051826177/waruru-%EC%A3%BC%ED%83%9D-%EB%A7%A4%EB%A7%A4-%EB%82%A9%EB%B6%80-%EA%B4%80%EB%A6%AC-%EC%8B%9C%EC%8A%A4%ED%85%9C-dc39fdf492fa)
 <br>
 
+## 📋 Notion
+- [Notion Link](https://charming-hospital-33d.notion.site/BanpoXii-3ff323dc562349b1bc54aa8334915e95)
+- <br>
+
 ## ⚙Tech Stack
 <p><strong> Backend <br></strong>
 <img alt="Java" src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"/>
