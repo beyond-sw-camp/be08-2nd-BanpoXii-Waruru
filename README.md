@@ -150,8 +150,8 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
       <summary>회원</summary> 
 
 <blockquote>
-<details
-       <summary>등록</summary>
+<details>
+      <summary>회원 가입</summary>
       
 <img width="1430" alt="request" src="https://github.com/user-attachments/assets/67006d05-a04b-4ed3-b105-dd203d784f55">
 <img width="1430" alt="response" src="https://github.com/user-attachments/assets/9c066385-1713-465c-8792-983f9b97fc62">
