@@ -10,8 +10,9 @@
 - [🇰🇷 Medium Korean.ver](https://medium.com/@ljh01051826177/waruru-%EC%A3%BC%ED%83%9D-%EB%A7%A4%EB%A7%A4-%EB%82%A9%EB%B6%80-%EA%B4%80%EB%A6%AC-%EC%8B%9C%EC%8A%A4%ED%85%9C-dc39fdf492fa)
 <br>
 
-## 📋 Notion
+## 📋 Material
 - [Notion Link](https://charming-hospital-33d.notion.site/BanpoXii-3ff323dc562349b1bc54aa8334915e95)
+- [Presentation Material](https://github.com/user-attachments/files/16436829/BanpoXii_Waruru.pdf)
 <br>
 
 ## ⚙Tech Stack
