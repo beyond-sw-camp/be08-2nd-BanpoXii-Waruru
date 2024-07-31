@@ -186,7 +186,7 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 </details>
 
 <details>
-      <summary>비밀번호 변경</summary>
+      <summary>비밀번호 찾기</summary>
       
 <img width="1432" alt="request" src="https://github.com/user-attachments/assets/4fad4d20-33f6-490d-af62-35b302444ae9">
 <img width="1430" alt="response" src="https://github.com/user-attachments/assets/51ad9b7d-ea86-47af-9a1e-0b3d1e36cec9">
