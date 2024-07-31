@@ -113,22 +113,22 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 ### 2. Relation Schema
 
 <p align="center">
-  <img width="1067" alt="010_RelationSchema_fieldO" src="https://github.com/user-attachments/assets/518bc483-26aa-4f34-9a43-ee9ccdaf302c">
+  <img width="1067" alt="RelationSchema" src="https://github.com/user-attachments/assets/518bc483-26aa-4f34-9a43-ee9ccdaf302c">
 </p>
 <br>
 
 ### 3. E-R Diagram
 
 <p align="center">
-  <img width="1067" alt="004_ERD" src="https://github.com/user-attachments/assets/9a98a5db-597e-4b25-96d1-2bd4411dd8e3">
+  <img width="1067" alt="ERD" src="https://github.com/user-attachments/assets/e056d8d0-2f42-419f-8e5c-de471df4e085">
 </p>
 <br>
 
 ### 4. Table Specification
 
-[테이블 명세서 바로가기](https://github.com/user-attachments/files/16424668/_wrr.xlsx)
+[테이블 명세서 바로가기](https://github.com/user-attachments/files/16434828/_wrr.xlsx)
 <p align="center">
-  <img width="1067" alt="Table Specification" src="https://github.com/user-attachments/assets/9f635f5e-1c41-4b32-9a4e-d737471f5c2b">
+  <img width="1067" alt="Table Specification" src="https://github.com/user-attachments/assets/419b0fa3-93ca-4f14-a434-0a4e890c71c5">
 </p>
 <br>
 
