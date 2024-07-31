@@ -770,140 +770,148 @@ Waruru 서비스를 통해 다음과 같은 효과를 기대할 수 있습니다
 
 ## 📂 Directory Structure
 <details>
-    <summary>자세히 보기(Backend)</summary>
-    <div>
-    📦 java
-     ┣ 📂 waruru.backend
-     ┃ ┣ 📂 business
-     ┃ ┃ ┣ 📂 controller
-     ┃ ┃ ┃ ┗ 📜 BusinessController.java
-     ┃ ┃ ┣ 📂 domain
-     ┃ ┃ ┃ ┣ 📜 Business.java
-     ┃ ┃ ┃ ┣ 📜 BusinessRepository.java
-     ┃ ┃ ┃ ┗ 📜 BusinessStatus.java
-     ┃ ┃ ┣ 📂 dto
-     ┃ ┃ ┃ ┣ 📜 BusinessCancelRequest.java
-     ┃ ┃ ┃ ┣ 📜 BusinessListResponse.java
-     ┃ ┃ ┃ ┣ 📜 BusinessRegisterRequest.java
-     ┃ ┃ ┃ ┣ 📜 BusinessResponse.java
-     ┃ ┃ ┃ ┗ 📜 BusinessUpdateRequest.java
-     ┃ ┃ ┗ 📂 service
-     ┃ ┃ ┃ ┗ 📜 BusinessService.java
-     ┃ ┣ 📂 common
-     ┃ ┃ ┗ 📂 config
-     ┃ ┃ ┃ ┣ 📜 EmailConfig.java
-     ┃ ┃ ┃ ┣ 📜 RedisConfig.java
-     ┃ ┃ ┃ ┣ 📜 SecurityConfig.java
-     ┃ ┃ ┃ ┗ 📜 SwaggerConfig.java
-     ┃ ┣ 📂 detail
-     ┃ ┃ ┣ 📂 controller
-     ┃ ┃ ┃ ┗ 📜 DetailController.java
-     ┃ ┃ ┣ 📂 domain
-     ┃ ┃ ┃ ┣ 📜 DetailRepository.java
-     ┃ ┃ ┃ ┗ 📜 DetailStatus.java
-     ┃ ┃ ┣ 📂 dto
-     ┃ ┃ ┃ ┣ 📜 DetailDeleteRequestDTO.java
-     ┃ ┃ ┃ ┣ 📜 DetailRegisterRequestDTO.java
-     ┃ ┃ ┃ ┣ 📜 DetailResponseDTO.java
-     ┃ ┃ ┃ ┗ 📜 DetailUpdateRequestDTO.java
-     ┃ ┃ ┗ 📂 service
-     ┃ ┃ ┃ ┗ 📜 DetailService.java
-     ┃ ┣ 📂 member
-     ┃ ┃ ┣ 📂 contants
-     ┃ ┃ ┃ ┗ 📜 SecurityConstants.java
-     ┃ ┃ ┣ 📂 controller
-     ┃ ┃ ┃ ┣ 📜 EmailController.java
-     ┃ ┃ ┃ ┗ 📜 MemberController.java
-     ┃ ┃ ┣ 📂 domain
-     ┃ ┃ ┃ ┣ 📜 Email.java
-     ┃ ┃ ┃ ┣ 📜 EmailRepository.java
-     ┃ ┃ ┃ ┣ 📜 Member.java
-     ┃ ┃ ┃ ┣ 📜 MemberRepository.java
-     ┃ ┃ ┃ ┣ 📜 MemberRole.java
-     ┃ ┃ ┃ ┣ 📜 MemberStatus.java
-     ┃ ┃ ┃ ┣ 📜 RefreshToken.java
-     ┃ ┃ ┃ ┗ 📜 RefreshTokenRepository.java
-     ┃ ┃ ┣ 📂 dto
-     ┃ ┃ ┃ ┣ 📜 MemberEmailRequestDto.java
-     ┃ ┃ ┃ ┣ 📜 MemberEmailVerifyRequestDto.java
-     ┃ ┃ ┃ ┣ 📜 MemberLoginRequestDTO.java
-     ┃ ┃ ┃ ┣ 📜 MemberRegisterRequestDTO.java
-     ┃ ┃ ┃ ┗ 📜 MemberUpdateRequestDTO.java
-     ┃ ┃ ┣ 📂 filter
-     ┃ ┃ ┃ ┗ 📜 JwtAuthenticationFilter.java
-     ┃ ┃ ┣ 📂 service
-     ┃ ┃ ┃ ┣ 📜 EmailService.java
-     ┃ ┃ ┃ ┣ 📜 LogoutService.java
-     ┃ ┃ ┃ ┗ 📜 MemberService.java
-     ┃ ┃ ┗ 📂 util
-     ┃ ┃ ┃ ┣ 📜 JwtTokenProvider.java
-     ┃ ┃ ┃ ┣ 📜 SecurityUser.java
-     ┃ ┃ ┃ ┗ 📜 SecurityUserDetailService.java
-     ┃ ┣ 📂 review
-     ┃ ┃ ┣ 📂 controller
-     ┃ ┃ ┃ ┗ 📜 ReviewController.java
-     ┃ ┃ ┣ 📂 domain
-     ┃ ┃ ┃ ┣ 📜 Review.java
-     ┃ ┃ ┃ ┗ 📜 ReviewRepository.java
-     ┃ ┃ ┣ 📂 dto
-     ┃ ┃ ┃ ┣ 📜 ReviewDeleteRequestDTO.java
-     ┃ ┃ ┃ ┣ 📜 ReviewRequestDTO.java
-     ┃ ┃ ┃ ┣ 📜 ReviewResponseDTO.java
-     ┃ ┃ ┃ ┗ 📜 ReviewUpdateRequestDTO.java
-     ┃ ┃ ┗ 📂 service
-     ┃ ┃ ┃ ┗ 📜 ReviewService.java
-     ┃ ┣ 📂 sale
-     ┃ ┃ ┣ 📂 controller
-     ┃ ┃ ┃ ┗ 📜 SaleController.java
-     ┃ ┃ ┣ 📂 domain
-     ┃ ┃ ┃ ┣ 📜 Category
-     ┃ ┃ ┃ ┣ 📜 Sale.java
-     ┃ ┃ ┃ ┣ 📜 SaleRepository.java
-     ┃ ┃ ┃ ┗ 📜 SaleStatus.java
-     ┃ ┃ ┣ 📂 dto
-     ┃ ┃ ┃ ┣ 📜 SaleListResponseDTO.java
-     ┃ ┃ ┃ ┣ 📜 SaleRegisterRequestDTO.java
-     ┃ ┃ ┃ ┣ 📜 SaleResponseDTO.java
-     ┃ ┃ ┃ ┗ 📜 SaleUpdateRequestDTO.java
-     ┃ ┃ ┗ 📂 service
-     ┃ ┃ ┗ ┗ 📜 SaleService.java
-     ┃ ┗ 📜 BackendApplication.java
-     📦 resources
-     ┗ 📜 application.yml
-    </div>
+<summary>자세히 보기(Backend)</summary>
+<div>
+
+```bash
+📦 java
+ ┣ 📂 waruru.backend
+ ┃ ┣ 📂 business
+ ┃ ┃ ┣ 📂 controller
+ ┃ ┃ ┃ ┗ 📜 BusinessController.java
+ ┃ ┃ ┣ 📂 domain
+ ┃ ┃ ┃ ┣ 📜 Business.java
+ ┃ ┃ ┃ ┣ 📜 BusinessRepository.java
+ ┃ ┃ ┃ ┗ 📜 BusinessStatus.java
+ ┃ ┃ ┣ 📂 dto
+ ┃ ┃ ┃ ┣ 📜 BusinessCancelRequest.java
+ ┃ ┃ ┃ ┣ 📜 BusinessListResponse.java
+ ┃ ┃ ┃ ┣ 📜 BusinessRegisterRequest.java
+ ┃ ┃ ┃ ┣ 📜 BusinessResponse.java
+ ┃ ┃ ┃ ┗ 📜 BusinessUpdateRequest.java
+ ┃ ┃ ┗ 📂 service
+ ┃ ┃ ┃ ┗ 📜 BusinessService.java
+ ┃ ┣ 📂 common
+ ┃ ┃ ┗ 📂 config
+ ┃ ┃ ┃ ┣ 📜 EmailConfig.java
+ ┃ ┃ ┃ ┣ 📜 RedisConfig.java
+ ┃ ┃ ┃ ┣ 📜 SecurityConfig.java
+ ┃ ┃ ┃ ┗ 📜 SwaggerConfig.java
+ ┃ ┣ 📂 detail
+ ┃ ┃ ┣ 📂 controller
+ ┃ ┃ ┃ ┗ 📜 DetailController.java
+ ┃ ┃ ┣ 📂 domain
+ ┃ ┃ ┃ ┣ 📜 DetailRepository.java
+ ┃ ┃ ┃ ┗ 📜 DetailStatus.java
+ ┃ ┃ ┣ 📂 dto
+ ┃ ┃ ┃ ┣ 📜 DetailDeleteRequestDTO.java
+ ┃ ┃ ┃ ┣ 📜 DetailRegisterRequestDTO.java
+ ┃ ┃ ┃ ┣ 📜 DetailResponseDTO.java
+ ┃ ┃ ┃ ┗ 📜 DetailUpdateRequestDTO.java
+ ┃ ┃ ┗ 📂 service
+ ┃ ┃ ┃ ┗ 📜 DetailService.java
+ ┃ ┣ 📂 member
+ ┃ ┃ ┣ 📂 contants
+ ┃ ┃ ┃ ┗ 📜 SecurityConstants.java
+ ┃ ┃ ┣ 📂 controller
+ ┃ ┃ ┃ ┣ 📜 EmailController.java
+ ┃ ┃ ┃ ┗ 📜 MemberController.java
+ ┃ ┃ ┣ 📂 domain
+ ┃ ┃ ┃ ┣ 📜 Email.java
+ ┃ ┃ ┃ ┣ 📜 EmailRepository.java
+ ┃ ┃ ┃ ┣ 📜 Member.java
+ ┃ ┃ ┃ ┣ 📜 MemberRepository.java
+ ┃ ┃ ┃ ┣ 📜 MemberRole.java
+ ┃ ┃ ┃ ┣ 📜 MemberStatus.java
+ ┃ ┃ ┃ ┣ 📜 RefreshToken.java
+ ┃ ┃ ┃ ┗ 📜 RefreshTokenRepository.java
+ ┃ ┃ ┣ 📂 dto
+ ┃ ┃ ┃ ┣ 📜 MemberEmailRequestDto.java
+ ┃ ┃ ┃ ┣ 📜 MemberEmailVerifyRequestDto.java
+ ┃ ┃ ┃ ┣ 📜 MemberLoginRequestDTO.java
+ ┃ ┃ ┃ ┣ 📜 MemberRegisterRequestDTO.java
+ ┃ ┃ ┃ ┗ 📜 MemberUpdateRequestDTO.java
+ ┃ ┃ ┣ 📂 filter
+ ┃ ┃ ┃ ┗ 📜 JwtAuthenticationFilter.java
+ ┃ ┃ ┣ 📂 service
+ ┃ ┃ ┃ ┣ 📜 EmailService.java
+ ┃ ┃ ┃ ┣ 📜 LogoutService.java
+ ┃ ┃ ┃ ┗ 📜 MemberService.java
+ ┃ ┃ ┗ 📂 util
+ ┃ ┃ ┃ ┣ 📜 JwtTokenProvider.java
+ ┃ ┃ ┃ ┣ 📜 SecurityUser.java
+ ┃ ┃ ┃ ┗ 📜 SecurityUserDetailService.java
+ ┃ ┣ 📂 review
+ ┃ ┃ ┣ 📂 controller
+ ┃ ┃ ┃ ┗ 📜 ReviewController.java
+ ┃ ┃ ┣ 📂 domain
+ ┃ ┃ ┃ ┣ 📜 Review.java
+ ┃ ┃ ┃ ┗ 📜 ReviewRepository.java
+ ┃ ┃ ┣ 📂 dto
+ ┃ ┃ ┃ ┣ 📜 ReviewDeleteRequestDTO.java
+ ┃ ┃ ┃ ┣ 📜 ReviewRequestDTO.java
+ ┃ ┃ ┃ ┣ 📜 ReviewResponseDTO.java
+ ┃ ┃ ┃ ┗ 📜 ReviewUpdateRequestDTO.java
+ ┃ ┃ ┗ 📂 service
+ ┃ ┃ ┃ ┗ 📜 ReviewService.java
+ ┃ ┣ 📂 sale
+ ┃ ┃ ┣ 📂 controller
+ ┃ ┃ ┃ ┗ 📜 SaleController.java
+ ┃ ┃ ┣ 📂 domain
+ ┃ ┃ ┃ ┣ 📜 Category
+ ┃ ┃ ┃ ┣ 📜 Sale.java
+ ┃ ┃ ┃ ┣ 📜 SaleRepository.java
+ ┃ ┃ ┃ ┗ 📜 SaleStatus.java
+ ┃ ┃ ┣ 📂 dto
+ ┃ ┃ ┃ ┣ 📜 SaleListResponseDTO.java
+ ┃ ┃ ┃ ┣ 📜 SaleRegisterRequestDTO.java
+ ┃ ┃ ┃ ┣ 📜 SaleResponseDTO.java
+ ┃ ┃ ┃ ┗ 📜 SaleUpdateRequestDTO.java
+ ┃ ┃ ┗ 📂 service
+ ┃ ┃ ┗ ┗ 📜 SaleService.java
+ ┃ ┗ 📜 BackendApplication.java
+ 📦 resources
+ ┗ 📜 application.yml
+ ```
+
+</div>
 </details>
 
 <details>
-    <summary>자세히 보기(Test Case)</summary>
-    <div>
-    📦java
-     ┣ 📂 waruru.backend
-     ┃ ┣ 📂 business.service
-     ┃ ┃ ┣ 📜 BusinessCancelTest.java
-     ┃ ┃ ┣ 📜 BusinessCommonSetUp.java
-     ┃ ┃ ┣ 📜 BusinessDeleteTest.java
-     ┃ ┃ ┣ 📜 BusinessRegisterTest.java
-     ┃ ┃ ┣ 📜 BusinessSearchTest.java
-     ┃ ┃ ┗ 📜 BusinessUpdateTest.java
-     ┃ ┣ 📂 detail
-     ┃ ┃ ┣ 📜 DetailCommonSetUp.java
-     ┃ ┃ ┣ 📜 DetailDeleteTest.java
-     ┃ ┃ ┣ 📜 DetailReadTest.java
-     ┃ ┃ ┣ 📜 DetailRegisterTest.java
-     ┃ ┃ ┗ 📜 DetailUpdateTest.java
-     ┃ ┣ 📂 member
-     ┃ ┃ ┗ 📜 MemberServiceTest.java
-     ┃ ┣ 📂 review
-     ┃ ┃ ┣ 📜 ReviewCommonSetUp.java
-     ┃ ┃ ┣ 📜 ReviewCreateTest.java
-     ┃ ┃ ┣ 📜 ReviewDeleteTest.java
-     ┃ ┃ ┣ 📜 ReviewDetailTest.java
-     ┃ ┃ ┣ 📜 ReviewListTest.java
-     ┃ ┃ ┗ 📜 ReviewUpdateTest.java
-     ┃ ┣ 📂 sale
-     ┃ ┃ ┗ 📜 SaleServiceTest.java
-     ┗ ┗ 📜 BackendApplicationTests.java
-    </div>
+<summary>자세히 보기(Test Case)</summary>
+<div>
+
+```bash
+📦java
+ ┣ 📂 waruru.backend
+ ┃ ┣ 📂 business.service
+ ┃ ┃ ┣ 📜 BusinessCancelTest.java
+ ┃ ┃ ┣ 📜 BusinessCommonSetUp.java
+ ┃ ┃ ┣ 📜 BusinessDeleteTest.java
+ ┃ ┃ ┣ 📜 BusinessRegisterTest.java
+ ┃ ┃ ┣ 📜 BusinessSearchTest.java
+ ┃ ┃ ┗ 📜 BusinessUpdateTest.java
+ ┃ ┣ 📂 detail
+ ┃ ┃ ┣ 📜 DetailCommonSetUp.java
+ ┃ ┃ ┣ 📜 DetailDeleteTest.java
+ ┃ ┃ ┣ 📜 DetailReadTest.java
+ ┃ ┃ ┣ 📜 DetailRegisterTest.java
+ ┃ ┃ ┗ 📜 DetailUpdateTest.java
+ ┃ ┣ 📂 member
+ ┃ ┃ ┗ 📜 MemberServiceTest.java
+ ┃ ┣ 📂 review
+ ┃ ┃ ┣ 📜 ReviewCommonSetUp.java
+ ┃ ┃ ┣ 📜 ReviewCreateTest.java
+ ┃ ┃ ┣ 📜 ReviewDeleteTest.java
+ ┃ ┃ ┣ 📜 ReviewDetailTest.java
+ ┃ ┃ ┣ 📜 ReviewListTest.java
+ ┃ ┃ ┗ 📜 ReviewUpdateTest.java
+ ┃ ┣ 📂 sale
+ ┃ ┃ ┗ 📜 SaleServiceTest.java
+ ┗ ┗ 📜 BackendApplicationTests.java
+```
+
+</div>
 </details>
 <br>
 
